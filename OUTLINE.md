@@ -213,16 +213,48 @@ We may need a small “in-app currency” or balance that users top up via IAP o
 
 We’ll treat payment and marketplace UX as a dedicated focus area in design and implementation (not an afterthought).
 
-### 4.4 Payment architecture from Phase 0 (not Phase 8)
+### 4.4 Payment architecture (implemented in Phase 0)
 
-**Payments and marketplace design are one system.** Even if the first ship uses **play money** (no card yet), we still decide early:
+**Payments and marketplace design are one system.** The schema is live as of Phase 0. Everything that moves value in the app -- stakes, horse purchases, prize payouts, future deposits and withdrawals -- flows through this ledger.
 
-- **Ledger model** — User balance, transaction log (credits/debits), idempotency for purchases, and how listings settle (escrow vs instant transfer).
-- **What “money” is in the app** — e.g. USD-backed balance, “credits,” or both; how stakes and prizes move balance.
-- **Provider map** — Web: Stripe / PayPal; native: Apple IAP / Google Play Billing — all crediting the **same** balance and using the **same** marketplace rules.
-- **Payouts** — How sellers get paid (balance only vs withdraw to external account); prize distribution.
+#### Ledger model (implemented)
 
-That architecture is **planned and sketched in Phase 0** (schema placeholders or empty tables for `transactions`, `balance`, etc.) so Phase 1 Horses and Phase 4 Trading don’t paint us into a corner. **Phase 4** is the first marketplace implementation **on top of** that model (play money or first live provider). **Later phases** add more providers, external withdrawals, native IAP, and cash prizes — they extend the same design, they don’t introduce it.
+Two tables in Postgres (Neon via Vercel):
+
+**`balances`** -- one row per user, single source of truth for how much they have.
+- `user_id` (FK to users) -- primary key
+- `amount` (integer) -- balance in smallest unit. In v1 this is play-money credits. When real money arrives, this becomes cents.
+- `updated_at` -- last modification timestamp
+
+**`transactions`** -- append-only log of every value movement.
+- `id` -- unique transaction ID
+- `user_id` (FK to users)
+- `type` -- `credit` or `debit`
+- `amount` -- positive integer (the type field determines direction)
+- `reference_type` -- what caused this: `signup_bonus`, `stake`, `stake_payout`, `horse_purchase`, `horse_sale`, `deposit`, `withdrawal`, `prize`
+- `reference_id` -- FK to the related entity (race, horse, listing, etc.)
+- `created_at`
+
+Every operation that changes a user's balance must: (1) insert a transaction row, (2) update the balance row. These two writes should happen atomically (single DB transaction). The transactions table is the audit trail; the balances table is the cache for fast reads.
+
+#### What "money" is in v1
+
+Play-money credits. Every new user gets a signup bonus (amount TBD, enough to place a few stakes and buy a basic horse). No real currency enters or leaves the system in v1.
+
+#### How phases extend this
+
+| Phase | What changes |
+|-------|-------------|
+| Phase 0 (done) | Schema live. Play-money credits. Signup bonus on first auth. |
+| Phase 3 (stakes) | Stakes debit balance before lock; payouts credit balance after results. |
+| Phase 4 (trading) | Marketplace purchases debit buyer, credit seller. Same ledger. |
+| Phase 8 (real money) | Add Stripe/PayPal deposit flow: user pays, we credit balance. Add withdrawal flow: user requests payout, we debit balance and transfer externally. Native apps: Apple IAP / Google Play Billing credit the same balance via webhook. |
+
+#### Key rules
+
+- Balance can never go negative. Check before debit; reject if insufficient.
+- All reference_types are pre-defined in the DB enum. Adding a new type requires a migration -- this is intentional to prevent untracked value movement.
+- The ledger is provider-agnostic. Stripe, PayPal, Apple IAP, and play-money all result in the same credit/debit operations. The provider is an implementation detail of how money enters/exits, not how it moves internally.
 
 ---
 
