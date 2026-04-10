@@ -3,6 +3,7 @@ import Google from "next-auth/providers/google";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { db } from "@/lib/db";
 import * as schema from "@/lib/db/schema";
+import { seedNewUser } from "@/lib/horses/seed";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: DrizzleAdapter(db, {
@@ -14,5 +15,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Google],
   pages: {
     signIn: "/sign-in",
+  },
+  events: {
+    async createUser({ user }) {
+      if (user.id) {
+        await seedNewUser(user.id);
+      }
+    },
   },
 });
