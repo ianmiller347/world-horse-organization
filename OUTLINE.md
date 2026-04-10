@@ -19,6 +19,30 @@ This mission shapes product and messaging: e.g. “You can’t own that horse,�
 
 ---
 
+### Language guide
+
+The words we use reinforce the mission. Nobody "owns" a horse in the WHO — they act as guardians.
+
+| Instead of...     | Say...                                       |
+| ----------------- | -------------------------------------------- |
+| Owner             | Guardian                                     |
+| Mint / create     | Rescue                                       |
+| Buy               | Assume guardianship                          |
+| Sell              | Transfer guardianship                        |
+| Your horse        | Horse in your care                           |
+| Stable (noun)     | Stable is fine — it's where safe horses live |
+| Kill / destroy    | Release back to the wild (retire)            |
+
+### Real-world mission: Free the Central Park horses
+
+The WHO isn't only digital. Overworked carriage horses in Central Park are the first real-world cause the WHO will raise funds for. This gives the project purpose beyond the game and a story people can rally around.
+
+- **Phase 1 (awareness):** Dedicate a section of the site to the cause. Explain the issue. Link to existing advocacy orgs (e.g. NYCLASS).
+- **Phase 2 (fundraising):** Add a donation flow. A percentage of in-app purchases (once real money enters the system) goes toward the fund. Display a running total publicly.
+- **Phase 3 (action):** Partner with an equine sanctuary. Track real horses that have been retired from carriage work. Each rescued real horse gets a digital counterpart in the WHO — a tribute horse with unique stats and appearance.
+
+---
+
 ## Goal of the org
 
 - **Unite horses under the WHO** — Every horse “in the world” (in the product) eventually lives under the WHO umbrella.
@@ -215,7 +239,30 @@ We’ll treat payment and marketplace UX as a dedicated focus area in design and
 
 ### 4.4 Payment architecture (implemented in Phase 0)
 
-**Payments and marketplace design are one system.** The schema is live as of Phase 0. Everything that moves value in the app -- stakes, horse purchases, prize payouts, future deposits and withdrawals -- flows through this ledger.
+**Payments and marketplace design are one system.** The schema is live as of Phase 0. Everything that moves value in the app -- stakes, guardianship transfers, breeding fees -- flows through this ledger.
+
+#### Monetization decision (v1): in-game currency, no cashout
+
+**v1 is a free-to-play game with optional microtransactions. Credits never leave the system as real money.** This means:
+
+- Not gambling. No jurisdiction classifies it as such if you can't cash out.
+- No gambling licenses, KYC/AML, or special age verification required.
+- Apple/Google IAP is standard -- no special gambling app review.
+- Launch in every market from day one.
+- Profits from credit purchases fund the WHO's real-world mission (starting with the Central Park carriage horse campaign).
+
+**v2 (future, optional):** If the user base and legal landscape support it, layer on a sweepstakes model or real-money payouts. The ledger already supports it -- the architecture is provider-agnostic by design. But v1 ships without this complexity.
+
+#### Revenue model
+
+Users can play for free with their signup bonus. When credits run out, they can buy more with real money. Every in-game action costs credits: staking on races, rescuing horses, breeding, transferring guardianship. The economy should feel tight -- credits are valuable because they're scarce, not because they convert to cash.
+
+**Where the money goes:**
+- Operational costs (hosting, services, development)
+- WHO real-world mission fund (primary: ending horse-drawn carriages in Central Park)
+- The split is published on the site so users know their purchases fund the cause
+
+This gives users a reason to spend beyond the game itself. You're not just buying fake currency -- you're funding horse rescue.
 
 #### Ledger model (implemented)
 
@@ -223,7 +270,7 @@ Two tables in Postgres (Neon via Vercel):
 
 **`balances`** -- one row per user, single source of truth for how much they have.
 - `user_id` (FK to users) -- primary key
-- `amount` (integer) -- balance in smallest unit. In v1 this is play-money credits. When real money arrives, this becomes cents.
+- `amount` (integer) -- balance in credits (smallest unit)
 - `updated_at` -- last modification timestamp
 
 **`transactions`** -- append-only log of every value movement.
@@ -231,7 +278,7 @@ Two tables in Postgres (Neon via Vercel):
 - `user_id` (FK to users)
 - `type` -- `credit` or `debit`
 - `amount` -- positive integer (the type field determines direction)
-- `reference_type` -- what caused this: `signup_bonus`, `stake`, `stake_payout`, `horse_purchase`, `horse_sale`, `deposit`, `withdrawal`, `prize`
+- `reference_type` -- what caused this: `signup_bonus`, `stake`, `stake_payout`, `guardianship_assumed`, `guardianship_transferred`, `deposit`, `withdrawal`, `prize`
 - `reference_id` -- FK to the related entity (race, horse, listing, etc.)
 - `created_at`
 
@@ -239,22 +286,23 @@ Every operation that changes a user's balance must: (1) insert a transaction row
 
 #### What "money" is in v1
 
-Play-money credits. Every new user gets a signup bonus (amount TBD, enough to place a few stakes and buy a basic horse). No real currency enters or leaves the system in v1.
+In-game credits. Every new user gets a signup bonus of 1,000 credits (enough to enter a few races and rescue a horse). Additional credits are purchased via microtransactions. Credits cannot be withdrawn or converted to real money.
 
 #### How phases extend this
 
 | Phase | What changes |
 |-------|-------------|
 | Phase 0 (done) | Schema live. Play-money credits. Signup bonus on first auth. |
-| Phase 3 (stakes) | Stakes debit balance before lock; payouts credit balance after results. |
-| Phase 4 (trading) | Marketplace purchases debit buyer, credit seller. Same ledger. |
-| Phase 8 (real money) | Add Stripe/PayPal deposit flow: user pays, we credit balance. Add withdrawal flow: user requests payout, we debit balance and transfer externally. Native apps: Apple IAP / Google Play Billing credit the same balance via webhook. |
+| Phase 3 (stakes) | Stakes debit balance before lock; payouts credit balance after results. All in-game credits. |
+| Phase 4 (trading) | Guardianship transfers debit buyer, credit seller. Same ledger, same in-game credits. |
+| Phase 5+ (microtransactions) | Add Stripe/Apple IAP/Google Play Billing to purchase credits. Money flows in, never out. Revenue funds the WHO mission. |
 
 #### Key rules
 
 - Balance can never go negative. Check before debit; reject if insufficient.
 - All reference_types are pre-defined in the DB enum. Adding a new type requires a migration -- this is intentional to prevent untracked value movement.
-- The ledger is provider-agnostic. Stripe, PayPal, Apple IAP, and play-money all result in the same credit/debit operations. The provider is an implementation detail of how money enters/exits, not how it moves internally.
+- Credits are the only currency in v1. No real-money payouts, no withdrawals. The `withdrawal` reference type exists in the enum for a potential v2 but is not used.
+- The ledger is provider-agnostic. Stripe, Apple IAP, and Google Play Billing all result in the same credit operation internally. The provider is an implementation detail of how money enters, not how it moves.
 
 ---
 
@@ -362,15 +410,17 @@ _(Staking/partial ownership would add stake_holdings, stake_trades, etc.; omit f
 | **0. Site scaffolding + payment architecture** | Next.js + TypeScript, App Router, DB, env, auth. **Decide and document** balance/ledger, transaction model, and how web + future native providers attach. Add schema (or migrations) for balance/transactions even if v1 only uses **play money**. Deploy; site visitable; home page. |
 | **1. Horses** | **Stats visibility locked (§2.1).** Horse type + schema (stats, appearance), APIs exposing full stats per v1 policy, create/mint, list, detail; simple ownership. |
 | **2. Races (basic)** | Weeks, races, entries; fixed conditions at first (single track/length); no randomness yet. |
-| **3. Stakes & results** | Place stakes before lock (against balance / play money); enter results; compute payouts to balance; leaderboard. |
-| **4. Trading + first real payments (optional)** | Marketplace list/buy/sell **on the ledger from Phase 0**. Ship with play money only, or add first live provider (PayPal or Stripe) — either way, no new money architecture here. |
+| **3. Stakes & results** | Place stakes before lock (debit credits); compute payouts (credit winners); leaderboard. All in-game currency. |
+| **4. Trading** | Guardianship marketplace: list, transfer, assume guardianship — all on the in-game credit ledger. |
 | **5. Art & identity** | Style guide, palette, typography; horse icon polish; apply to home, race view, horse cards, leaderboard. _Important for retention._ |
 | **6. Race conditions** | Multiple tracks/weather/length; reveal timing and optional random pick (e.g. 3 → 1); lanes. |
-| **7. Breeding** | Sire/dam selection, offspring generation (randomized stats), lineage. |
-| **8. Extended payments & prizes** | Extra web providers, **withdrawals / external payouts**, cash prizes, compliance hooks. **Native apps:** Apple IAP + Google Play Billing crediting the same balance (extends Phase 0 map, not a new design). |
-| **9. Polish** | Prelims → championship flow, UX, “you can’t own that horse” messaging. |
+| **7. Breeding** | Sire/dam selection, offspring generation (randomized stats), lineage. Breeding costs credits. |
+| **8. Microtransactions & mission fund** | Stripe / Apple IAP / Google Play Billing to purchase credits. Money in, never out. Revenue split: operational costs + WHO mission fund (published on site). |
+| **9. Polish** | Mission fund transparency page, prelims → championship flow, UX, “you can’t own that horse” messaging. |
 
-**Note:** Phases 4 and 8 are no longer “payments vs everything else.” **Phase 0** owns the payment/marketplace architecture; **Phase 4** wires the marketplace to it; **Phase 8** broadens providers and prize payout mechanics.
+**Note on monetization:** v1 is free-to-play with in-game credits. No real-money payouts, no gambling classification. Credits are purchased via microtransactions (Phase 8) but can never be withdrawn. Profits fund the WHO real-world mission. The ledger architecture supports a future v2 pivot to sweepstakes or real-money payouts if the legal landscape and user base warrant it.
+
+**Previous note (superseded):** Phases 4 and 8 were originally about real-money payments. That model is deferred to a potential v2. Phases 4 and 8 are no longer “payments vs everything else.” **Phase 0** owns the payment/marketplace architecture; **Phase 4** wires the marketplace to it; **Phase 8** broadens providers and prize payout mechanics.
 
 ---
 
@@ -418,3 +468,35 @@ After this, the codebase is ready for Horse type, races, and marketplace — **w
 7. Iterate on conditions, breeding, extended providers, withdrawals, prizes, native IAP.
 
 Use this doc as the single source of truth; update as we decide each open question and ship each phase.
+
+---
+
+## 15. Infrastructure migration roadmap
+
+Optional migrations triggered by growth, cost, or reliability — not by phase deadlines. None of these block product work. The codebase is infrastructure-agnostic by design (standard Next.js, Drizzle ORM, Auth.js).
+
+### Tier 1: Vercel → AWS (Lambda + CloudFront)
+
+**Trigger:** Vercel reliability issues, cost ceiling, or need for more control.
+**Tool:** SST (Serverless Stack) — deploys Next.js to Lambda@Edge + CloudFront + S3 in one command.
+**What changes:** Deployment target only. No code changes. Env vars move to AWS SSM/Secrets Manager. Domain + SSL via Route 53 + ACM (certs we control).
+**What stays:** Neon Postgres, Auth.js, Drizzle, all application code.
+
+### Tier 2: Lambda → ECS (if Lambda limits hit)
+
+**Trigger:** Lambda payload size limits (6 MB response / 50 MB deploy package), cold start latency unacceptable for real-time race features, or sustained traffic where always-on containers are cheaper.
+**What changes:** Swap Lambda for ECS Fargate behind an ALB. SST supports this migration path. Dockerfile added to repo.
+**What stays:** CloudFront CDN layer, Route 53 DNS, Neon Postgres, all application code.
+
+### Tier 3: Neon → Aurora Serverless v2
+
+**Trigger:** Neon free tier outgrown, or user base is large enough that Aurora's minimum cost (~$40-50/mo) is justified by connection pooling, read replicas, or lower latency (same VPC as compute).
+**What changes:** `DATABASE_URL` env var points to Aurora endpoint. Drizzle adapter switches from `@neondatabase/serverless` to `postgres` (standard pg driver). One-time data migration via `pg_dump` / `pg_restore`.
+**What stays:** All schema, all queries, all application code. Drizzle ORM abstracts the driver.
+
+### Migration rules
+
+- Never migrate infra and product in the same PR.
+- Each tier is independent. You can do Tier 3 without doing Tier 1.
+- Document the trigger threshold before migrating (e.g. "Neon hitting 1GB storage" or "Lambda cold starts >3s on race simulation").
+- Keep the `.vercel.app` URL working as a fallback even after domain migration.

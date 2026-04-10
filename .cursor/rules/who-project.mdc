@@ -1,0 +1,61 @@
+---
+description: WHO project conventions — tech stack, language, and current state
+alwaysApply: true
+---
+
+# World Horse Organization
+
+Read `OUTLINE.md` at the repo root before making product or architecture decisions.
+
+## Tech stack
+
+- Next.js 16 (App Router, Turbopack), TypeScript, Tailwind 4
+- Drizzle ORM → Neon Postgres (via Vercel integration)
+- Auth.js v5 (Google OAuth), DrizzleAdapter
+- Deployed on Vercel at worldhorseorganization.org
+
+## Key paths
+
+- `lib/db/schema.ts` — single source of truth for all tables and enums
+- `lib/auth/config.ts` — Auth.js setup, includes `createUser` event for signup seeding
+- `lib/horses/generate.ts` — horse stat generation (bell curve)
+- `lib/horses/seed.ts` — signup bonus + starter horse
+- `lib/races/simulate.ts` — race simulation engine (stats + randomness)
+- `app/app/*` — authenticated routes (protected by middleware)
+- `app/api/horses/` — horse CRUD endpoints
+- `app/api/races/` — race CRUD, entry, and simulation endpoints
+- `app/api/weeks/` — week management endpoints
+- `lib/db/ledger.ts` — atomic debit/credit helpers for the balance ledger
+
+## Language rules
+
+Horses are never "owned." Users are guardians, not owners.
+
+| Wrong              | Right                        |
+| ------------------ | ---------------------------- |
+| owner              | guardian                     |
+| mint / create      | rescue                       |
+| buy                | assume guardianship          |
+| sell               | transfer guardianship        |
+| delete / kill      | release back to the wild     |
+
+Apply this in UI copy, variable names, API responses, and documentation.
+
+## Monetization model (v1)
+
+Free-to-play with optional microtransactions. In-game credits only — no real-money payouts, no withdrawals, no gambling classification. Credits are scarce and meaningful: rescuing, racing, breeding, and trading all cost credits. Profits from credit purchases fund the WHO real-world mission (first target: ending Central Park horse-drawn carriages).
+
+## Current state
+
+- **Phase 0 (done):** Auth, ledger (balances + transactions), deployment, domain.
+- **Phase 1 (done):** Horse schema, generation, rescue flow, stable UI, detail view.
+- **Phase 2 (done):** Race schema (weeks, races, entries, results), simulation engine, race UI, enter/run flow.
+- **Phase 3 (done):** Stakes (place/debit credits), payout logic (pool split to 1st/2nd/3rd stakers), leaderboard.
+- **Next up:** Phase 4 — guardianship trading marketplace.
+
+## Conventions
+
+- Server components by default; `"use client"` only when needed.
+- DB queries go in server components or API routes, never client-side.
+- Schema changes: edit `lib/db/schema.ts`, run `npm run db:push`.
+- Keep components in `components/` grouped by domain (e.g. `horses/`, `auth/`).
