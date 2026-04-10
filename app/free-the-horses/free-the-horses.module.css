@@ -1,0 +1,72 @@
+/* Tailwind gap coverage — things ply doesn't handle.
+   Each class here exists because ply lacks the equivalent.
+   See PLY-TAILWIND-GAPS.md for the full tracking list. */
+
+.pageContainer {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.backLink {
+  transition: color 0.15s;
+}
+.backLink:hover {
+  color: rgba(237, 237, 237, 0.6);
+}
+
+.heroHeading {
+  letter-spacing: -0.025em;
+}
+
+.sectionHeading {
+  letter-spacing: 0.1em;
+}
+
+.stack4 > * + * {
+  margin-top: 1rem;
+}
+
+.stack6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.stack8 > * + * {
+  margin-top: 2rem;
+}
+
+.stack2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.pill {
+  padding: 0.25rem 0.75rem;
+}
+
+.noShrink {
+  flex-shrink: 0;
+}
+
+.ctaButton {
+  transition: opacity 0.15s;
+}
+.ctaButton:hover {
+  opacity: 0.9;
+}
+
+.ctaDescription {
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .heroHeadingResponsive {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}

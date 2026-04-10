@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "ply-css/dist/css/ply.min.css";
 
 :root {
   --background: #0a0a0a;
@@ -10,6 +11,32 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+[data-theme="who"] {
+  --ply-bg-body: #0a0a0a;
+  --ply-bg-surface: #141414;
+  --ply-bg-surface-alt: #1a1a1a;
+  --ply-bg-muted: #222222;
+  --ply-color-body: #ededed;
+  --ply-color-headings: #ffffff;
+  --ply-color-secondary: rgba(237, 237, 237, 0.7);
+  --ply-color-muted: rgba(237, 237, 237, 0.4);
+  --ply-color-placeholder: rgba(237, 237, 237, 0.3);
+  --ply-color-text-inverse: #000000;
+  --ply-border-color: rgba(237, 237, 237, 0.1);
+  --ply-border-strong: rgba(237, 237, 237, 0.2);
+  --ply-border-radius: 0.75rem;
+  --ply-color-accent: #34d399;
+  --ply-btn-default-bg: #ffffff;
+  --ply-btn-default-color: #000000;
+  --ply-btn-secondary-bg: #333333;
+  --ply-btn-border-radius: 0.5rem;
+  --ply-nav-bg: #0a0a0a;
+  --ply-nav-border: rgba(237, 237, 237, 0.1);
+  --ply-font-body: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --ply-font-heading: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --ply-font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 body {
