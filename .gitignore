@@ -43,3 +43,4 @@ coverage/
 # Misc
 *.pem
 .env*.local
+vercel-debug.txt
