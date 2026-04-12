@@ -7,58 +7,52 @@ export default async function Home() {
   const session = await auth();
 
   return (
-    <main className="flex-1 flex flex-col items-center justify-center px-6 text-center">
-      <div className="max-w-2xl space-y-8">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+    <main className="display-flex fully-centered height-100" style={{ flexDirection: "column", minHeight: "100vh", padding: "0 1.5rem" }}>
+      <div className="align-center" style={{ maxWidth: "42rem" }}>
+        <h1 className="text-4xl font-bold" style={{ letterSpacing: "-0.025em" }}>
           World Horse Organization
         </h1>
 
-        <p className="text-lg sm:text-xl text-foreground/70 leading-relaxed">
+        <p className="text-lg text-secondary leading-relaxed margin-top-lg">
           Horses deserve freedom. The WHO is a digital sanctuary where every
           horse is rescued from ownership and placed in the care of a guardian
           &mdash; never an owner.
         </p>
 
-        <div className="pt-4 space-y-4">
-          <p className="text-sm text-foreground/50 max-w-md mx-auto">
+        <div className="margin-top-xl">
+          <p className="text-sm text-tertiary margin-bottom-lg" style={{ maxWidth: "28rem", marginLeft: "auto", marginRight: "auto" }}>
             Rescue horses. Race them on their terms. Trade guardianship.
             Breed the next generation. All without a single horse being owned.
           </p>
 
-          <div className="pt-4 flex flex-col items-center gap-3">
+          <div className="margin-top">
             {session?.user ? (
               <>
-                <div className="flex gap-3">
-                  <Link
-                    href="/app/stable"
-                    className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-colors"
-                  >
+                <div className="display-flex justify-center gap-sm" style={{ flexWrap: "wrap" }}>
+                  <Link href="/app/stable" className="btn btn-primary">
                     Your Stable
                   </Link>
-                  <Link
-                    href="/app/races"
-                    className="px-6 py-3 border border-foreground/20 text-foreground font-medium rounded-lg hover:bg-foreground/5 transition-colors"
-                  >
+                  <Link href="/app/races" className="btn btn-secondary-outline">
                     Races
                   </Link>
-                  <Link
-                    href="/app/leaderboard"
-                    className="px-6 py-3 border border-foreground/20 text-foreground font-medium rounded-lg hover:bg-foreground/5 transition-colors"
-                  >
+                  <Link href="/app/leaderboard" className="btn btn-secondary-outline">
                     Leaderboard
                   </Link>
                 </div>
-                <UserMenu />
+                <div className="margin-top-lg">
+                  <UserMenu />
+                </div>
               </>
             ) : (
               <SignInButton />
             )}
           </div>
         </div>
-        <div className="pt-8 border-t border-foreground/10">
+
+        <div className="margin-top-xl padding-top-lg border-top">
           <Link
             href="/free-the-horses"
-            className="text-sm text-foreground/50 hover:text-foreground/70 transition-colors"
+            className="text-sm text-tertiary"
           >
             Free the Horses &mdash; our campaign to end horse-drawn carriages
             in Central Park &rarr;
