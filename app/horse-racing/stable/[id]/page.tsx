@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { StatBar } from "@/components/horses/stat-bar";
 import Link from "next/link";
+import styles from "../../horse-racing.module.css";
 
 export default async function HorseDetailPage({
   params,
@@ -16,47 +17,46 @@ export default async function HorseDetailPage({
   if (!horse) notFound();
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-12">
-      <Link
-        href="/app/stable"
-        className="text-xs text-foreground/40 hover:text-foreground/60 transition-colors"
-      >
+    <div className={styles.pageContainerNarrow}>
+      <Link href="/horse-racing/stable" className="text-xs text-tertiary">
         &larr; Back to stable
       </Link>
 
-      <div className="mt-4 flex items-start gap-5">
-        <div className="shrink-0 flex gap-1.5">
+      <div className="margin-top display-flex items-start gap-lg">
+        <div className={`${styles.noShrink} display-flex gap-xs`}>
           <div
-            className="w-12 h-20 rounded"
+            className={styles.colorSwatchLg}
             style={{ backgroundColor: horse.baseColor }}
             title="Base"
           />
           <div
-            className="w-6 h-20 rounded"
+            className={styles.colorSwatchMd}
             style={{ backgroundColor: horse.secondaryColor }}
             title="Secondary"
           />
           <div
-            className="w-6 h-20 rounded"
+            className={styles.colorSwatchMd}
             style={{ backgroundColor: horse.maneColor }}
             title="Mane"
           />
         </div>
 
         <div>
-          <h1 className="text-3xl font-bold">{horse.name}</h1>
-          <p className="text-sm text-foreground/50 mt-1">
+          <h1 className={`text-3xl font-bold ${styles.trackingTight}`}>
+            {horse.name}
+          </h1>
+          <p className="text-sm text-secondary margin-top-xs">
             {horse.height} cm tall &middot; {horse.length} cm long &middot;{" "}
             {horse.preferredHairStyle}
           </p>
         </div>
       </div>
 
-      <section className="mt-10">
-        <h2 className="text-sm font-mono uppercase tracking-widest text-foreground/40 mb-4">
+      <section className="margin-top-xxl">
+        <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
           Performance
         </h2>
-        <div className="grid gap-3">
+        <div className={styles.stack3}>
           <StatBar label="Top Speed" value={horse.topSpeed} />
           <StatBar label="Acceleration" value={horse.acceleration} />
           <StatBar label="Stamina" value={horse.stamina} />
@@ -70,11 +70,11 @@ export default async function HorseDetailPage({
       </section>
 
       {(horse.sireId || horse.damId) && (
-        <section className="mt-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-foreground/40 mb-4">
+        <section className="margin-top-xxl">
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
             Lineage
           </h2>
-          <div className="text-sm text-foreground/60 space-y-1">
+          <div className={`text-sm text-secondary ${styles.stack2}`}>
             {horse.sireId && <p>Sire: {horse.sireId}</p>}
             {horse.damId && <p>Dam: {horse.damId}</p>}
           </div>
@@ -82,11 +82,11 @@ export default async function HorseDetailPage({
       )}
 
       {horse.spots && (horse.spots as unknown[]).length > 0 && (
-        <section className="mt-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-foreground/40 mb-2">
+        <section className="margin-top-xxl">
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom-sm ${styles.sectionHeading}`}>
             Spots
           </h2>
-          <p className="text-sm text-foreground/60">
+          <p className="text-sm text-secondary">
             {(horse.spots as unknown[]).length} spot
             {(horse.spots as unknown[]).length === 1 ? "" : "s"}
           </p>

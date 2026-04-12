@@ -50,26 +50,23 @@ export function PlaceStakeForm({
 
   if (entries.length === 0) {
     return (
-      <p className="text-sm text-foreground/40">
+      <p className="text-sm text-tertiary">
         No entries to stake on yet.
       </p>
     );
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3">
-      <div>
-        <label
-          htmlFor="stake-entry"
-          className="block text-xs text-foreground/50 mb-1"
-        >
+    <form onSubmit={submit}>
+      <div className="margin-bottom">
+        <label htmlFor="stake-entry" className="display-block text-xs text-secondary margin-bottom-xs">
           Pick a horse
         </label>
         <select
           id="stake-entry"
           value={selectedEntry}
           onChange={(e) => setSelectedEntry(e.target.value)}
-          className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-foreground/30"
+          className="input width-100"
         >
           <option value="">Select a horse</option>
           {entries.map((entry) => (
@@ -80,11 +77,8 @@ export function PlaceStakeForm({
         </select>
       </div>
 
-      <div>
-        <label
-          htmlFor="stake-amount"
-          className="block text-xs text-foreground/50 mb-1"
-        >
+      <div className="margin-bottom">
+        <label htmlFor="stake-amount" className="display-block text-xs text-secondary margin-bottom-xs">
           Amount (10&ndash;500 credits, you have {balance})
         </label>
         <input
@@ -94,19 +88,19 @@ export function PlaceStakeForm({
           max={Math.min(500, balance)}
           value={amount}
           onChange={(e) => setAmount(Number(e.target.value))}
-          className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-foreground/30"
+          className="input width-100"
         />
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="display-flex items-center gap">
         <button
           type="submit"
           disabled={!selectedEntry || amount < 10 || loading}
-          className="px-5 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 disabled:opacity-50 transition-colors cursor-pointer disabled:cursor-not-allowed"
+          className="btn btn-primary"
         >
           {loading ? "Placing..." : `Stake ${amount} credits`}
         </button>
-        {error && <p className="text-xs text-red-400">{error}</p>}
+        {error && <p className="text-xs color-red">{error}</p>}
       </div>
     </form>
   );

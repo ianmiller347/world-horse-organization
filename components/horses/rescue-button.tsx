@@ -22,7 +22,7 @@ export function RescueButton() {
     <button
       onClick={rescue}
       disabled={loading}
-      className="px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 disabled:opacity-50 transition-colors cursor-pointer disabled:cursor-not-allowed"
+      className="btn btn-primary"
     >
       {loading ? "Searching..." : "Rescue a Horse"}
     </button>

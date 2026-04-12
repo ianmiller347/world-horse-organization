@@ -46,26 +46,23 @@ export function EnterHorseForm({
 
   if (horses.length === 0) {
     return (
-      <p className="text-sm text-foreground/40">
+      <p className="text-sm text-tertiary">
         No eligible horses in your stable.
       </p>
     );
   }
 
   return (
-    <form onSubmit={submit} className="flex items-end gap-3">
-      <div className="flex-1">
-        <label
-          htmlFor="horse-select"
-          className="block text-xs text-foreground/50 mb-1"
-        >
+    <form onSubmit={submit} className="display-flex items-end gap">
+      <div style={{ flex: 1 }}>
+        <label htmlFor="horse-select" className="display-block text-xs text-secondary margin-bottom-xs">
           Choose a horse to enter
         </label>
         <select
           id="horse-select"
           value={selectedHorse}
           onChange={(e) => setSelectedHorse(e.target.value)}
-          className="w-full bg-foreground/5 border border-foreground/10 rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-foreground/30"
+          className="input width-100"
         >
           <option value="">Select a horse</option>
           {horses.map((h) => (
@@ -78,11 +75,11 @@ export function EnterHorseForm({
       <button
         type="submit"
         disabled={!selectedHorse || loading}
-        className="px-5 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 disabled:opacity-50 transition-colors cursor-pointer disabled:cursor-not-allowed"
+        className="btn btn-primary"
       >
         {loading ? "Entering..." : "Enter Race"}
       </button>
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      {error && <p className="text-xs color-red">{error}</p>}
     </form>
   );
 }

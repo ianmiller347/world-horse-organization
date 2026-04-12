@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 import { races, weeks, entries } from "@/lib/db/schema";
 import { eq, desc, sql } from "drizzle-orm";
 import Link from "next/link";
+import styles from "../horse-racing.module.css";
 
 const STATUS_LABELS: Record<string, string> = {
   upcoming: "Upcoming",
@@ -12,11 +13,11 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const STATUS_COLORS: Record<string, string> = {
-  upcoming: "text-foreground/40",
-  open: "text-emerald-400",
-  locked: "text-yellow-400",
-  running: "text-blue-400",
-  finished: "text-foreground/50",
+  upcoming: "text-tertiary",
+  open: "color-green",
+  locked: "color-yellow",
+  running: "color-blue",
+  finished: "text-secondary",
 };
 
 export default async function RacesPage() {
@@ -39,47 +40,46 @@ export default async function RacesPage() {
     .orderBy(desc(races.scheduledAt));
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
-      <div className="flex items-center justify-between mb-8">
+    <div className={styles.pageContainer}>
+      <div className="display-flex items-center justify-between margin-bottom-xl">
         <div>
-          <Link
-            href="/"
-            className="text-xs text-foreground/40 hover:text-foreground/60 transition-colors"
-          >
+          <Link href="/" className="text-xs text-tertiary">
             &larr; Home
           </Link>
-          <h1 className="text-3xl font-bold mt-1">Races</h1>
+          <h1 className={`text-3xl font-bold margin-top-xs ${styles.trackingTight}`}>
+            Races
+          </h1>
         </div>
       </div>
 
       {raceList.length === 0 ? (
-        <div className="text-center py-20 text-foreground/40">
+        <div className="align-center padding-top-xxl padding-bottom-xxl text-tertiary">
           <p className="text-lg">No races scheduled yet.</p>
-          <p className="text-sm mt-2">Check back soon.</p>
+          <p className="text-sm margin-top-sm">Check back soon.</p>
         </div>
       ) : (
-        <div className="grid gap-4">
+        <div className={styles.stack3}>
           {raceList.map((race) => (
             <Link
               key={race.id}
-              href={`/app/races/${race.id}`}
-              className="block rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5 hover:border-foreground/20 hover:bg-foreground/[0.06] transition-all"
+              href={`/horse-racing/races/${race.id}`}
+              className="display-block border-radius-lg border bg-surface padding-lg no-link-style"
             >
-              <div className="flex items-start justify-between">
+              <div className="display-flex items-start justify-between">
                 <div>
                   <h3 className="font-semibold text-lg">{race.name}</h3>
-                  <p className="text-xs text-foreground/40 mt-0.5">
+                  <p className="text-xs text-tertiary margin-top-xs">
                     {race.weekLabel} &middot; {race.trackName} &middot;{" "}
                     {race.surface} &middot; {race.lengthFurlongs}f
                   </p>
                 </div>
                 <span
-                  className={`text-xs font-mono uppercase ${STATUS_COLORS[race.status] ?? "text-foreground/40"}`}
+                  className={`text-xs mono uppercase ${STATUS_COLORS[race.status] ?? "text-tertiary"}`}
                 >
                   {STATUS_LABELS[race.status] ?? race.status}
                 </span>
               </div>
-              <div className="mt-3 flex items-center gap-4 text-sm text-foreground/50">
+              <div className="margin-top display-flex items-center gap-lg text-sm text-secondary">
                 <span>{race.entryCount} entries</span>
                 <span>
                   {new Date(race.scheduledAt).toLocaleDateString("en-US", {

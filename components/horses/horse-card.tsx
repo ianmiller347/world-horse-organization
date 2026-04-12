@@ -21,40 +21,37 @@ type Horse = {
 export function HorseCard({ horse }: { horse: Horse }) {
   return (
     <Link
-      href={`/app/stable/${horse.id}`}
-      className="block group rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5 hover:border-foreground/20 hover:bg-foreground/[0.06] transition-all"
+      href={`/horse-racing/stable/${horse.id}`}
+      className="display-block border-radius-lg border bg-surface padding-lg no-link-style"
     >
-      <div className="flex items-start gap-4">
-        <div className="shrink-0 flex gap-1">
+      <div className="display-flex items-start gap-lg">
+        <div className="display-flex gap-xs" style={{ flexShrink: 0 }}>
           <div
-            className="w-8 h-12 rounded-sm"
-            style={{ backgroundColor: horse.baseColor }}
+            style={{ backgroundColor: horse.baseColor, width: "2rem", height: "3rem", borderRadius: "0.125rem" }}
             title="Base"
           />
           <div
-            className="w-4 h-12 rounded-sm"
-            style={{ backgroundColor: horse.secondaryColor }}
+            style={{ backgroundColor: horse.secondaryColor, width: "1rem", height: "3rem", borderRadius: "0.125rem" }}
             title="Secondary"
           />
           <div
-            className="w-4 h-12 rounded-sm"
-            style={{ backgroundColor: horse.maneColor }}
+            style={{ backgroundColor: horse.maneColor, width: "1rem", height: "3rem", borderRadius: "0.125rem" }}
             title="Mane"
           />
         </div>
 
-        <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-lg truncate group-hover:text-white transition-colors">
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h3 className="font-semibold text-lg truncate">
             {horse.name}
           </h3>
-          <p className="text-xs text-foreground/40 mt-0.5">
+          <p className="text-xs text-tertiary margin-top-xs">
             {horse.height} cm &middot; {horse.length} cm &middot;{" "}
             {horse.preferredHairStyle}
           </p>
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2">
+      <div className="margin-top-lg" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem 1.5rem" }}>
         <StatBar label="Speed" value={horse.topSpeed} />
         <StatBar label="Accel" value={horse.acceleration} />
         <StatBar label="Stamina" value={horse.stamina} />

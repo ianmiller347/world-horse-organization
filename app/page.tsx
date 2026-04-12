@@ -29,13 +29,13 @@ export default async function Home() {
             {session?.user ? (
               <>
                 <div className="display-flex justify-center gap-sm" style={{ flexWrap: "wrap" }}>
-                  <Link href="/app/stable" className="btn btn-primary">
+                  <Link href="/horse-racing/stable" className="btn btn-primary">
                     Your Stable
                   </Link>
-                  <Link href="/app/races" className="btn btn-secondary-outline">
+                  <Link href="/horse-racing/races" className="btn btn-secondary-outline">
                     Races
                   </Link>
-                  <Link href="/app/leaderboard" className="btn btn-secondary-outline">
+                  <Link href="/horse-racing/leaderboard" className="btn btn-secondary-outline">
                     Leaderboard
                   </Link>
                 </div>

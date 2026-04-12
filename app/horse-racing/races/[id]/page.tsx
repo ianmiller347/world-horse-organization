@@ -9,13 +9,14 @@ import {
   balances,
   type RaceResult,
 } from "@/lib/db/schema";
-import { eq, and, sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { auth } from "@/lib/auth/config";
 import { EnterHorseForm } from "@/components/races/enter-horse-form";
 import { PlaceStakeForm } from "@/components/races/place-stake-form";
 import { RunRaceButton } from "@/components/races/run-race-button";
 import Link from "next/link";
+import styles from "../../horse-racing.module.css";
 
 const MEDAL = ["", "\u{1F947}", "\u{1F948}", "\u{1F949}"];
 
@@ -55,7 +56,6 @@ export default async function RaceDetailPage({
 
   const placements: RaceResult[] | null = raceResult?.placements ?? null;
 
-  // Stakes data
   const raceStakes = await db
     .select()
     .from(stakes)
@@ -72,7 +72,6 @@ export default async function RaceDetailPage({
     stakesByEntry.set(s.entryId, (stakesByEntry.get(s.entryId) ?? 0) + s.amount);
   }
 
-  // User balance and eligible horses
   const balance = session?.user?.id
     ? await db
         .select()
@@ -96,22 +95,21 @@ export default async function RaceDetailPage({
   );
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
-      <Link
-        href="/app/races"
-        className="text-xs text-foreground/40 hover:text-foreground/60 transition-colors"
-      >
+    <div className={styles.pageContainerNarrow}>
+      <Link href="/horse-racing/races" className="text-xs text-tertiary">
         &larr; All races
       </Link>
 
-      <div className="mt-4 flex items-start justify-between">
+      <div className="margin-top display-flex items-start justify-between">
         <div>
-          <h1 className="text-3xl font-bold">{race.name}</h1>
-          <p className="text-sm text-foreground/50 mt-1">
+          <h1 className={`text-3xl font-bold ${styles.trackingTight}`}>
+            {race.name}
+          </h1>
+          <p className="text-sm text-secondary margin-top-xs">
             {week?.label} &middot; {race.trackName} &middot; {race.surface}{" "}
             &middot; {race.lengthFurlongs}f
           </p>
-          <p className="text-xs text-foreground/40 mt-1">
+          <p className="text-xs text-tertiary margin-top-xs">
             {new Date(race.scheduledAt).toLocaleString("en-US", {
               weekday: "long",
               month: "long",
@@ -127,55 +125,50 @@ export default async function RaceDetailPage({
         )}
       </div>
 
-      {/* Pool info */}
       {totalPool > 0 && (
-        <div className="mt-4 inline-block rounded-lg border border-foreground/10 bg-foreground/[0.03] px-4 py-2">
-          <span className="text-xs text-foreground/40">Stake pool: </span>
-          <span className="text-sm font-mono text-foreground/80">
-            {totalPool}
-          </span>
-          <span className="text-xs text-foreground/40"> credits</span>
+        <div className="margin-top border-radius-lg border bg-surface padding padding-left-lg padding-right-lg" style={{ display: "inline-block" }}>
+          <span className="text-xs text-tertiary">Stake pool: </span>
+          <span className="text-sm mono text-secondary">{totalPool}</span>
+          <span className="text-xs text-tertiary"> credits</span>
         </div>
       )}
 
-      {/* Results */}
       {placements && (
-        <section className="mt-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-foreground/40 mb-4">
+        <section className="margin-top-xxl">
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
             Results
           </h2>
-          <div className="space-y-2">
+          <div className={styles.stack2}>
             {placements.map((p) => {
               const entry = raceEntries.find((e) => e.entryId === p.entryId);
               const entryStakeTotal = stakesByEntry.get(p.entryId) ?? 0;
               return (
                 <div
                   key={p.entryId}
-                  className={`flex items-center justify-between rounded-lg border px-4 py-3 ${
-                    p.position === 1
-                      ? "border-yellow-500/30 bg-yellow-500/5"
-                      : "border-foreground/10 bg-foreground/[0.02]"
+                  className={`display-flex items-center justify-between border-radius-lg border padding padding-left-lg padding-right-lg ${
+                    p.position === 1 ? "bg-surface" : "bg-surface"
                   }`}
+                  style={p.position === 1 ? { borderColor: "rgba(234, 179, 8, 0.3)", backgroundColor: "rgba(234, 179, 8, 0.05)" } : undefined}
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-lg w-8">
+                  <div className="display-flex items-center gap">
+                    <span className="text-lg" style={{ width: "2rem" }}>
                       {MEDAL[p.position] || `#${p.position}`}
                     </span>
                     <div
-                      className="w-4 h-4 rounded-sm"
+                      className={styles.colorSwatch}
                       style={{ backgroundColor: entry?.baseColor ?? "#666" }}
                     />
                     <span className="font-medium">
                       {entry?.horseName ?? p.horseId}
                     </span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="display-flex items-center gap-lg">
                     {entryStakeTotal > 0 && (
-                      <span className="text-xs text-foreground/40">
+                      <span className="text-xs text-tertiary">
                         {entryStakeTotal} staked
                       </span>
                     )}
-                    <span className="text-sm font-mono text-foreground/50">
+                    <span className="text-sm mono text-secondary">
                       {p.finishTime}s
                     </span>
                   </div>
@@ -186,13 +179,12 @@ export default async function RaceDetailPage({
         </section>
       )}
 
-      {/* Your stakes */}
       {userStakes.length > 0 && (
-        <section className="mt-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-foreground/40 mb-4">
+        <section className="margin-top-xxl">
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
             Your Stakes
           </h2>
-          <div className="space-y-2">
+          <div className={styles.stack2}>
             {userStakes.map((s) => {
               const entry = raceEntries.find((e) => e.entryId === s.entryId);
               const isWinner = s.payout > 0;
@@ -200,32 +192,29 @@ export default async function RaceDetailPage({
               return (
                 <div
                   key={s.id}
-                  className={`flex items-center justify-between rounded-lg border px-4 py-3 ${
-                    isWinner
-                      ? "border-emerald-500/30 bg-emerald-500/5"
-                      : "border-foreground/10 bg-foreground/[0.02]"
-                  }`}
+                  className="display-flex items-center justify-between border-radius-lg border padding padding-left-lg padding-right-lg bg-surface"
+                  style={isWinner ? { borderColor: "rgba(16, 185, 129, 0.3)", backgroundColor: "rgba(16, 185, 129, 0.05)" } : undefined}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="display-flex items-center gap">
                     <div
-                      className="w-4 h-4 rounded-sm"
+                      className={styles.colorSwatch}
                       style={{ backgroundColor: entry?.baseColor ?? "#666" }}
                     />
                     <span className="text-sm font-medium">
                       {entry?.horseName ?? s.entryId}
                     </span>
-                    <span className="text-xs text-foreground/40">
+                    <span className="text-xs text-tertiary">
                       {s.amount} credits
                     </span>
                   </div>
                   {race.status === "finished" && (
                     <span
-                      className={`text-sm font-mono ${
+                      className={`text-sm mono ${
                         net > 0
-                          ? "text-emerald-400"
+                          ? "color-green"
                           : net < 0
-                            ? "text-red-400"
-                            : "text-foreground/50"
+                            ? "color-red"
+                            : "text-secondary"
                       }`}
                     >
                       {net > 0 ? `+${net}` : net === 0 ? "broke even" : net}
@@ -238,37 +227,36 @@ export default async function RaceDetailPage({
         </section>
       )}
 
-      {/* Entries */}
-      <section className="mt-10">
-        <h2 className="text-sm font-mono uppercase tracking-widest text-foreground/40 mb-4">
+      <section className="margin-top-xxl">
+        <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
           Entries ({raceEntries.length})
         </h2>
         {raceEntries.length === 0 ? (
-          <p className="text-foreground/40 text-sm">No entries yet.</p>
+          <p className="text-tertiary text-sm">No entries yet.</p>
         ) : (
-          <div className="space-y-2">
+          <div className={styles.stack2}>
             {raceEntries.map((e) => (
               <div
                 key={e.entryId}
-                className="flex items-center justify-between rounded-lg border border-foreground/10 bg-foreground/[0.02] px-4 py-3"
+                className="display-flex items-center justify-between border-radius-lg border bg-surface padding padding-left-lg padding-right-lg"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-foreground/40 w-8">
+                <div className="display-flex items-center gap">
+                  <span className={`text-xs mono text-tertiary ${styles.laneLabel}`}>
                     L{e.lane}
                   </span>
                   <div
-                    className="w-4 h-4 rounded-sm"
+                    className={styles.colorSwatch}
                     style={{ backgroundColor: e.baseColor }}
                   />
                   <Link
-                    href={`/app/stable/${e.horseId}`}
-                    className="font-medium hover:text-white transition-colors"
+                    href={`/horse-racing/stable/${e.horseId}`}
+                    className="font-medium no-link-style"
                   >
                     {e.horseName}
                   </Link>
                 </div>
                 {(stakesByEntry.get(e.entryId) ?? 0) > 0 && (
-                  <span className="text-xs text-foreground/40">
+                  <span className="text-xs text-tertiary">
                     {stakesByEntry.get(e.entryId)} staked
                   </span>
                 )}
@@ -278,12 +266,11 @@ export default async function RaceDetailPage({
         )}
       </section>
 
-      {/* Place a stake */}
       {race.status === "open" &&
         session?.user?.id &&
         stakableEntries.length > 0 && (
-          <section className="mt-10">
-            <h2 className="text-sm font-mono uppercase tracking-widest text-foreground/40 mb-4">
+          <section className="margin-top-xxl">
+            <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
               Place a stake
             </h2>
             <PlaceStakeForm
@@ -294,10 +281,9 @@ export default async function RaceDetailPage({
           </section>
         )}
 
-      {/* Enter a horse */}
       {race.status === "open" && session?.user?.id && (
-        <section className="mt-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-foreground/40 mb-4">
+        <section className="margin-top-xxl">
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
             Enter a horse
           </h2>
           <EnterHorseForm raceId={race.id} horses={eligibleHorses} />

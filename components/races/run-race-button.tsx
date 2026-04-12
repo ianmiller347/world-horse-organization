@@ -26,7 +26,8 @@ export function RunRaceButton({ raceId }: { raceId: string }) {
     <button
       onClick={run}
       disabled={loading}
-      className="px-5 py-2.5 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-500 disabled:opacity-50 transition-colors cursor-pointer disabled:cursor-not-allowed"
+      className="btn btn-primary"
+      style={{ backgroundColor: "var(--ply-color-green, #10b981)" }}
     >
       {loading ? "Simulating..." : "Run Race"}
     </button>

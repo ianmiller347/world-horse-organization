@@ -9,20 +9,24 @@ export function StatBar({
 }) {
   const pct = Math.min(100, (value / max) * 100);
 
-  let color = "bg-yellow-500";
-  if (pct >= 70) color = "bg-emerald-500";
-  else if (pct <= 30) color = "bg-red-500";
+  const color =
+    pct >= 70 ? "var(--ply-color-green, #10b981)" :
+    pct <= 30 ? "var(--ply-color-red, #ef4444)" :
+    "var(--ply-color-yellow, #eab308)";
 
   return (
-    <div className="space-y-1">
-      <div className="flex justify-between text-xs">
-        <span className="text-foreground/60">{label}</span>
-        <span className="font-mono text-foreground/80">{value}</span>
+    <div>
+      <div className="display-flex justify-between text-xs">
+        <span className="text-secondary">{label}</span>
+        <span className="mono text-secondary">{value}</span>
       </div>
-      <div className="h-1.5 bg-foreground/10 rounded-full overflow-hidden">
+      <div
+        className="border-radius-xl"
+        style={{ height: "0.375rem", marginTop: "0.25rem", backgroundColor: "var(--ply-border-color, rgba(255,255,255,0.1))", overflow: "hidden" }}
+      >
         <div
-          className={`h-full rounded-full ${color} transition-all`}
-          style={{ width: `${pct}%` }}
+          className="border-radius-xl"
+          style={{ height: "100%", width: `${pct}%`, backgroundColor: color }}
         />
       </div>
     </div>

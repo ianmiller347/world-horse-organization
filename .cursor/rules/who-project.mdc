@@ -9,7 +9,7 @@ Read `OUTLINE.md` at the repo root before making product or architecture decisio
 
 ## Tech stack
 
-- Next.js 16 (App Router, Turbopack), TypeScript, Tailwind 4
+- Next.js 16 (App Router, Turbopack), TypeScript, ply-css + Tailwind 4 (migrating to ply)
 - Drizzle ORM → Neon Postgres (via Vercel integration)
 - Auth.js v5 (Google OAuth), DrizzleAdapter
 - Deployed on Vercel at worldhorseorganization.org
@@ -21,7 +21,7 @@ Read `OUTLINE.md` at the repo root before making product or architecture decisio
 - `lib/horses/generate.ts` — horse stat generation (bell curve)
 - `lib/horses/seed.ts` — signup bonus + starter horse
 - `lib/races/simulate.ts` — race simulation engine (stats + randomness)
-- `app/app/*` — authenticated routes (protected by middleware)
+- `app/horse-racing/*` — authenticated game routes (protected by middleware)
 - `app/api/horses/` — horse CRUD endpoints
 - `app/api/races/` — race CRUD, entry, and simulation endpoints
 - `app/api/weeks/` — week management endpoints

@@ -8,13 +8,13 @@ export function UserMenu() {
   if (!session?.user) return null;
 
   return (
-    <div className="flex items-center gap-4">
-      <span className="text-sm text-foreground/70">
+    <div className="display-flex items-center gap-lg justify-center">
+      <span className="text-sm text-secondary">
         {session.user.name || session.user.email}
       </span>
       <button
         onClick={() => signOut()}
-        className="text-sm text-foreground/50 hover:text-foreground transition-colors cursor-pointer"
+        className="text-sm text-tertiary cursor-pointer"
       >
         Sign out
       </button>
