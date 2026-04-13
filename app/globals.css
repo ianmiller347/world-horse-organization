@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "ply-css/dist/css/ply.min.css";
+@import 'tailwindcss';
+@import 'ply-css/dist/css/ply.min.css';
 
 :root {
   --background: #0a0a0a;
@@ -13,7 +13,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-[data-theme="who"] {
+[data-theme='who'] {
   --ply-bg-body: #0a0a0a;
   --ply-bg-surface: #141414;
   --ply-bg-surface-alt: #1a1a1a;
@@ -34,13 +34,38 @@
   --ply-btn-border-radius: 0.5rem;
   --ply-nav-bg: #0a0a0a;
   --ply-nav-border: rgba(237, 237, 237, 0.1);
-  --ply-font-body: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --ply-font-heading: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --ply-font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --ply-font-body:
+    var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  --ply-font-heading:
+    var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  --ply-font-mono:
+    var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes who-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.who-logo--spin {
+  animation: who-logo-spin 25s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .who-logo--spin {
+    animation: none;
+  }
 }
