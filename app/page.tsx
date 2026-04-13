@@ -35,6 +35,9 @@ export default async function Home() {
                   <Link href="/horse-racing/races" className="btn btn-secondary-outline">
                     Races
                   </Link>
+                  <Link href="/horse-racing/marketplace" className="btn btn-secondary-outline">
+                    Marketplace
+                  </Link>
                   <Link href="/horse-racing/leaderboard" className="btn btn-secondary-outline">
                     Leaderboard
                   </Link>

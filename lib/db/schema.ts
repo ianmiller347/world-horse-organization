@@ -258,6 +258,41 @@ export const results = pgTable("results", {
 // Stakes
 // ──────────────────────────────────────────────
 
+// ──────────────────────────────────────────────
+// Marketplace (guardianship transfers)
+// ──────────────────────────────────────────────
+
+export const listingStatus = pgEnum("listing_status", [
+  "active",
+  "sold",
+  "cancelled",
+]);
+
+export const listings = pgTable("listings", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  horseId: text("horse_id")
+    .references(() => horses.id, { onDelete: "cascade" })
+    .notNull(),
+  sellerId: text("seller_id")
+    .references(() => users.id, { onDelete: "cascade" })
+    .notNull(),
+  buyerId: text("buyer_id").references(() => users.id, {
+    onDelete: "set null",
+  }),
+  price: integer("price").notNull(),
+  status: listingStatus("status").default("active").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+  soldAt: timestamp("sold_at", { withTimezone: true }),
+});
+
+// ──────────────────────────────────────────────
+// Stakes
+// ──────────────────────────────────────────────
+
 export const stakes = pgTable("stakes", {
   id: text("id")
     .primaryKey()

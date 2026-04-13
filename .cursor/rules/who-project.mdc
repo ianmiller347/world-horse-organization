@@ -51,7 +51,8 @@ Free-to-play with optional microtransactions. In-game credits only — no real-m
 - **Phase 1 (done):** Horse schema, generation, rescue flow, stable UI, detail view.
 - **Phase 2 (done):** Race schema (weeks, races, entries, results), simulation engine, race UI, enter/run flow.
 - **Phase 3 (done):** Stakes (place/debit credits), payout logic (pool split to 1st/2nd/3rd stakers), leaderboard.
-- **Next up:** Phase 4 — guardianship trading marketplace.
+- **Phase 4 (done):** Guardianship marketplace — list horses, browse, assume guardianship (debit buyer/credit seller), cancel listings.
+- **Next up:** Phase 5 — art & identity.
 
 ## Conventions
 
