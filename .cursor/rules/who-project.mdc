@@ -12,7 +12,7 @@ Read `OUTLINE.md` at the repo root before making product or architecture decisio
 - Next.js 16 (App Router, Turbopack), TypeScript, ply-css + Tailwind 4 (migrating to ply)
 - Drizzle ORM → Neon Postgres (via Vercel integration)
 - Auth.js v5 (Google OAuth), DrizzleAdapter
-- Deployed on Vercel at worldhorseorganization.org
+- Deployed on Vercel at worldhorse.org (worldhorseorganization.org redirects here)
 
 ## Key paths
 
