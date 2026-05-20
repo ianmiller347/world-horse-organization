@@ -88,6 +88,7 @@ export default async function MarketplacePage() {
                 <div className="display-flex items-start gap-lg">
                   <div className="display-flex gap-xs" style={{ flexShrink: 0 }}>
                     <div
+                      className="who-horse-swatch"
                       style={{
                         backgroundColor: listing.baseColor,
                         width: "2rem",
@@ -96,6 +97,7 @@ export default async function MarketplacePage() {
                       }}
                     />
                     <div
+                      className="who-horse-swatch"
                       style={{
                         backgroundColor: listing.secondaryColor,
                         width: "1rem",
@@ -104,6 +106,7 @@ export default async function MarketplacePage() {
                       }}
                     />
                     <div
+                      className="who-horse-swatch"
                       style={{
                         backgroundColor: listing.maneColor,
                         width: "1rem",

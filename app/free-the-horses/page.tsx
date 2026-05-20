@@ -40,7 +40,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'What about the 300+ jobs?',
-    a: "Nobody loses their job. Drivers transition to electric carriages — same routes, same tips, same scenic experience. The WHO supports a funded training program and vehicle subsidies so the switch costs workers nothing. This upgrades the job, it doesn't eliminate it.",
+    a: "The drivers' union is right that these jobs matter — they're an important source of work for an overwhelmingly immigrant workforce. That's why the WHO supports transitioning those same drivers to electric carriages: same routes, same tips, same scenic experience, without a prey animal — or the person behind it — in harm's way. Funded training and vehicle subsidies so the switch costs workers nothing.",
   },
   {
     q: "Isn't this really a real estate land grab for the stable property?",
@@ -94,9 +94,26 @@ export default function FreeTheHorsesPage() {
           </p>
           <p>
             They&apos;re prey animals. When they spook &mdash; and they do,
-            regularly &mdash; people get hurt. In a single week in May 2025,
-            three horses bolted in Central Park, injuring at least four people.
-            No amount of regulation can prevent a startle response.
+            regularly &mdash; it is not only horses who get hurt. On May 18,
+            2026, two horse-drawn carriages collided in Central Park near West
+            59th Street; one carriage overturned and the driver was hospitalized.
+            The horses were reported uninjured that day &mdash; luck, not safety.
+            It happened during a heat advisory, while advocates again called for
+            the City Council to pass Ryder&apos;s Law.{' '}
+            <a
+              href="https://www.nytimes.com/2026/05/19/nyregion/central-park-nyc-horse-carriage-collision.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.inlineLink}
+            >
+              New York Times coverage
+            </a>
+            .
+          </p>
+          <p>
+            In May 2025, three horses bolted in Central Park in a single week,
+            injuring at least four people. No amount of regulation can prevent a
+            startle response.
           </p>
           <p>
             A{' '}
@@ -199,7 +216,8 @@ export default function FreeTheHorsesPage() {
                   &bull;
                 </span>
                 Same routes through Central Park. Same scenic experience for
-                tourists. Same tips for drivers.
+                tourists. Same tips for drivers &mdash; including the largely
+                immigrant workforce that depends on this work today.
               </li>
               <li className="display-flex gap-sm">
                 <span className={`text-tertiary ${styles.noShrink}`}>
@@ -278,10 +296,12 @@ export default function FreeTheHorsesPage() {
             <strong className="text-primary">Ryder&apos;s Law</strong> (Intro
             967), named after a carriage horse that collapsed and died in
             Hell&apos;s Kitchen in 2022, would phase out horse carriage licenses
-            and replace them with electric alternatives. It was voted down by
-            the City Council Health Committee in November 2025 (4&ndash;1, with
-            2 abstentions) after being forced to a vote through a procedural
-            maneuver.
+            and replace them with electric alternatives. After the May 2026
+            collision, the Central Park Conservancy and advocacy groups again
+            called for the Council to reintroduce and pass the bill. It was
+            voted down by the City Council Health Committee in November 2025
+            (4&ndash;1, with 2 abstentions) after being forced to a vote through
+            a procedural maneuver.
           </p>
           <p>
             Former Mayor Adams signed{' '}

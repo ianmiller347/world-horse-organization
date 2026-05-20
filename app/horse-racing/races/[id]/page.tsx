@@ -156,7 +156,7 @@ export default async function RaceDetailPage({
                     </span>
                     <div
                       className={styles.colorSwatch}
-                      style={{ backgroundColor: entry?.baseColor ?? "#666" }}
+                      style={{ backgroundColor: entry?.baseColor ?? "var(--ply-bg-muted)" }}
                     />
                     <span className="font-medium">
                       {entry?.horseName ?? p.horseId}
@@ -198,7 +198,7 @@ export default async function RaceDetailPage({
                   <div className="display-flex items-center gap">
                     <div
                       className={styles.colorSwatch}
-                      style={{ backgroundColor: entry?.baseColor ?? "#666" }}
+                      style={{ backgroundColor: entry?.baseColor ?? "var(--ply-bg-muted)" }}
                     />
                     <span className="text-sm font-medium">
                       {entry?.horseName ?? s.entryId}

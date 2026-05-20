@@ -21,7 +21,7 @@ Read `OUTLINE.md` at the repo root before making product or architecture decisio
 - `lib/horses/generate.ts` — horse stat generation (bell curve)
 - `lib/horses/seed.ts` — signup bonus + starter horse
 - `lib/races/simulate.ts` — race simulation engine (stats + randomness)
-- `app/horse-racing/*` — authenticated game routes (protected by middleware)
+- `app/horse-racing/*` — authenticated game routes (protected by `proxy.ts`)
 - `app/api/horses/` — horse CRUD endpoints
 - `app/api/races/` — race CRUD, entry, and simulation endpoints
 - `app/api/weeks/` — week management endpoints

@@ -10,9 +10,11 @@ export function StatBar({
   const pct = Math.min(100, (value / max) * 100);
 
   const color =
-    pct >= 70 ? "var(--ply-color-green, #10b981)" :
-    pct <= 30 ? "var(--ply-color-red, #ef4444)" :
-    "var(--ply-color-yellow, #eab308)";
+    pct >= 70
+      ? "var(--ply-green-1)"
+      : pct <= 30
+        ? "var(--ply-red-1)"
+        : "var(--ply-yellow-1)";
 
   return (
     <div>
@@ -22,7 +24,12 @@ export function StatBar({
       </div>
       <div
         className="border-radius-xl"
-        style={{ height: "0.375rem", marginTop: "0.25rem", backgroundColor: "var(--ply-border-color, rgba(255,255,255,0.1))", overflow: "hidden" }}
+        style={{
+          height: "0.375rem",
+          marginTop: "0.25rem",
+          backgroundColor: "var(--ply-border-color)",
+          overflow: "hidden",
+        }}
       >
         <div
           className="border-radius-xl"
