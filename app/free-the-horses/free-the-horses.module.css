@@ -16,7 +16,16 @@
   transition: color 0.15s;
 }
 .backLink:hover {
-  color: rgba(237, 237, 237, 0.6);
+  color: var(--ply-color-secondary);
+}
+
+.inlineLink {
+  color: var(--ply-color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.inlineLink:hover {
+  color: var(--ply-color-link-hover);
 }
 
 .heroHeading {

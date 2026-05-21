@@ -1,0 +1,15 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["axe", "htmlcs"],
+    "timeout": 60000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    }
+  },
+  "urls": [
+    "http://127.0.0.1:3000/",
+    "http://127.0.0.1:3000/free-the-horses",
+    "http://127.0.0.1:3000/sign-in"
+  ]
+}

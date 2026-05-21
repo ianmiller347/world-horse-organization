@@ -5,7 +5,10 @@
   "description": "World Horse Organization — web app for the weekly horse racing game and marketplace.",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && npm run a11y:contrast",
+    "a11y:contrast": "node scripts/check-contrast.mjs",
+    "a11y": "npm run a11y:contrast && start-server-and-test start http://127.0.0.1:3000 a11y:pages",
+    "a11y:pages": "pa11y-ci",
     "start": "next start",
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
@@ -25,6 +28,8 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "pa11y-ci": "^4.0.0",
+    "start-server-and-test": "^2.1.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

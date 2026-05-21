@@ -1,9 +1,30 @@
 @import 'tailwindcss';
 @import 'ply-css/dist/css/ply.min.css';
 
+/*
+ * WHO design tokens — dark sanctuary UI + logo spectrum (collective / mission).
+ * Ply semantic colors (--ply-green-1, .color-green, etc.) map to logo hues below.
+ * Horse coat colors stay per-horse in the DB; swatches use those until portraits ship.
+ */
+
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
+
+  /* Logo spectrum (clockwise from top of the mark) */
+  --who-spectrum-yellow: #faf412;
+  --who-spectrum-green: #00f21d;
+  --who-spectrum-cyan: #05a3f8;
+  --who-spectrum-blue: #1a43f9;
+  --who-spectrum-magenta: #de43f8;
+  --who-spectrum-red: #ea2401;
+  --who-spectrum-orange: #fb8a16;
+  --who-spectrum-purple: #6a3af8;
+
+  /* Horse portrait frame (for future art; swatches can use border token) */
+  --who-horse-frame-bg: #121212;
+  --who-horse-frame-border: rgba(237, 237, 237, 0.14);
+  --who-horse-frame-highlight: rgba(255, 255, 255, 0.06);
 }
 
 @theme inline {
@@ -14,26 +35,73 @@
 }
 
 [data-theme='who'] {
-  --ply-bg-body: #0a0a0a;
+  /* Surfaces */
+  --ply-bg-body: var(--background);
   --ply-bg-surface: #141414;
   --ply-bg-surface-alt: #1a1a1a;
   --ply-bg-muted: #222222;
-  --ply-color-body: #ededed;
+  --ply-layer-0: #0a0a0a;
+  --ply-layer-1: #141414;
+  --ply-layer-2: #1a1a1a;
+  --ply-layer-3: #262626;
+
+  /* Typography — solid hex for predictable WCAG AA contrast on #0a0a0a */
+  --ply-color-body: #ededed; /* 16.9:1 */
   --ply-color-headings: #ffffff;
-  --ply-color-secondary: rgba(237, 237, 237, 0.7);
-  --ply-color-muted: rgba(237, 237, 237, 0.4);
-  --ply-color-placeholder: rgba(237, 237, 237, 0.3);
-  --ply-color-text-inverse: #000000;
-  --ply-border-color: rgba(237, 237, 237, 0.1);
-  --ply-border-strong: rgba(237, 237, 237, 0.2);
+  --ply-color-secondary: #c8c8c8; /* 11.8:1 — was ~8.3:1 at 70% opacity */
+  --ply-color-muted: #a3a3a3; /* 7.9:1 — was 3.4:1 at 40% (text-tertiary) */
+  --ply-color-placeholder: #858585; /* 5.4:1 — was ~2.8:1 at 30% */
+  --ply-color-text-inverse: #0a0a0a;
+
+  /* Chrome */
+  --ply-border-color: rgba(237, 237, 237, 0.14);
+  --ply-border-strong: rgba(237, 237, 237, 0.28);
   --ply-border-radius: 0.75rem;
-  --ply-color-accent: #34d399;
-  --ply-btn-default-bg: #ffffff;
-  --ply-btn-default-color: #000000;
-  --ply-btn-secondary-bg: #333333;
+  --ply-color-accent: var(--who-spectrum-green);
+  --ply-color-focus: var(--who-spectrum-cyan);
+  --ply-color-link: var(--who-spectrum-cyan);
+  --ply-color-link-hover: color-mix(
+    in oklch,
+    var(--who-spectrum-cyan) 85%,
+    white
+  );
+
+  /* Primary actions — sanctuary green */
+  --ply-btn-default-bg: var(--who-spectrum-green);
+  --ply-btn-default-color: #0a0a0a;
+  --ply-btn-default-bg-hover: color-mix(
+    in oklch,
+    var(--who-spectrum-green) 88%,
+    white
+  );
+  --ply-btn-default-bg-active: color-mix(
+    in oklch,
+    var(--who-spectrum-green) 82%,
+    black
+  );
+  --ply-btn-secondary-bg: #2e2e2e;
+  --ply-btn-secondary-color: #ededed;
+  --ply-btn-secondary-bg-hover: #383838;
+  --ply-btn-secondary-bg-active: #1f1f1f;
   --ply-btn-border-radius: 0.5rem;
-  --ply-nav-bg: #0a0a0a;
+
+  /* Nav */
+  --ply-nav-bg: var(--background);
   --ply-nav-border: rgba(237, 237, 237, 0.1);
+  --ply-nav-color: #ededed;
+  --ply-nav-hover: #1a1a1a;
+  --ply-nav-active-color: var(--who-spectrum-green);
+
+  /* Forms & tables on dark */
+  --ply-color-field-bg: #1a1a1a;
+  --ply-color-input-bg: #1a1a1a;
+  --ply-color-input-border: rgba(237, 237, 237, 0.2);
+  --ply-color-code-bg: #1a1a1a;
+  --ply-color-code-border: rgba(237, 237, 237, 0.15);
+  --ply-color-table-border: rgba(237, 237, 237, 0.1);
+  --ply-color-table-stripped: #141414;
+  --ply-color-table-hovered: #1f1f1f;
+
   --ply-font-body:
     var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, sans-serif;
@@ -43,11 +111,190 @@
   --ply-font-mono:
     var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, monospace;
+
+  /* ── Logo spectrum → Ply color families ── */
+
+  --ply-yellow-1: var(--who-spectrum-yellow);
+  --ply-yellow-2: color-mix(in oklch, var(--who-spectrum-yellow) 78%, black);
+  --ply-yellow-3: color-mix(in oklch, var(--who-spectrum-yellow) 58%, black);
+  --ply-yellow-surface: color-mix(
+    in oklch,
+    var(--who-spectrum-yellow) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-yellow-border: color-mix(
+    in oklch,
+    var(--who-spectrum-yellow) 40%,
+    transparent
+  );
+  --ply-bg-yellow: var(--who-spectrum-yellow);
+  --ply-bg-yellow-hover: color-mix(
+    in oklch,
+    var(--who-spectrum-yellow) 90%,
+    white
+  );
+  --ply-bg-yellow-active: color-mix(
+    in oklch,
+    var(--who-spectrum-yellow) 82%,
+    black
+  );
+
+  --ply-green-1: var(--who-spectrum-green);
+  --ply-green-2: color-mix(in oklch, var(--who-spectrum-green) 78%, black);
+  --ply-green-3: color-mix(in oklch, var(--who-spectrum-green) 58%, black);
+  --ply-green-surface: color-mix(
+    in oklch,
+    var(--who-spectrum-green) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-green-border: color-mix(
+    in oklch,
+    var(--who-spectrum-green) 40%,
+    transparent
+  );
+  --ply-bg-green: var(--who-spectrum-green);
+  --ply-bg-green-hover: color-mix(
+    in oklch,
+    var(--who-spectrum-green) 90%,
+    white
+  );
+  --ply-bg-green-active: color-mix(
+    in oklch,
+    var(--who-spectrum-green) 82%,
+    black
+  );
+
+  --ply-cyan-1: var(--who-spectrum-cyan);
+  --ply-cyan-2: color-mix(in oklch, var(--who-spectrum-cyan) 78%, black);
+  --ply-cyan-3: color-mix(in oklch, var(--who-spectrum-cyan) 58%, black);
+  --ply-cyan-surface: color-mix(
+    in oklch,
+    var(--who-spectrum-cyan) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-cyan-border: color-mix(
+    in oklch,
+    var(--who-spectrum-cyan) 40%,
+    transparent
+  );
+  --ply-bg-cyan: var(--who-spectrum-cyan);
+
+  --ply-blue-1: var(--who-spectrum-blue);
+  --ply-blue-2: color-mix(in oklch, var(--who-spectrum-blue) 78%, black);
+  --ply-blue-3: color-mix(in oklch, var(--who-spectrum-blue) 58%, black);
+  --ply-blue-surface: color-mix(
+    in oklch,
+    var(--who-spectrum-blue) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-blue-border: color-mix(
+    in oklch,
+    var(--who-spectrum-blue) 40%,
+    transparent
+  );
+  --ply-bg-blue: var(--who-spectrum-blue);
+  --ply-bg-blue-hover: color-mix(
+    in oklch,
+    var(--who-spectrum-blue) 90%,
+    white
+  );
+  --ply-bg-blue-active: color-mix(
+    in oklch,
+    var(--who-spectrum-blue) 82%,
+    black
+  );
+
+  --ply-indigo-1: color-mix(
+    in oklch,
+    var(--who-spectrum-blue) 55%,
+    var(--who-spectrum-purple)
+  );
+  --ply-indigo-2: color-mix(in oklch, var(--ply-indigo-1) 78%, black);
+  --ply-indigo-3: color-mix(in oklch, var(--ply-indigo-1) 58%, black);
+  --ply-indigo-surface: color-mix(
+    in oklch,
+    var(--ply-indigo-1) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-indigo-border: color-mix(in oklch, var(--ply-indigo-1) 40%, transparent);
+
+  --ply-purple-1: var(--who-spectrum-purple);
+  --ply-purple-2: color-mix(in oklch, var(--who-spectrum-purple) 78%, black);
+  --ply-purple-3: color-mix(in oklch, var(--who-spectrum-purple) 58%, black);
+  --ply-purple-surface: color-mix(
+    in oklch,
+    var(--who-spectrum-purple) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-purple-border: color-mix(
+    in oklch,
+    var(--who-spectrum-purple) 40%,
+    transparent
+  );
+
+  --ply-pink-1: var(--who-spectrum-magenta);
+  --ply-pink-2: color-mix(in oklch, var(--who-spectrum-magenta) 78%, black);
+  --ply-pink-3: color-mix(in oklch, var(--who-spectrum-magenta) 58%, black);
+  --ply-pink-surface: color-mix(
+    in oklch,
+    var(--who-spectrum-magenta) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-pink-border: color-mix(
+    in oklch,
+    var(--who-spectrum-magenta) 40%,
+    transparent
+  );
+
+  --ply-red-1: var(--who-spectrum-red);
+  --ply-red-2: color-mix(in oklch, var(--who-spectrum-red) 78%, black);
+  --ply-red-3: color-mix(in oklch, var(--who-spectrum-red) 58%, black);
+  --ply-red-surface: color-mix(
+    in oklch,
+    var(--who-spectrum-red) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-red-border: color-mix(
+    in oklch,
+    var(--who-spectrum-red) 40%,
+    transparent
+  );
+  --ply-bg-red: var(--who-spectrum-red);
+  --ply-bg-red-hover: color-mix(in oklch, var(--who-spectrum-red) 90%, white);
+  --ply-bg-red-active: color-mix(in oklch, var(--who-spectrum-red) 82%, black);
+
+  --ply-orange-1: var(--who-spectrum-orange);
+  --ply-orange-2: color-mix(in oklch, var(--who-spectrum-orange) 78%, black);
+  --ply-orange-3: color-mix(in oklch, var(--who-spectrum-orange) 58%, black);
+  --ply-orange-surface: color-mix(
+    in oklch,
+    var(--who-spectrum-orange) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-orange-border: color-mix(
+    in oklch,
+    var(--who-spectrum-orange) 40%,
+    transparent
+  );
+
+  --ply-teal-1: color-mix(
+    in oklch,
+    var(--who-spectrum-cyan) 50%,
+    var(--who-spectrum-green)
+  );
+  --ply-teal-2: color-mix(in oklch, var(--ply-teal-1) 78%, black);
+  --ply-teal-3: color-mix(in oklch, var(--ply-teal-1) 58%, black);
+  --ply-teal-surface: color-mix(
+    in oklch,
+    var(--ply-teal-1) 14%,
+    var(--ply-bg-surface-alt)
+  );
+  --ply-teal-border: color-mix(in oklch, var(--ply-teal-1) 40%, transparent);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--ply-bg-body);
+  color: var(--ply-color-body);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
@@ -68,4 +315,10 @@ body {
   .who-logo--spin {
     animation: none;
   }
+}
+
+/* Horse color swatches until faceted portraits ship */
+.who-horse-swatch {
+  border: 1px solid var(--who-horse-frame-border);
+  box-shadow: inset 0 1px 0 var(--who-horse-frame-highlight);
 }
