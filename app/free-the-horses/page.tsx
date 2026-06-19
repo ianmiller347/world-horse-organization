@@ -8,6 +8,25 @@ export const metadata: Metadata = {
     "The WHO's campaign to end horse-drawn carriages in Central Park and transition to humane electric alternatives.",
 };
 
+const REPORTING_LINKS: { date: string; label: string; href: string }[] = [
+  {
+    date: 'June 17, 2026',
+    label:
+      'Tourist killed after carriage horse bolts and overturns in Central Park',
+    href: 'https://www.nytimes.com/2026/06/17/nyregion/horse-carriage-central-park-injury.html',
+  },
+  {
+    date: 'May 19, 2026',
+    label: 'Two carriages collide; driver hospitalized near West 59th Street',
+    href: 'https://www.nytimes.com/2026/05/19/nyregion/central-park-nyc-horse-carriage-collision.html',
+  },
+  {
+    date: 'Aug. 12, 2025',
+    label: 'Central Park Conservancy calls for end of horse-drawn carriages',
+    href: 'https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html',
+  },
+];
+
 const HORSES_LOST = [
   'Ryder',
   'Shadow',
@@ -36,7 +55,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Horse carriages are a historic part of Central Park.',
-    a: "Central Park was designed in 1858 when horses were the primary mode of transportation. The city has changed. History evolves. We can honor the aesthetic with electric carriages that look classic but don't require a living animal to suffer for a tourist photo.",
+    a: "Central Park was designed in 1858 when horses were the primary mode of transportation. The city has changed. The Central Park Conservancy itself now says carriages are incompatible with a modern, heavily used park. History evolves. We can honor the aesthetic with electric carriages that look classic but don't require a living animal to suffer for a tourist photo.",
   },
   {
     q: 'What about the 300+ jobs?',
@@ -94,12 +113,31 @@ export default function FreeTheHorsesPage() {
           </p>
           <p>
             They&apos;re prey animals. When they spook &mdash; and they do,
-            regularly &mdash; it is not only horses who get hurt. On May 18,
-            2026, two horse-drawn carriages collided in Central Park near West
-            59th Street; one carriage overturned and the driver was hospitalized.
-            The horses were reported uninjured that day &mdash; luck, not safety.
-            It happened during a heat advisory, while advocates again called for
-            the City Council to pass Ryder&apos;s Law.{' '}
+            regularly &mdash; it is not only horses who get hurt. On June 17,
+            2026, a horse named Sampson bolted near Tavern on the Green while
+            the driver had stepped away to photograph a family of four aboard the
+            carriage. The runaway rig struck another carriage, overturned, and
+            broke apart. An 18-year-old tourist, Romanch Mahajan, fell from the
+            vehicle and died of his injuries at the hospital. It was less than
+            two weeks after another carriage horse died in the park &mdash; and
+            the Central Park Conservancy again called for a ban.{' '}
+            <a
+              href="https://www.nytimes.com/2026/06/17/nyregion/horse-carriage-central-park-injury.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.inlineLink}
+            >
+              New York Times coverage
+            </a>
+            .
+          </p>
+          <p>
+            On May 18, 2026, two horse-drawn carriages collided in Central Park
+            near West 59th Street; one carriage overturned and the driver was
+            hospitalized. The horses were reported uninjured that day &mdash;
+            luck, not safety. It happened during a heat advisory, while
+            advocates again called for the City Council to pass Ryder&apos;s
+            Law.{' '}
             <a
               href="https://www.nytimes.com/2026/05/19/nyregion/central-park-nyc-horse-carriage-collision.html"
               target="_blank"
@@ -123,6 +161,30 @@ export default function FreeTheHorsesPage() {
             . Major cities worldwide &mdash; Beijing, Paris, London, New Delhi
             &mdash; have already banned them. Even Palm Beach and Biloxi have
             moved on. New York is behind.
+          </p>
+          <p>
+            The{' '}
+            <strong className="text-primary">Central Park Conservancy</strong>{' '}
+            &mdash; the nonprofit that maintains the park &mdash; broke decades
+            of neutrality in August 2025 and called on city leaders to end
+            horse-drawn carriages in Central Park. In a letter to the mayor and
+            City Council speaker, Conservancy president Elizabeth W. Smith wrote
+            that with record visitation, banning carriages has become{' '}
+            <strong className="text-primary">
+              a matter of public health and safety for park visitors
+            </strong>
+            , citing runaway incidents, damage to park drives from carriages and
+            horseshoes, and manure left on the roads despite cleanup rules. The
+            Conservancy endorsed Ryder&apos;s Law.{' '}
+            <a
+              href="https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.inlineLink}
+            >
+              New York Times coverage
+            </a>
+            .
           </p>
         </div>
       </section>
@@ -296,10 +358,10 @@ export default function FreeTheHorsesPage() {
             <strong className="text-primary">Ryder&apos;s Law</strong> (Intro
             967), named after a carriage horse that collapsed and died in
             Hell&apos;s Kitchen in 2022, would phase out horse carriage licenses
-            and replace them with electric alternatives. After the May 2026
-            collision, the Central Park Conservancy and advocacy groups again
-            called for the Council to reintroduce and pass the bill. It was
-            voted down by the City Council Health Committee in November 2025
+            and replace them with electric alternatives. After the May and June
+            2026 incidents, the Central Park Conservancy and advocacy groups
+            again called for the Council to reintroduce and pass the bill. It
+            was voted down by the City Council Health Committee in November 2025
             (4&ndash;1, with 2 abstentions) after being forced to a vote through
             a procedural maneuver.
           </p>
@@ -312,11 +374,19 @@ export default function FreeTheHorsesPage() {
           </p>
           <p>
             <strong className="text-primary">17 Council members</strong>{' '}
-            co-sponsored the bill. The{' '}
-            <strong className="text-primary">Central Park Conservancy</strong>{' '}
-            has come out against the carriages &mdash; a significant shift.
-            Advocacy groups including NYCLASS, the Animal Legal Defense Fund,
-            and PETA continue to push for reintroduction.
+            co-sponsored the bill. Advocacy groups including NYCLASS, the
+            Animal Legal Defense Fund, and PETA continue to push for
+            reintroduction alongside the Conservancy&apos;s August 2025
+            position.{' '}
+            <a
+              href="https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.inlineLink}
+            >
+              Times reporting on the Conservancy&apos;s call to ban carriages
+            </a>
+            .
           </p>
           <p>
             The bill will be reintroduced. When it is, the WHO will be ready to
@@ -395,6 +465,34 @@ export default function FreeTheHorsesPage() {
             </li>
           </ul>
         </div>
+      </section>
+
+      {/* Sources */}
+      <section className="margin-bottom-xxl">
+        <h2
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${styles.sectionHeading}`}
+        >
+          Reporting
+        </h2>
+        <ul
+          className={`text-sm text-secondary leading-relaxed flat-list ${styles.stack2}`}
+        >
+          {REPORTING_LINKS.map((item) => (
+            <li key={item.href}>
+              <span className="text-tertiary">{item.date}</span>
+              {' — '}
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.inlineLink}
+              >
+                {item.label}
+              </a>
+              <span className="text-tertiary"> (New York Times)</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* CTA */}
