@@ -23,10 +23,17 @@ This isn't a fringe position. A 2022 poll found **71% of NYC voters oppose horse
 
 ### Public safety
 
+- **June 17, 2026:** Horse Sampson bolted near Tavern on the Green while the driver photographed passengers; the carriage overturned after striking another rig. Romanch Mahajan, an 18-year-old tourist, fell and died of his injuries. [NYT coverage](https://www.nytimes.com/2026/06/17/nyregion/horse-carriage-central-park-injury.html).
 - **May 18, 2026:** Two carriages collided near West 59th Street in Central Park; one overturned and the driver was hospitalized. Horses reported uninjured. Heat advisory in effect. [NYT coverage](https://www.nytimes.com/2026/05/19/nyregion/central-park-nyc-horse-carriage-collision.html).
 - In May 2025 alone, three horses spooked and bolted in Central Park, injuring at least four people.
 - Horses are prey animals. Blinders help but cannot eliminate the startle response. No regulation can prevent a spook. Drivers are at risk too.
 - E-bikes, scooters, and increasing pedestrian density make the environment more dangerous every year.
+
+### Central Park Conservancy (Aug. 2025)
+
+- For the first time, the **Central Park Conservancy** broke neutrality and formally opposed horse-drawn carriages in the park.
+- President Elizabeth W. Smith told city leaders that with record visitation, a ban is **a matter of public health and safety for park visitors** — citing runaway incidents, road damage from carriages and horseshoes, and manure on park drives.
+- The Conservancy endorsed **Ryder's Law**. [NYT, Aug. 12, 2025](https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html).
 
 ### It's archaic
 
@@ -139,5 +146,7 @@ This means every player who buys credits is directly funding horse rescue, wheth
 - CBS New York, "Ryder's Law fails in City Council committee," November 2025
 - TimeOut NY, "NYC Horse-Drawn Carriages Survive Ryder's Law Vote," November 2025
 - 2022 AMNY poll: 71% of NYC voters oppose horse-drawn carriages
+- New York Times, carriage overturn kills tourist in Central Park, June 17, 2026
 - New York Times, Central Park horse carriage collision, May 19, 2026
+- New York Times, Central Park Conservancy calls for end of horse-drawn carriages, Aug. 12, 2025
 - amNewYork / ABC7 / CBS New York, May 2026 overturn coverage
