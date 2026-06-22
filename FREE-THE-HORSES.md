@@ -19,11 +19,12 @@ This isn't a fringe position. A 2022 poll found **71% of NYC voters oppose horse
 - Horses work up to 9-hour days in extreme heat and cold.
 - They're deprived of pasture, herd interaction, and natural movement.
 - The commute from Hell's Kitchen stables to Central Park runs through some of the most dangerous streets in the city.
-- Named horses who have died or been injured in recent years: Ryder, Shadow, Aysha, Lily Rose, Spotty, Smoothie, Juliet, Jackie, Lucky, Monty, Bobby, Billy, Freddy, and Luciana.
+- Named horses who have died or been injured in recent years: Ryder, Shadow, Aysha, Lily Rose, Spotty, Smoothie, Juliet, Jackie, Lucky, Monty, Bobby, Billy, Deniz, Freddy, and Luciana.
 
 ### Public safety
 
-- **June 17, 2026:** Horse Sampson bolted near Tavern on the Green while the driver photographed passengers; the carriage overturned after striking another rig. Romanch Mahajan, an 18-year-old tourist, fell and died of his injuries. [NYT coverage](https://www.nytimes.com/2026/06/17/nyregion/horse-carriage-central-park-injury.html).
+- **June 17–18, 2026:** Horse Sampson bolted while the driver photographed a family visiting from India for a graduation trip; carriage overturned. Romanch Mahajan, 18, died; relatives said he may have jumped trying to help his mother. Conservancy counted it as the eighth horse-related incident in 13 months and the first known passenger death in more than 150 years of carriage rides. [NYT, June 18](https://www.nytimes.com/2026/06/18/nyregion/horse-carriage-central-park-death.html).
+- **June 9, 2026:** Carriage horse Deniz collapsed and died near Strawberry Fields; preliminary necropsy found toxic Japanese yew. [New York Post](https://nypost.com/2026/06/09/us-news/nyc-carriage-horse-collapses-and-dies-in-central-park-traumatizing-parkgoers/).
 - **May 18, 2026:** Two carriages collided near West 59th Street in Central Park; one overturned and the driver was hospitalized. Horses reported uninjured. Heat advisory in effect. [NYT coverage](https://www.nytimes.com/2026/05/19/nyregion/central-park-nyc-horse-carriage-collision.html).
 - In May 2025 alone, three horses spooked and bolted in Central Park, injuring at least four people.
 - Horses are prey animals. Blinders help but cannot eliminate the startle response. No regulation can prevent a spook. Drivers are at risk too.
@@ -97,22 +98,20 @@ This is critical. If we don't have a credible answer for the drivers, the campai
 
 ---
 
-## Legislative landscape (as of April 2026)
+## Legislative landscape (as of June 2026)
 
-- **Ryder's Law (Intro 967):** Named after a carriage horse that collapsed and died in Hell's Kitchen in 2022. Introduced by Councilmember Robert Holden. Would phase out horse carriage licenses and replace them with electric alternatives.
-- **Committee defeat (Nov 2025):** The Health Committee voted it down 4-1 with 2 abstentions. It was forced to a vote via procedural maneuver after Council leadership refused to bring it to the floor.
-- **17 Council co-sponsors** as of last count.
-- **Executive Order 56 (Sep 2025):** Mayor Adams signed an EO strengthening oversight and preparing for an eventual ban, but the legislative path stalled.
-- **New mayor (Mamdani, Jan 2026):** Has taken a "deeper study" position. Not hostile but not actively championing it yet.
-- **Key orgs:** NYCLASS (primary advocacy), Animal Legal Defense Fund, PETA, Central Park Conservancy (recently came out against carriages).
+- **Ryder's Law (Int 0943-2026):** Reintroduced June 11, 2026 (Christopher Marte, 14 sponsors). Winds down horse-drawn cabs; operation prohibited from June 1, 2028; humane horse disposition; workforce development for drivers. [Legistar](https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=8067835&GUID=53C552B4-4BC2-41DA-A14A-560E74E7F3E1&Options=ID|Text|&Search=marte).
+- **July 2026 hearing:** Speaker Julie Menin scheduled a Health Committee hearing after the June 17 tourist death.
+- **Prior version (Intro 967):** Defeated in Health Committee November 2025 (4-1, 2 abstentions).
+- **Key orgs:** NYCLASS (primary advocacy — [take action](https://nyclass.org/stophorseabuse/)), [Voters For Animal Rights](https://vfar.org/horses/) (urge your Council member), Central Park Conservancy, Animal Legal Defense Fund, PETA.
+- **Mayor Mamdani:** Has stated support for ending the carriage industry in city parks.
 
 ### What needs to happen
 
-1. Get Ryder's Law reintroduced in the new Council term.
-2. Build a broader coalition — the Central Park Conservancy's support is new and significant.
-3. Pressure the new mayor to take an active position.
-4. Neutralize TWU opposition by publicly and credibly solving the worker transition.
-5. Fundraise to support lobbying, sanctuary placement, and electric carriage pilots.
+1. Pass Int 0943-2026 through Health Committee and full Council.
+2. Turn out public support at the July 2026 hearing.
+3. Neutralize TWU opposition by publicly and credibly solving the worker transition.
+4. Fundraise to support sanctuary placement and electric carriage pilots.
 
 ---
 
@@ -125,7 +124,8 @@ This means every player who buys credits is directly funding horse rescue, wheth
 | Action | Timeline | Cost |
 |---|---|---|
 | Launch /free-the-horses page on worldhorseorganization.org | Done | $0 |
-| Partner with NYCLASS and share platform | Q2 2026 | $0 |
+| Take action section linking to NYCLASS + VFAR + Legistar (Int 0943-2026) | Done | $0 |
+| Formal partnership with NYCLASS | Seeking | $0 |
 | Launch microtransaction credit store | Phase 8 | Dev time |
 | Publish revenue split and running mission fund total on site | Phase 8 | Dev time |
 | Create tribute horses for each retired Central Park horse | When/if ban passes | Dev time |
@@ -146,7 +146,8 @@ This means every player who buys credits is directly funding horse rescue, wheth
 - CBS New York, "Ryder's Law fails in City Council committee," November 2025
 - TimeOut NY, "NYC Horse-Drawn Carriages Survive Ryder's Law Vote," November 2025
 - 2022 AMNY poll: 71% of NYC voters oppose horse-drawn carriages
-- New York Times, carriage overturn kills tourist in Central Park, June 17, 2026
+- New York Times, carriage death kills teen tourist in Central Park, June 18, 2026
+- New York Post, carriage horse Deniz collapses and dies in Central Park, June 9, 2026
 - New York Times, Central Park horse carriage collision, May 19, 2026
 - New York Times, Central Park Conservancy calls for end of horse-drawn carriages, Aug. 12, 2025
 - amNewYork / ABC7 / CBS New York, May 2026 overturn coverage

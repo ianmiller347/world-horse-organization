@@ -8,22 +8,43 @@ export const metadata: Metadata = {
     "The WHO's campaign to end horse-drawn carriages in Central Park and transition to humane electric alternatives.",
 };
 
-const REPORTING_LINKS: { date: string; label: string; href: string }[] = [
+const LEGISLATION_URL =
+  'https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=8067835&GUID=53C552B4-4BC2-41DA-A14A-560E74E7F3E1&Options=ID|Text|&Search=marte';
+
+const NYCLASS_ACTION_URL = 'https://nyclass.org/stophorseabuse/';
+
+const VFAR_ACTION_URL = 'https://vfar.org/horses/';
+
+const REPORTING_LINKS: {
+  date: string;
+  label: string;
+  href: string;
+  source: string;
+}[] = [
   {
-    date: 'June 17, 2026',
+    date: 'June 18, 2026',
     label:
-      'Tourist killed after carriage horse bolts and overturns in Central Park',
-    href: 'https://www.nytimes.com/2026/06/17/nyregion/horse-carriage-central-park-injury.html',
+      'Teen tourist killed after runaway carriage overturns in Central Park',
+    href: 'https://www.nytimes.com/2026/06/18/nyregion/horse-carriage-central-park-death.html',
+    source: 'New York Times',
+  },
+  {
+    date: 'June 9, 2026',
+    label: 'Carriage horse Deniz collapses and dies near Strawberry Fields',
+    href: 'https://nypost.com/2026/06/09/us-news/nyc-carriage-horse-collapses-and-dies-in-central-park-traumatizing-parkgoers/',
+    source: 'New York Post',
   },
   {
     date: 'May 19, 2026',
     label: 'Two carriages collide; driver hospitalized near West 59th Street',
     href: 'https://www.nytimes.com/2026/05/19/nyregion/central-park-nyc-horse-carriage-collision.html',
+    source: 'New York Times',
   },
   {
     date: 'Aug. 12, 2025',
     label: 'Central Park Conservancy calls for end of horse-drawn carriages',
     href: 'https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html',
+    source: 'New York Times',
   },
 ];
 
@@ -40,6 +61,7 @@ const HORSES_LOST = [
   'Monty',
   'Bobby',
   'Billy',
+  'Deniz',
   'Freddy',
   'Luciana',
 ];
@@ -115,19 +137,43 @@ export default function FreeTheHorsesPage() {
             They&apos;re prey animals. When they spook &mdash; and they do,
             regularly &mdash; it is not only horses who get hurt. On June 17,
             2026, a horse named Sampson bolted near Tavern on the Green while
-            the driver had stepped away to photograph a family of four aboard the
-            carriage. The runaway rig struck another carriage, overturned, and
-            broke apart. An 18-year-old tourist, Romanch Mahajan, fell from the
-            vehicle and died of his injuries at the hospital. It was less than
-            two weeks after another carriage horse died in the park &mdash; and
-            the Central Park Conservancy again called for a ban.{' '}
+            the driver had stepped away to photograph a family visiting from
+            India for his graduation. Romanch Mahajan, 18, fell from the
+            overturned carriage and died at the hospital; relatives said he may
+            have jumped trying to help his mother. The rest of his family
+            escaped with minor injuries. The
+            Central Park Conservancy called it the{' '}
+            <strong className="text-primary">
+              eighth horse-related incident in the park in 13 months
+            </strong>
+            , and the first known passenger death in more than 150 years of
+            carriage rides there. Less than two weeks earlier, another carriage
+            horse had died in the same park.{' '}
             <a
-              href="https://www.nytimes.com/2026/06/17/nyregion/horse-carriage-central-park-injury.html"
+              href="https://www.nytimes.com/2026/06/18/nyregion/horse-carriage-central-park-death.html"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.inlineLink}
             >
               New York Times coverage
+            </a>
+            .
+          </p>
+          <p>
+            On June 9, 2026, a carriage horse named Deniz collapsed and died
+            near Strawberry Fields and West 72nd Street around 7:30 p.m.,
+            thrashing on the pavement for roughly ten minutes as parkgoers
+            watched. A preliminary necropsy found needles from a toxic Japanese
+            yew plant in his stomach. The incident came less than 24 hours
+            before advocates rallied at City Hall to reintroduce Ryder&apos;s
+            Law.{' '}
+            <a
+              href="https://nypost.com/2026/06/09/us-news/nyc-carriage-horse-collapses-and-dies-in-central-park-traumatizing-parkgoers/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.inlineLink}
+            >
+              New York Post coverage
             </a>
             .
           </p>
@@ -164,10 +210,10 @@ export default function FreeTheHorsesPage() {
           </p>
           <p>
             The{' '}
-            <strong className="text-primary">Central Park Conservancy</strong>{' '}
-            &mdash; the nonprofit that maintains the park &mdash; broke decades
-            of neutrality in August 2025 and called on city leaders to end
-            horse-drawn carriages in Central Park. In a letter to the mayor and
+            <strong className="text-primary">Central Park Conservancy</strong>,
+            the nonprofit that maintains the park, broke decades of neutrality
+            in August 2025 and called on city leaders to end horse-drawn
+            carriages in Central Park. In a letter to the mayor and
             City Council speaker, Conservancy president Elizabeth W. Smith wrote
             that with record visitation, banning carriages has become{' '}
             <strong className="text-primary">
@@ -355,29 +401,28 @@ export default function FreeTheHorsesPage() {
           className={`text-secondary leading-relaxed text-sm ${styles.stack4}`}
         >
           <p>
-            <strong className="text-primary">Ryder&apos;s Law</strong> (Intro
-            967), named after a carriage horse that collapsed and died in
-            Hell&apos;s Kitchen in 2022, would phase out horse carriage licenses
-            and replace them with electric alternatives. After the May and June
-            2026 incidents, the Central Park Conservancy and advocacy groups
-            again called for the Council to reintroduce and pass the bill. It
-            was voted down by the City Council Health Committee in November 2025
-            (4&ndash;1, with 2 abstentions) after being forced to a vote through
-            a procedural maneuver.
+            <strong className="text-primary">Ryder&apos;s Law</strong> (
+            <a
+              href={LEGISLATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.inlineLink}
+            >
+              Int 0943-2026
+            </a>
+            ), reintroduced in June 2026, would wind down horse-drawn cabs:
+            no new licenses after May 31, 2028, full prohibition from June 1,
+            2028, humane retirement for carriage horses, and a workforce
+            development program for drivers. Council Speaker Julie Menin has
+            scheduled a Health Committee hearing for July 2026. A prior version
+            was voted down in committee in November 2025 (4&ndash;1, with 2
+            abstentions).
           </p>
           <p>
-            Former Mayor Adams signed{' '}
-            <strong className="text-primary">Executive Order 56</strong> in
-            September 2025, strengthening oversight and preparing for an
-            eventual ban. The current mayor has taken a cautious &ldquo;deeper
-            study&rdquo; position.
-          </p>
-          <p>
-            <strong className="text-primary">17 Council members</strong>{' '}
-            co-sponsored the bill. Advocacy groups including NYCLASS, the
-            Animal Legal Defense Fund, and PETA continue to push for
-            reintroduction alongside the Conservancy&apos;s August 2025
-            position.{' '}
+            NYCLASS has led advocacy for years; the Central Park Conservancy
+            broke neutrality in August 2025. After the May and June 2026
+            incidents, both renewed calls to pass the bill. Mayor Mamdani has
+            said it is time to end the carriage industry in city parks.{' '}
             <a
               href="https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html"
               target="_blank"
@@ -389,10 +434,63 @@ export default function FreeTheHorsesPage() {
             .
           </p>
           <p>
-            The bill will be reintroduced. When it is, the WHO will be ready to
-            support it &mdash; with funds, with platform, and with a credible
-            plan for both the horses and the workers.
+            The WHO amplifies this fight to our audience and is building
+            sanctuary placement and worker-transition funding &mdash; we defer
+            to NYCLASS for grassroots lobbying and official campaign tools.
           </p>
+        </div>
+      </section>
+
+      {/* Take action */}
+      <section className="margin-bottom-xxl border bg-surface padding-lg">
+        <h2
+          className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}
+        >
+          Take Action
+        </h2>
+        <div className={`text-secondary leading-relaxed text-sm ${styles.stack4}`}>
+          <p>
+            <strong className="text-primary">Int 0943-2026</strong> is before
+            the City Council Health Committee, with a hearing expected in{' '}
+            <strong className="text-primary">July 2026</strong>. The bill phases
+            out horse-drawn cabs, requires humane retirement for horses, and
+            funds workforce transition for drivers &mdash; aligned with the
+            WHO&apos;s plan for sanctuary placement and electric carriages.
+          </p>
+          <p>
+            NYCLASS runs the primary NYC campaign on this issue (alongside
+            groups like the Central Park Conservancy and Voters For Animal
+            Rights). Use their tools to contact your Council member or Speaker
+            Menin&apos;s office &mdash; especially before the hearing.
+          </p>
+          <div
+            className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
+          >
+            <a
+              href={NYCLASS_ACTION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Take action with NYCLASS
+            </a>
+            <a
+              href={VFAR_ACTION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary-outline"
+            >
+              Urge your Council member (VFAR)
+            </a>
+            <a
+              href={LEGISLATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary-outline"
+            >
+              Read the bill (Legistar)
+            </a>
+          </div>
         </div>
       </section>
 
@@ -440,7 +538,17 @@ export default function FreeTheHorsesPage() {
             <li className="display-flex gap-sm">
               <span className={`color-green ${styles.noShrink}`}>Now</span>
               <span>
-                Partnering with NYCLASS and other advocacy organizations.
+                Seeking partnership with NYCLASS &mdash; amplifying their
+                campaign and linking to{' '}
+                <a
+                  href={NYCLASS_ACTION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.inlineLink}
+                >
+                  their action tools
+                </a>
+                .
               </span>
             </li>
             <li className="display-flex gap-sm">
@@ -489,7 +597,7 @@ export default function FreeTheHorsesPage() {
               >
                 {item.label}
               </a>
-              <span className="text-tertiary"> (New York Times)</span>
+              <span className="text-tertiary"> ({item.source})</span>
             </li>
           ))}
         </ul>

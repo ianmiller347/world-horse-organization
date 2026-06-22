@@ -60,6 +60,10 @@
   flex-shrink: 0;
 }
 
+.takeActionButtons {
+  flex-wrap: wrap;
+}
+
 .ctaButton {
   transition: opacity 0.15s;
 }
