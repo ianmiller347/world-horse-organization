@@ -1,0 +1,59 @@
+.pageContainer {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4rem 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroHeading {
+  letter-spacing: -0.025em;
+}
+
+.programTree {
+  margin-top: 2.5rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--ply-color-border);
+}
+
+.branch + .branch {
+  margin-top: 1.5rem;
+}
+
+.branchLabel {
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.branchCard {
+  display: block;
+  transition: border-color 0.15s;
+}
+
+a.branchCard:hover {
+  border-color: var(--ply-color-secondary);
+}
+
+.branchDescription {
+  max-width: 32rem;
+}
+
+.inlineLink {
+  color: var(--ply-color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.inlineLink:hover {
+  color: var(--ply-color-link-hover);
+}
+
+.gameLinks {
+  flex-wrap: wrap;
+}
+
+.userRow {
+  margin-top: 0.75rem;
+}
