@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import site from '../site.module.css';
 import styles from './free-the-horses.module.css';
 
 export const metadata: Metadata = {
@@ -14,6 +15,10 @@ const LEGISLATION_URL =
 const NYCLASS_ACTION_URL = 'https://nyclass.org/stophorseabuse/';
 
 const VFAR_ACTION_URL = 'https://vfar.org/horses/';
+
+const HEARING_TESTIFY_URL = 'https://council.nyc.gov/testify/';
+const HEARING_LIVESTREAM_URL = 'https://council.nyc.gov/livestream/';
+const HEARING_TESTIMONY_EMAIL = 'testimony@council.nyc.gov';
 
 const REPORTING_LINKS: {
   date: string;
@@ -99,15 +104,12 @@ const FAQ: { q: string; a: string }[] = [
 
 export default function FreeTheHorsesPage() {
   return (
-    <main className={styles.pageContainer}>
-      <Link href="/" className={`text-xs text-tertiary ${styles.backLink}`}>
-        &larr; Home
-      </Link>
-
+    <main className={site.contentWide}>
       {/* Hero */}
-      <section className="margin-top-lg margin-bottom-xxl">
+      <section className="margin-bottom-xxl">
+        <p className="text-sm mono uppercase text-tertiary">Campaigns</p>
         <h1
-          className={`text-4xl font-bold ${styles.heroHeading} ${styles.heroHeadingResponsive}`}
+          className={`text-4xl font-bold margin-top-sm ${site.heroHeading} ${site.heroHeadingLg}`}
         >
           Free the Horses
         </h1>
@@ -121,11 +123,11 @@ export default function FreeTheHorsesPage() {
       {/* The Problem */}
       <section className="margin-bottom-xxl">
         <h2
-          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${styles.sectionHeading}`}
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${site.sectionHeading}`}
         >
           The Problem
         </h2>
-        <div className={`text-secondary leading-relaxed ${styles.stack4}`}>
+        <div className={`text-secondary leading-relaxed ${site.stack4}`}>
           <p>
             Every day in New York City, horses are forced to haul heavy
             carriages through some of the most congested streets in the country.
@@ -153,7 +155,7 @@ export default function FreeTheHorsesPage() {
               href="https://www.nytimes.com/2026/06/18/nyregion/horse-carriage-central-park-death.html"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.inlineLink}
+              className={site.inlineLink}
             >
               New York Times coverage
             </a>
@@ -171,7 +173,7 @@ export default function FreeTheHorsesPage() {
               href="https://nypost.com/2026/06/09/us-news/nyc-carriage-horse-collapses-and-dies-in-central-park-traumatizing-parkgoers/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.inlineLink}
+              className={site.inlineLink}
             >
               New York Post coverage
             </a>
@@ -188,7 +190,7 @@ export default function FreeTheHorsesPage() {
               href="https://www.nytimes.com/2026/05/19/nyregion/central-park-nyc-horse-carriage-collision.html"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.inlineLink}
+              className={site.inlineLink}
             >
               New York Times coverage
             </a>
@@ -226,7 +228,7 @@ export default function FreeTheHorsesPage() {
               href="https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.inlineLink}
+              className={site.inlineLink}
             >
               New York Times coverage
             </a>
@@ -238,7 +240,7 @@ export default function FreeTheHorsesPage() {
       {/* Memorial */}
       <section className="margin-bottom-xxl border bg-surface padding-lg">
         <h2
-          className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}
+          className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}
         >
           In memory
         </h2>
@@ -261,49 +263,49 @@ export default function FreeTheHorsesPage() {
       {/* The Plan */}
       <section className="margin-bottom-xxl">
         <h2
-          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${styles.sectionHeading}`}
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${site.sectionHeading}`}
         >
           The Plan
         </h2>
 
-        <div className={styles.stack8}>
+        <div className={site.stack8}>
           <div>
             <h3 className="text-lg font-semibold margin-bottom-sm">
               For the horses: sanctuary retirement
             </h3>
             <ul
-              className={`text-secondary text-sm leading-relaxed flat-list ${styles.stack2}`}
+              className={`text-secondary text-sm leading-relaxed flat-list ${site.stack2}`}
             >
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Every retired horse goes to an accredited sanctuary &mdash; no
                 auctions, no resale.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 The WHO fundraises to cover transport, intake, and the first
                 year of care.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Partnerships with established organizations like Catskill Animal
                 Sanctuary and Equine Advocates.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Every real retired horse gets a named tribute horse in the WHO
                 digital sanctuary &mdash; keeping their story alive.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Transparent public tracking: where each horse is, how
@@ -317,10 +319,10 @@ export default function FreeTheHorsesPage() {
               For the workers: electric carriages
             </h3>
             <ul
-              className={`text-secondary text-sm leading-relaxed flat-list ${styles.stack2}`}
+              className={`text-secondary text-sm leading-relaxed flat-list ${site.stack2}`}
             >
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Same routes through Central Park. Same scenic experience for
@@ -328,27 +330,27 @@ export default function FreeTheHorsesPage() {
                 immigrant workforce that depends on this work today.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Existing carriage medallion holders convert to electric permits
                 at no cost.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Funded training program on EV operation &mdash; short and
                 practical, these are experienced drivers.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Vehicle subsidies so the switch costs workers nothing.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Vintage-style electric carriages preserve the classic aesthetic
@@ -362,24 +364,24 @@ export default function FreeTheHorsesPage() {
               For the city: a smooth transition
             </h3>
             <ul
-              className={`text-secondary text-sm leading-relaxed flat-list ${styles.stack2}`}
+              className={`text-secondary text-sm leading-relaxed flat-list ${site.stack2}`}
             >
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 18&ndash;24 month wind-down period. No cliff &mdash; horse
                 licenses sunset gradually while electric permits ramp up.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Tourists still get the carriage ride. It just doesn&apos;t
                 require a living animal to suffer.
               </li>
               <li className="display-flex gap-sm">
-                <span className={`text-tertiary ${styles.noShrink}`}>
+                <span className={`text-tertiary ${site.noShrink}`}>
                   &bull;
                 </span>
                 Quieter, zero-emission vehicles improve the park experience for
@@ -393,12 +395,12 @@ export default function FreeTheHorsesPage() {
       {/* Where things stand */}
       <section className="margin-bottom-xxl">
         <h2
-          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${styles.sectionHeading}`}
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${site.sectionHeading}`}
         >
           Where Things Stand
         </h2>
         <div
-          className={`text-secondary leading-relaxed text-sm ${styles.stack4}`}
+          className={`text-secondary leading-relaxed text-sm ${site.stack4}`}
         >
           <p>
             <strong className="text-primary">Ryder&apos;s Law</strong> (
@@ -406,17 +408,20 @@ export default function FreeTheHorsesPage() {
               href={LEGISLATION_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.inlineLink}
+              className={site.inlineLink}
             >
               Int 0943-2026
             </a>
             ), reintroduced in June 2026, would wind down horse-drawn cabs:
             no new licenses after May 31, 2028, full prohibition from June 1,
             2028, humane retirement for carriage horses, and a workforce
-            development program for drivers. Council Speaker Julie Menin has
-            scheduled a Health Committee hearing for July 2026. A prior version
-            was voted down in committee in November 2025 (4&ndash;1, with 2
-            abstentions).
+            development program for drivers. The Health Committee will hold a
+            public hearing on{' '}
+            <strong className="text-primary">
+              Wednesday, July 15, 2026 at 10:00&nbsp;a.m.
+            </strong>{' '}
+            at City Hall. A prior version was voted down in committee in
+            November 2025 (4&ndash;1, with 2 abstentions).
           </p>
           <p>
             NYCLASS has led advocacy for years; the Central Park Conservancy
@@ -427,7 +432,7 @@ export default function FreeTheHorsesPage() {
               href="https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.inlineLink}
+              className={site.inlineLink}
             >
               Times reporting on the Conservancy&apos;s call to ban carriages
             </a>
@@ -441,54 +446,96 @@ export default function FreeTheHorsesPage() {
         </div>
       </section>
 
-      {/* Take action */}
-      <section className="margin-bottom-xxl border bg-surface padding-lg">
+      {/* July 15 hearing */}
+      <section
+        id="hearing"
+        className={`margin-bottom-xxl border bg-surface padding-xl ${site.programCardFeatured}`}
+      >
         <h2
-          className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}
+          className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}
         >
-          Take Action
+          Public hearing — July 15, 2026
         </h2>
-        <div className={`text-secondary leading-relaxed text-sm ${styles.stack4}`}>
+        <div className={`text-secondary leading-relaxed text-sm ${site.stack4}`}>
           <p>
-            <strong className="text-primary">Int 0943-2026</strong> is before
-            the City Council Health Committee, with a hearing expected in{' '}
-            <strong className="text-primary">July 2026</strong>. The bill phases
-            out horse-drawn cabs, requires humane retirement for horses, and
-            funds workforce transition for drivers &mdash; aligned with the
-            WHO&apos;s plan for sanctuary placement and electric carriages.
+            Speaker Julie Menin&apos;s office has scheduled a{' '}
+            <strong className="text-primary">
+              Health Committee hearing
+            </strong>{' '}
+            on legislation to begin winding down the horse-drawn cab industry.
+            Council Member Lynn Schulman chairs the committee.
           </p>
+          <ul className={`flat-list ${site.stack2}`}>
+            <li>
+              <strong className="text-primary">When:</strong> Wednesday, July
+              15, 2026, 10:00&nbsp;a.m.
+            </li>
+            <li>
+              <strong className="text-primary">Where:</strong> Council Chambers,
+              New York City Hall
+            </li>
+            <li>
+              <strong className="text-primary">Public testimony:</strong>{' '}
+              Begins after invited experts. Two minutes per person, in person or
+              via Zoom (web or phone).
+            </li>
+          </ul>
           <p>
-            NYCLASS runs the primary NYC campaign on this issue (alongside
-            groups like the Central Park Conservancy and Voters For Animal
-            Rights). Use their tools to contact your Council member or Speaker
-            Menin&apos;s office &mdash; especially before the hearing.
+            Members of the public can{' '}
+            <a
+              href={HEARING_TESTIFY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              register to testify
+            </a>{' '}
+            or submit written testimony at{' '}
+            <a
+              href={HEARING_TESTIFY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              council.nyc.gov/testify
+            </a>{' '}
+            (accepted up to 72 hours after the hearing adjourns). You can also
+            email written testimony to{' '}
+            <a
+              href={`mailto:${HEARING_TESTIMONY_EMAIL}`}
+              className={site.inlineLink}
+            >
+              {HEARING_TESTIMONY_EMAIL}
+            </a>
+            . The hearing will be{' '}
+            <a
+              href={HEARING_LIVESTREAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              webcast live
+            </a>{' '}
+            — select &ldquo;City Hall, Council Chambers.&rdquo;
           </p>
           <div
             className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
           >
             <a
-              href={NYCLASS_ACTION_URL}
+              href={HEARING_TESTIFY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Take action with NYCLASS
+              Register to testify
             </a>
             <a
-              href={VFAR_ACTION_URL}
+              href={HEARING_LIVESTREAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary-outline"
             >
-              Urge your Council member (VFAR)
-            </a>
-            <a
-              href={LEGISLATION_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary-outline"
-            >
-              Read the bill (Legistar)
+              Watch livestream
             </a>
           </div>
         </div>
@@ -497,11 +544,11 @@ export default function FreeTheHorsesPage() {
       {/* FAQ */}
       <section className="margin-bottom-xxl">
         <h2
-          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${styles.sectionHeading}`}
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${site.sectionHeading}`}
         >
           Common Questions
         </h2>
-        <div className={styles.stack6}>
+        <div className={site.stack6}>
           {FAQ.map((item, i) => (
             <div key={i} className="border bg-surface padding-lg">
               <h3 className="font-semibold text-sm margin-bottom-sm">
@@ -516,27 +563,27 @@ export default function FreeTheHorsesPage() {
       {/* What WHO is doing */}
       <section className="margin-bottom-xxl">
         <h2
-          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${styles.sectionHeading}`}
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${site.sectionHeading}`}
         >
           What the WHO Is Doing
         </h2>
         <div
-          className={`text-secondary leading-relaxed text-sm ${styles.stack4}`}
+          className={`text-secondary leading-relaxed text-sm ${site.stack4}`}
         >
           <p>
             The World Horse Organization exists because horses deserve freedom.
             That mission doesn&apos;t stop at the digital sanctuary. Here&apos;s
             how we&apos;re contributing to the real-world fight:
           </p>
-          <ul className={`flat-list ${styles.stack2}`}>
+          <ul className={`flat-list ${site.stack2}`}>
             <li className="display-flex gap-sm">
-              <span className={`color-green ${styles.noShrink}`}>Now</span>
+              <span className={`color-green ${site.noShrink}`}>Now</span>
               <span>
                 This page. Raising awareness and making the case publicly.
               </span>
             </li>
             <li className="display-flex gap-sm">
-              <span className={`color-green ${styles.noShrink}`}>Now</span>
+              <span className={`color-green ${site.noShrink}`}>Now</span>
               <span>
                 Seeking partnership with NYCLASS &mdash; amplifying their
                 campaign and linking to{' '}
@@ -544,7 +591,7 @@ export default function FreeTheHorsesPage() {
                   href={NYCLASS_ACTION_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.inlineLink}
+                  className={site.inlineLink}
                 >
                   their action tools
                 </a>
@@ -552,20 +599,20 @@ export default function FreeTheHorsesPage() {
               </span>
             </li>
             <li className="display-flex gap-sm">
-              <span className={`color-yellow ${styles.noShrink}`}>Soon</span>
+              <span className={`color-yellow ${site.noShrink}`}>Soon</span>
               <span>
                 In-game credit purchases fund the WHO mission. Profits from
                 microtransactions go directly to the cause.
               </span>
             </li>
             <li className="display-flex gap-sm">
-              <span className={`color-yellow ${styles.noShrink}`}>Soon</span>
+              <span className={`color-yellow ${site.noShrink}`}>Soon</span>
               <span>
                 A public running total of funds raised, displayed right here.
               </span>
             </li>
             <li className="display-flex gap-sm">
-              <span className={`text-tertiary ${styles.noShrink}`}>Later</span>
+              <span className={`text-tertiary ${site.noShrink}`}>Later</span>
               <span>
                 Tribute horses in the game for every real horse retired from
                 Central Park service.
@@ -578,12 +625,12 @@ export default function FreeTheHorsesPage() {
       {/* Sources */}
       <section className="margin-bottom-xxl">
         <h2
-          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${styles.sectionHeading}`}
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${site.sectionHeading}`}
         >
           Reporting
         </h2>
         <ul
-          className={`text-sm text-secondary leading-relaxed flat-list ${styles.stack2}`}
+          className={`text-sm text-secondary leading-relaxed flat-list ${site.stack2}`}
         >
           {REPORTING_LINKS.map((item) => (
             <li key={item.href}>
@@ -593,7 +640,7 @@ export default function FreeTheHorsesPage() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.inlineLink}
+                className={site.inlineLink}
               >
                 {item.label}
               </a>
@@ -603,24 +650,112 @@ export default function FreeTheHorsesPage() {
         </ul>
       </section>
 
-      {/* CTA */}
-      <section className="border bg-surface padding-xl align-center">
-        <h2 className="text-2xl font-bold margin-bottom-sm">
-          Horses belong on pastures, not pavement.
+      {/* How you can help — single closing CTA; only actions that work today */}
+      <section
+        id="help"
+        className="margin-bottom-xxl border bg-surface padding-xl"
+      >
+        <h2
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${site.sectionHeading}`}
+        >
+          How you can help
         </h2>
-        <p
-          className={`text-sm text-secondary margin-bottom-lg ${styles.ctaDescription}`}
-        >
-          Join the WHO. Play the game. Every credit purchased helps fund
-          real-world sanctuary placement for Central Park&apos;s carriage
-          horses.
-        </p>
-        <Link
-          href="/"
-          className={`btn btn-primary display-inline-block ${styles.ctaButton}`}
-        >
-          Join the World Horse Organization
-        </Link>
+
+        <div className={site.stack6}>
+          <div>
+            <h3 className="text-lg font-semibold margin-bottom-sm">
+              Testify at the July 15 hearing
+            </h3>
+            <p className="text-sm text-secondary leading-relaxed">
+              The Health Committee hearing on{' '}
+              <strong className="text-primary">Int 0943-2026</strong> is the
+              most important moment on the calendar. Register to speak in
+              person or on Zoom, submit written testimony, or watch the livestream.{' '}
+              <a href="#hearing" className={site.inlineLink}>
+                Full hearing details
+              </a>
+              .
+            </p>
+            <div
+              className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
+            >
+              <a
+                href={HEARING_TESTIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Register to testify
+              </a>
+              <a
+                href={HEARING_LIVESTREAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary-outline"
+              >
+                Watch livestream
+              </a>
+            </div>
+          </div>
+
+          <div className="padding-top-lg border-top">
+            <h3 className="text-lg font-semibold margin-bottom-sm">
+              Contact your Council member
+            </h3>
+            <p className="text-sm text-secondary leading-relaxed">
+              NYCLASS, Voters For Animal Rights, and other advocates run tools
+              to urge your Council member and Speaker Menin&apos;s office to
+              support Ryder&apos;s Law — especially before the hearing.
+            </p>
+            <div
+              className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
+            >
+              <a
+                href={NYCLASS_ACTION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary-outline"
+              >
+                Take action with NYCLASS
+              </a>
+              <a
+                href={VFAR_ACTION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary-outline"
+              >
+                Urge your Council member (VFAR)
+              </a>
+              <a
+                href={LEGISLATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary-outline"
+              >
+                Read the bill (Legistar)
+              </a>
+            </div>
+          </div>
+
+          <div className="padding-top-lg border-top">
+            <h3 className="text-lg font-semibold margin-bottom-sm">
+              Join the World Horse Organization
+            </h3>
+            <p className="text-sm text-secondary leading-relaxed">
+              The WHO is more than this campaign or the horse racing game alone.
+              Join to become part of a community working to release horses from
+              ownership — supporting advocacy like Free the Horses and
+              participating in the digital sanctuary. In-game credit purchases
+              will fund real-world sanctuary placement; that store is not live
+              yet.
+            </p>
+            <div className="margin-top">
+              <Link href="/sign-in" className="btn btn-secondary-outline">
+                Join the WHO
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );

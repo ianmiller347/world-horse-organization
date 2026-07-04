@@ -1,39 +1,4 @@
-/* Shared layout utilities for horse-racing pages.
-   Covers ply gaps: max-width, axis padding, spacing stacks, letter-spacing. */
-
-.pageContainer {
-  max-width: 56rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 3rem 1.5rem;
-}
-
-.pageContainerNarrow {
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 3rem 1.5rem;
-}
-
-.sectionHeading {
-  letter-spacing: 0.1em;
-}
-
-.trackingTight {
-  letter-spacing: -0.025em;
-}
-
-.stack2 > * + * {
-  margin-top: 0.5rem;
-}
-
-.stack3 > * + * {
-  margin-top: 0.75rem;
-}
-
-.noShrink {
-  flex-shrink: 0;
-}
+/* Game-specific layout — horse portraits, grids, leaderboard */
 
 .colorSwatch,
 .colorSwatchLg,

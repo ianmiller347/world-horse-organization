@@ -1,117 +1,95 @@
-import { auth } from '@/lib/auth/config';
-import { UserMenu } from '@/components/auth/user-menu';
 import Link from 'next/link';
 import Logo from '@/components/svg/Logo';
-import styles from './home.module.css';
+import site from './site.module.css';
 
-export default async function Home() {
-  const session = await auth();
-
+export default function Home() {
   return (
-    <main className={styles.pageContainer}>
-      <div className="align-center">
-        <h1 className={`text-4xl font-bold ${styles.heroHeading}`}>
-          World Horse Organization
-        </h1>
+    <main className={site.content}>
+      <h1 className={`text-4xl font-bold ${site.heroHeading}`}>
+        Horses deserve freedom.
+      </h1>
+      <p className="text-lg text-secondary leading-relaxed margin-top-lg">
+        The World Horse Organization releases horses from ownership into
+        collective care — through real-world campaigns and a digital sanctuary
+        where guardians never become owners.
+      </p>
 
-        <p className="text-lg text-secondary leading-relaxed margin-top-lg">
-          Horses deserve freedom. The WHO works to release horses from ownership
-          into collective care &mdash; through real-world campaigns and a digital
-          sanctuary where guardians never become owners.
+      <div className="display-flex justify-center margin-top-lg">
+        <Logo className="width-25 who-logo--spin" aria-hidden />
+      </div>
+
+      <section
+        className={`margin-top-xl border bg-surface padding-lg ${site.programCardFeatured}`}
+        aria-labelledby="join-who"
+      >
+        <h2 id="join-who" className="text-xl font-semibold">
+          Join the World Horse Organization
+        </h2>
+        <p className="text-sm text-secondary leading-relaxed margin-top-sm">
+          Become part of a community working to free horses in the real world
+          and care for them in the digital sanctuary. Campaigns, advocacy, and
+          the horse racing game are all part of the same mission — not separate
+          products.
         </p>
-
-        <div className="display-flex justify-center margin-top-lg">
-          <Logo className="width-25 who-logo--spin" />
+        <div className="margin-top">
+          <Link href="/sign-in" className="btn btn-primary">
+            Join the WHO
+          </Link>
         </div>
+      </section>
 
-        <div className={styles.programTree}>
-          <div className={styles.branch}>
+      <section className={site.programSection} aria-labelledby="who-programs">
+        <h2
+          id="who-programs"
+          className={`text-sm mono uppercase text-tertiary ${site.sectionHeading}`}
+        >
+          What we do
+        </h2>
+        <div className={`margin-top ${site.programGrid}`}>
+          <div>
             <p
-              className={`text-sm mono uppercase text-tertiary ${styles.branchLabel}`}
+              className={`text-sm mono uppercase text-tertiary ${site.programCardLabel}`}
             >
               Campaigns
             </p>
             <Link
               href="/free-the-horses"
-              className={`border bg-surface padding-lg ${styles.branchCard}`}
+              className={`border bg-surface padding-lg ${site.programCard} ${site.programCardFeatured}`}
             >
-              <h2 className="text-lg font-semibold">Free the Horses</h2>
-              <p
-                className={`text-sm text-secondary leading-relaxed margin-top-sm ${styles.branchDescription}`}
-              >
+              <h3 className="text-lg font-semibold">Free the Horses</h3>
+              <p className="text-sm text-secondary leading-relaxed margin-top-sm">
                 End horse-drawn carriages in Central Park. Support Ryder&apos;s
-                Law, learn what happened to horses like Ryder and Deniz, and take
-                action with advocates on the ground.
+                Law and take action with advocates on the ground. Open to
+                everyone — no account required.
               </p>
-              <span
-                className={`text-sm margin-top display-inline-block ${styles.inlineLink}`}
-              >
+              <span className={`${site.programCardCta} ${site.inlineLink}`}>
                 Read the campaign &rarr;
               </span>
             </Link>
           </div>
 
-          <div className={styles.branch}>
+          <div>
             <p
-              className={`text-sm mono uppercase text-tertiary ${styles.branchLabel}`}
+              className={`text-sm mono uppercase text-tertiary ${site.programCardLabel}`}
             >
               Digital sanctuary
             </p>
-            <div className="border bg-surface padding-lg">
-              <h2 className="text-lg font-semibold">Horse Racing Game</h2>
-              <p
-                className={`text-sm text-secondary leading-relaxed margin-top-sm ${styles.branchDescription}`}
-              >
-                Rescue horses, enter weekly races, trade guardianship, and breed
-                the next generation &mdash; all without a single horse being
-                owned.
+            <div className={`border bg-surface padding-lg ${site.programCard}`}>
+              <h3 className="text-lg font-semibold">Horse racing game</h3>
+              <p className="text-sm text-secondary leading-relaxed margin-top-sm">
+                One component of the WHO. Rescue horses, enter weekly races,
+                trade guardianship, and breed the next generation — included when
+                you join.
               </p>
-
-              {session?.user ? (
-                <>
-                  <div
-                    className={`display-flex gap-sm margin-top ${styles.gameLinks}`}
-                  >
-                    <Link
-                      href="/horse-racing/stable"
-                      className="btn btn-secondary-outline text-sm"
-                    >
-                      Your stable
-                    </Link>
-                    <Link
-                      href="/horse-racing/races"
-                      className="btn btn-secondary-outline text-sm"
-                    >
-                      Races
-                    </Link>
-                    <Link
-                      href="/horse-racing/marketplace"
-                      className="btn btn-secondary-outline text-sm"
-                    >
-                      Marketplace
-                    </Link>
-                    <Link
-                      href="/horse-racing/leaderboard"
-                      className="btn btn-secondary-outline text-sm"
-                    >
-                      Leaderboard
-                    </Link>
-                  </div>
-                  <div className={styles.userRow}>
-                    <UserMenu />
-                  </div>
-                </>
-              ) : (
-                <p className="text-sm text-tertiary margin-top">
-                  <Link href="/sign-in" className={`text-sm ${styles.inlineLink}`}>
-                    Sign in to play the horse racing game &rarr;
-                  </Link>
-                </p>
-              )}
+              <p className={site.programCardCta}>
+                <Link href="/sign-in" className={site.inlineLink}>
+                  Join the WHO &rarr;
+                </Link>
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

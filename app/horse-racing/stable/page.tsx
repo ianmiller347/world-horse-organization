@@ -7,6 +7,7 @@ import { HorseCard } from "@/components/horses/horse-card";
 import { RescueButton } from "@/components/horses/rescue-button";
 import { ListHorseForm } from "@/components/marketplace/list-horse-form";
 import Link from "next/link";
+import site from "../../site.module.css";
 import styles from "../horse-racing.module.css";
 
 export default async function StablePage() {
@@ -35,13 +36,10 @@ export default async function StablePage() {
   const unlistedHorses = userHorses.filter((h) => !listedHorseIds.has(h.id));
 
   return (
-    <div className={styles.pageContainer}>
+    <>
       <div className="display-flex items-center justify-between margin-bottom-xl">
         <div>
-          <Link href="/" className="text-xs text-tertiary">
-            &larr; Home
-          </Link>
-          <h1 className={`text-3xl font-bold margin-top-xs ${styles.trackingTight}`}>
+          <h1 className={`text-3xl font-bold ${site.trackingTight}`}>
             Your Stable
           </h1>
           <p className="text-sm text-secondary margin-top-xs">
@@ -92,7 +90,7 @@ export default async function StablePage() {
 
       {userHorses.length > 0 && (
         <section className="margin-top-xxl">
-          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}>
             List a Horse for Transfer
           </h2>
           <div className="border border-radius-lg bg-surface padding-lg" style={{ maxWidth: "28rem" }}>
@@ -111,6 +109,6 @@ export default async function StablePage() {
           )}
         </section>
       )}
-    </div>
+    </>
   );
 }

@@ -1,33 +1,32 @@
-import Link from 'next/link';
+import type { Metadata } from 'next';
 import { SignInButton } from '@/components/auth/sign-in-button';
+import site from '../site.module.css';
+
+export const metadata: Metadata = {
+  title: 'Join — World Horse Organization',
+  description:
+    'Join the World Horse Organization: support real-world horse advocacy and participate in the digital sanctuary.',
+};
 
 export default function SignInPage() {
   return (
-    <main
-      className="display-flex fully-centered"
-      style={{ flexDirection: 'column', minHeight: '60vh', padding: '0 1.5rem' }}
-    >
-      <div className="align-center" style={{ maxWidth: '24rem' }}>
-        <Link href="/" className="text-xs text-tertiary">
-          &larr; World Horse Organization
-        </Link>
-        <p className="text-sm mono uppercase text-tertiary margin-top-lg">
-          Digital sanctuary
-        </p>
-        <h1
-          className="text-3xl font-bold margin-top-sm"
-          style={{ letterSpacing: '-0.025em' }}
-        >
-          Horse Racing Game
-        </h1>
-        <p className="text-secondary margin-top-lg leading-relaxed">
-          Sign in to manage your stable, trade guardianship, and enter weekly
-          races. This is the game component of the WHO &mdash; separate from our
-          real-world campaigns.
-        </p>
-        <div className="margin-top-xl">
-          <SignInButton />
-        </div>
+    <main className={site.contentNarrow}>
+      <h1 className={`text-3xl font-bold ${site.heroHeading}`}>
+        Join the World Horse Organization
+      </h1>
+      <p className="text-secondary margin-top-lg leading-relaxed">
+        The WHO is a community committed to releasing horses from ownership
+        into collective care. When you join, you become part of that mission —
+        supporting campaigns like Free the Horses and participating in the
+        digital sanctuary, where you rescue horses, enter races, and trade
+        guardianship as a guardian, never an owner.
+      </p>
+      <p className="text-sm text-tertiary margin-top leading-relaxed">
+        In-game credit purchases will fund real-world sanctuary placement for
+        retired carriage horses. That store is not live yet.
+      </p>
+      <div className="margin-top-xl">
+        <SignInButton />
       </div>
     </main>
   );

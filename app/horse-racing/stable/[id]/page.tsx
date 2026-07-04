@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { StatBar } from "@/components/horses/stat-bar";
 import Link from "next/link";
+import site from "../../../site.module.css";
 import styles from "../../horse-racing.module.css";
 
 export default async function HorseDetailPage({
@@ -17,13 +18,13 @@ export default async function HorseDetailPage({
   if (!horse) notFound();
 
   return (
-    <div className={styles.pageContainerNarrow}>
-      <Link href="/horse-racing/stable" className="text-xs text-tertiary">
+    <div className={site.innerNarrow}>
+      <Link href="/horse-racing/stable" className={`text-xs ${site.backLink}`}>
         &larr; Back to stable
       </Link>
 
       <div className="margin-top display-flex items-start gap-lg">
-        <div className={`${styles.noShrink} display-flex gap-xs`}>
+        <div className={`${site.noShrink} display-flex gap-xs`}>
           <div
             className={styles.colorSwatchLg}
             style={{ backgroundColor: horse.baseColor }}
@@ -42,7 +43,7 @@ export default async function HorseDetailPage({
         </div>
 
         <div>
-          <h1 className={`text-3xl font-bold ${styles.trackingTight}`}>
+          <h1 className={`text-3xl font-bold ${site.trackingTight}`}>
             {horse.name}
           </h1>
           <p className="text-sm text-secondary margin-top-xs">
@@ -53,10 +54,10 @@ export default async function HorseDetailPage({
       </div>
 
       <section className="margin-top-xxl">
-        <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
+        <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}>
           Performance
         </h2>
-        <div className={styles.stack3}>
+        <div className={site.stack3}>
           <StatBar label="Top Speed" value={horse.topSpeed} />
           <StatBar label="Acceleration" value={horse.acceleration} />
           <StatBar label="Stamina" value={horse.stamina} />
@@ -71,10 +72,10 @@ export default async function HorseDetailPage({
 
       {(horse.sireId || horse.damId) && (
         <section className="margin-top-xxl">
-          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}>
             Lineage
           </h2>
-          <div className={`text-sm text-secondary ${styles.stack2}`}>
+          <div className={`text-sm text-secondary ${site.stack2}`}>
             {horse.sireId && <p>Sire: {horse.sireId}</p>}
             {horse.damId && <p>Dam: {horse.damId}</p>}
           </div>
@@ -83,7 +84,7 @@ export default async function HorseDetailPage({
 
       {horse.spots && (horse.spots as unknown[]).length > 0 && (
         <section className="margin-top-xxl">
-          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom-sm ${styles.sectionHeading}`}>
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom-sm ${site.sectionHeading}`}>
             Spots
           </h2>
           <p className="text-sm text-secondary">
