@@ -6,6 +6,7 @@ import { StatBar } from "@/components/horses/stat-bar";
 import { AssumeGuardianshipButton } from "@/components/marketplace/assume-guardianship-button";
 import { CancelListingButton } from "@/components/marketplace/cancel-listing-button";
 import Link from "next/link";
+import site from "../../site.module.css";
 import styles from "../horse-racing.module.css";
 
 export default async function MarketplacePage() {
@@ -46,12 +47,9 @@ export default async function MarketplacePage() {
     : 0;
 
   return (
-    <div className={styles.pageContainer}>
+    <>
       <div className="margin-bottom-xl">
-        <Link href="/" className="text-xs text-tertiary">
-          &larr; Home
-        </Link>
-        <h1 className={`text-3xl font-bold margin-top-xs ${styles.trackingTight}`}>
+        <h1 className={`text-3xl font-bold ${site.trackingTight}`}>
           Marketplace
         </h1>
         <p className="text-sm text-secondary margin-top-xs">
@@ -165,7 +163,7 @@ export default async function MarketplacePage() {
                     />
                   ) : (
                     <Link href="/sign-in" className="btn btn-secondary-outline text-xs">
-                      Sign in to trade
+                      Join to trade
                     </Link>
                   )}
                 </div>
@@ -174,6 +172,6 @@ export default async function MarketplacePage() {
           })}
         </div>
       )}
-    </div>
+    </>
   );
 }

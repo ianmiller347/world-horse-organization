@@ -16,6 +16,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: {
     signIn: "/sign-in",
   },
+  callbacks: {
+    authorized: ({ auth, request }) => {
+      if (request.nextUrl.pathname.startsWith("/horse-racing")) {
+        return !!auth?.user;
+      }
+      return true;
+    },
+  },
   events: {
     async createUser({ user }) {
       if (user.id) {

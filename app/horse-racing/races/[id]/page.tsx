@@ -16,6 +16,7 @@ import { EnterHorseForm } from "@/components/races/enter-horse-form";
 import { PlaceStakeForm } from "@/components/races/place-stake-form";
 import { RunRaceButton } from "@/components/races/run-race-button";
 import Link from "next/link";
+import site from "../../../site.module.css";
 import styles from "../../horse-racing.module.css";
 
 const MEDAL = ["", "\u{1F947}", "\u{1F948}", "\u{1F949}"];
@@ -95,14 +96,14 @@ export default async function RaceDetailPage({
   );
 
   return (
-    <div className={styles.pageContainerNarrow}>
-      <Link href="/horse-racing/races" className="text-xs text-tertiary">
+    <div className={site.innerNarrow}>
+      <Link href="/horse-racing/races" className={`text-xs ${site.backLink}`}>
         &larr; All races
       </Link>
 
       <div className="margin-top display-flex items-start justify-between">
         <div>
-          <h1 className={`text-3xl font-bold ${styles.trackingTight}`}>
+          <h1 className={`text-3xl font-bold ${site.trackingTight}`}>
             {race.name}
           </h1>
           <p className="text-sm text-secondary margin-top-xs">
@@ -135,10 +136,10 @@ export default async function RaceDetailPage({
 
       {placements && (
         <section className="margin-top-xxl">
-          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}>
             Results
           </h2>
-          <div className={styles.stack2}>
+          <div className={site.stack2}>
             {placements.map((p) => {
               const entry = raceEntries.find((e) => e.entryId === p.entryId);
               const entryStakeTotal = stakesByEntry.get(p.entryId) ?? 0;
@@ -181,10 +182,10 @@ export default async function RaceDetailPage({
 
       {userStakes.length > 0 && (
         <section className="margin-top-xxl">
-          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}>
             Your Stakes
           </h2>
-          <div className={styles.stack2}>
+          <div className={site.stack2}>
             {userStakes.map((s) => {
               const entry = raceEntries.find((e) => e.entryId === s.entryId);
               const isWinner = s.payout > 0;
@@ -228,13 +229,13 @@ export default async function RaceDetailPage({
       )}
 
       <section className="margin-top-xxl">
-        <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
+        <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}>
           Entries ({raceEntries.length})
         </h2>
         {raceEntries.length === 0 ? (
           <p className="text-tertiary text-sm">No entries yet.</p>
         ) : (
-          <div className={styles.stack2}>
+          <div className={site.stack2}>
             {raceEntries.map((e) => (
               <div
                 key={e.entryId}
@@ -270,7 +271,7 @@ export default async function RaceDetailPage({
         session?.user?.id &&
         stakableEntries.length > 0 && (
           <section className="margin-top-xxl">
-            <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
+            <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}>
               Place a stake
             </h2>
             <PlaceStakeForm
@@ -283,7 +284,7 @@ export default async function RaceDetailPage({
 
       {race.status === "open" && session?.user?.id && (
         <section className="margin-top-xxl">
-          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${styles.sectionHeading}`}>
+          <h2 className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}>
             Enter a horse
           </h2>
           <EnterHorseForm raceId={race.id} horses={eligibleHorses} />

@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 import { stakes, users } from "@/lib/db/schema";
 import { eq, sql, desc } from "drizzle-orm";
 import Link from "next/link";
+import site from "../../site.module.css";
 import styles from "../horse-racing.module.css";
 
 export default async function LeaderboardPage() {
@@ -21,12 +22,9 @@ export default async function LeaderboardPage() {
     .limit(50);
 
   return (
-    <div className={styles.pageContainerNarrow}>
+    <div className={site.innerNarrow}>
       <div className="margin-bottom-xl">
-        <Link href="/" className="text-xs text-tertiary">
-          &larr; Home
-        </Link>
-        <h1 className={`text-3xl font-bold margin-top-xs ${styles.trackingTight}`}>
+        <h1 className={`text-3xl font-bold ${site.trackingTight}`}>
           Leaderboard
         </h1>
         <p className="text-sm text-secondary margin-top-xs">
@@ -43,7 +41,7 @@ export default async function LeaderboardPage() {
         </div>
       ) : (
         <div className={styles.stack2}>
-          <div className={`${styles.leaderboardRow} padding-left-lg padding-right-lg padding-top-sm padding-bottom-sm text-xs mono uppercase text-tertiary ${styles.sectionHeading}`}>
+          <div className={`${styles.leaderboardRow} padding-left-lg padding-right-lg padding-top-sm padding-bottom-sm text-xs mono uppercase text-tertiary ${site.sectionHeading}`}>
             <span>#</span>
             <span>Guardian</span>
             <span className="align-right">Staked</span>

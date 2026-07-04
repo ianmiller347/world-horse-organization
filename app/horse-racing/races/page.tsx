@@ -2,7 +2,7 @@ import { db } from "@/lib/db";
 import { races, weeks, entries } from "@/lib/db/schema";
 import { eq, desc, sql } from "drizzle-orm";
 import Link from "next/link";
-import styles from "../horse-racing.module.css";
+import site from "../../site.module.css";
 
 const STATUS_LABELS: Record<string, string> = {
   upcoming: "Upcoming",
@@ -40,13 +40,10 @@ export default async function RacesPage() {
     .orderBy(desc(races.scheduledAt));
 
   return (
-    <div className={styles.pageContainer}>
+    <>
       <div className="display-flex items-center justify-between margin-bottom-xl">
         <div>
-          <Link href="/" className="text-xs text-tertiary">
-            &larr; Home
-          </Link>
-          <h1 className={`text-3xl font-bold margin-top-xs ${styles.trackingTight}`}>
+          <h1 className={`text-3xl font-bold ${site.trackingTight}`}>
             Races
           </h1>
         </div>
@@ -58,7 +55,7 @@ export default async function RacesPage() {
           <p className="text-sm margin-top-sm">Check back soon.</p>
         </div>
       ) : (
-        <div className={styles.stack3}>
+        <div className={site.stack3}>
           {raceList.map((race) => (
             <Link
               key={race.id}
@@ -95,6 +92,6 @@ export default async function RacesPage() {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }

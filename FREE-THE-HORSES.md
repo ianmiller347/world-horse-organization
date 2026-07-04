@@ -24,7 +24,7 @@ This isn't a fringe position. A 2022 poll found **71% of NYC voters oppose horse
 ### Public safety
 
 - **June 17–18, 2026:** Horse Sampson bolted while the driver photographed a family visiting from India for a graduation trip; carriage overturned. Romanch Mahajan, 18, died; relatives said he may have jumped trying to help his mother. Conservancy counted it as the eighth horse-related incident in 13 months and the first known passenger death in more than 150 years of carriage rides. [NYT, June 18](https://www.nytimes.com/2026/06/18/nyregion/horse-carriage-central-park-death.html).
-- **June 9, 2026:** Carriage horse Deniz collapsed and died near Strawberry Fields; preliminary necropsy found toxic Japanese yew. [New York Post](https://nypost.com/2026/06/09/us-news/nyc-carriage-horse-collapses-and-dies-in-central-park-traumatizing-parkgoers/).
+- **June 9, 2026:** Carriage horse Deniz collapsed and died near Strawberry Fields; preliminary Cornell necropsy found toxic Japanese yew ([CBS New York](https://www.cbsnews.com/newyork/news/carriage-horse-died-toxic-plant-central-park-necropsy/)). [New York Post](https://nypost.com/2026/06/09/us-news/nyc-carriage-horse-collapses-and-dies-in-central-park-traumatizing-parkgoers/) on the collapse.
 - **May 18, 2026:** Two carriages collided near West 59th Street in Central Park; one overturned and the driver was hospitalized. Horses reported uninjured. Heat advisory in effect. [NYT coverage](https://www.nytimes.com/2026/05/19/nyregion/central-park-nyc-horse-carriage-collision.html).
 - In May 2025 alone, three horses spooked and bolted in Central Park, injuring at least four people.
 - Horses are prey animals. Blinders help but cannot eliminate the startle response. No regulation can prevent a spook. Drivers are at risk too.
@@ -101,7 +101,7 @@ This is critical. If we don't have a credible answer for the drivers, the campai
 ## Legislative landscape (as of June 2026)
 
 - **Ryder's Law (Int 0943-2026):** Reintroduced June 11, 2026 (Christopher Marte, 14 sponsors). Winds down horse-drawn cabs; operation prohibited from June 1, 2028; humane horse disposition; workforce development for drivers. [Legistar](https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=8067835&GUID=53C552B4-4BC2-41DA-A14A-560E74E7F3E1&Options=ID|Text|&Search=marte).
-- **July 2026 hearing:** Speaker Julie Menin scheduled a Health Committee hearing after the June 17 tourist death.
+- **July 15, 2026 hearing:** Health Committee (Chair Lynn Schulman), 10:00 a.m., Council Chambers at City Hall. Public testimony in person or via Zoom; register at [council.nyc.gov/testify](https://council.nyc.gov/testify/). Written testimony via same portal or testimony@council.nyc.gov (up to 72 hours after adjournment). Livestream: [council.nyc.gov/livestream](https://council.nyc.gov/livestream/) — select “City Hall, Council Chambers.” Confirmed by Speaker Menin’s office, July 2, 2026.
 - **Prior version (Intro 967):** Defeated in Health Committee November 2025 (4-1, 2 abstentions).
 - **Key orgs:** NYCLASS (primary advocacy — [take action](https://nyclass.org/stophorseabuse/)), [Voters For Animal Rights](https://vfar.org/horses/) (urge your Council member), Central Park Conservancy, Animal Legal Defense Fund, PETA.
 - **Mayor Mamdani:** Has stated support for ending the carriage industry in city parks.
@@ -109,7 +109,7 @@ This is critical. If we don't have a credible answer for the drivers, the campai
 ### What needs to happen
 
 1. Pass Int 0943-2026 through Health Committee and full Council.
-2. Turn out public support at the July 2026 hearing.
+2. Turn out public support at the **July 15, 2026** Health Committee hearing — testify in person, via Zoom, or submit written testimony.
 3. Neutralize TWU opposition by publicly and credibly solving the worker transition.
 4. Fundraise to support sanctuary placement and electric carriage pilots.
 
@@ -124,7 +124,7 @@ This means every player who buys credits is directly funding horse rescue, wheth
 | Action | Timeline | Cost |
 |---|---|---|
 | Launch /free-the-horses page on worldhorseorganization.org | Done | $0 |
-| Take action section linking to NYCLASS + VFAR + Legistar (Int 0943-2026) | Done | $0 |
+| Single “How you can help” closing section (NYCLASS/VFAR/Legistar + sign-in; no fake join CTA) | Done | $0 |
 | Formal partnership with NYCLASS | Seeking | $0 |
 | Launch microtransaction credit store | Phase 8 | Dev time |
 | Publish revenue split and running mission fund total on site | Phase 8 | Dev time |
