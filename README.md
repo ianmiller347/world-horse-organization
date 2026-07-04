@@ -12,7 +12,7 @@ This repo is the **World Horse Organization (WHO)** product: a web app (and opti
 
 - **Stack:** Next.js 16, TypeScript, Tailwind 4, Postgres (Neon), Auth.js v5 (coming), Drizzle ORM (coming).
 - **Hosting:** Vercel.
-- **Domain:** worldhorseorganization.org
+- **Domain:** worldhorse.org
 
 ## Planning
 
