@@ -1,7 +1,11 @@
+import { auth } from '@/lib/auth/config';
 import Link from 'next/link';
 import site from '@/app/site.module.css';
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const session = await auth();
+  const sanctuaryHref = session?.user ? '/horse-racing/stable' : '/sign-in';
+
   return (
     <footer className={site.footer}>
       <div className={site.footerInner}>
@@ -18,12 +22,14 @@ export function SiteFooter() {
             <Link href="/free-the-horses" className={site.footerLink}>
               Free the Horses
             </Link>
-            <Link href="/horse-racing/stable" className={site.footerLink}>
+            <Link href={sanctuaryHref} className={site.footerLink}>
               Digital sanctuary
             </Link>
-            <Link href="/sign-in" className={site.footerLink}>
-              Join
-            </Link>
+            {!session?.user && (
+              <Link href="/sign-in" className={site.footerLink}>
+                Join
+              </Link>
+            )}
           </nav>
         </div>
         <p className={site.footerCopy}>

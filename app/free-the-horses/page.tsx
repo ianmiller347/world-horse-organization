@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { auth } from '@/lib/auth/config';
+import {
+  HEALTH_COMMITTEE_HEARING,
+  HEARING_LIVESTREAM_URL,
+  HEARING_TESTIFY_URL,
+  HEARING_TESTIMONY_EMAIL,
+} from '@/lib/campaign/hearing';
 import site from '../site.module.css';
 import styles from './free-the-horses.module.css';
 
@@ -16,9 +23,8 @@ const NYCLASS_ACTION_URL = 'https://nyclass.org/stophorseabuse/';
 
 const VFAR_ACTION_URL = 'https://vfar.org/horses/';
 
-const HEARING_TESTIFY_URL = 'https://council.nyc.gov/testify/';
-const HEARING_LIVESTREAM_URL = 'https://council.nyc.gov/livestream/';
-const HEARING_TESTIMONY_EMAIL = 'testimony@council.nyc.gov';
+const DENIZ_NECROPSY_URL =
+  'https://www.cbsnews.com/newyork/news/carriage-horse-died-toxic-plant-central-park-necropsy/';
 
 const REPORTING_LINKS: {
   date: string;
@@ -102,7 +108,10 @@ const FAQ: { q: string; a: string }[] = [
   },
 ];
 
-export default function FreeTheHorsesPage() {
+export default async function FreeTheHorsesPage() {
+  const session = await auth();
+  const isSignedIn = !!session?.user;
+
   return (
     <main className={site.contentWide}>
       {/* Hero */}
@@ -117,6 +126,22 @@ export default function FreeTheHorsesPage() {
           The WHO&apos;s first real-world campaign: end horse-drawn carriages in
           Central Park and transition to electric alternatives. No horse loses
           its life. No worker loses their job.
+        </p>
+        <p className="margin-top-sm text-sm text-secondary">
+          Health Committee hearing{' '}
+          <Link href="#hearing" className={site.inlineLink}>
+            {HEALTH_COMMITTEE_HEARING.dateLabel}
+          </Link>
+          {' — '}
+          <a
+            href={HEARING_TESTIFY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={site.inlineLink}
+          >
+            register to testify
+          </a>
+          .
         </p>
       </section>
 
@@ -165,10 +190,19 @@ export default function FreeTheHorsesPage() {
             On June 9, 2026, a carriage horse named Deniz collapsed and died
             near Strawberry Fields and West 72nd Street around 7:30 p.m.,
             thrashing on the pavement for roughly ten minutes as parkgoers
-            watched. A preliminary necropsy found needles from a toxic Japanese
-            yew plant in his stomach. The incident came less than 24 hours
-            before advocates rallied at City Hall to reintroduce Ryder&apos;s
-            Law.{' '}
+            watched. A preliminary necropsy by Cornell University found needles
+            from toxic Japanese yew in his stomach and intestines; final results
+            were still pending at time of reporting.{' '}
+            <a
+              href={DENIZ_NECROPSY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              CBS New York on the necropsy
+            </a>
+            . The incident came less than 24 hours before advocates rallied at
+            City Hall to reintroduce Ryder&apos;s Law.{' '}
             <a
               href="https://nypost.com/2026/06/09/us-news/nyc-carriage-horse-collapses-and-dies-in-central-park-traumatizing-parkgoers/"
               target="_blank"
@@ -418,7 +452,7 @@ export default function FreeTheHorsesPage() {
             development program for drivers. The Health Committee will hold a
             public hearing on{' '}
             <strong className="text-primary">
-              Wednesday, July 15, 2026 at 10:00&nbsp;a.m.
+              {HEALTH_COMMITTEE_HEARING.dateTimeLabel}
             </strong>{' '}
             at City Hall. A prior version was voted down in committee in
             November 2025 (4&ndash;1, with 2 abstentions).
@@ -454,25 +488,26 @@ export default function FreeTheHorsesPage() {
         <h2
           className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}
         >
-          Public hearing — July 15, 2026
+          Public hearing — {HEALTH_COMMITTEE_HEARING.dateLabel}
         </h2>
         <div className={`text-secondary leading-relaxed text-sm ${site.stack4}`}>
           <p>
             Speaker Julie Menin&apos;s office has scheduled a{' '}
             <strong className="text-primary">
-              Health Committee hearing
+              {HEALTH_COMMITTEE_HEARING.committee} hearing
             </strong>{' '}
-            on legislation to begin winding down the horse-drawn cab industry.
-            Council Member Lynn Schulman chairs the committee.
+            on {HEALTH_COMMITTEE_HEARING.subject}.{' '}
+            {HEALTH_COMMITTEE_HEARING.chair} chairs the committee. Confirmed by{' '}
+            {HEALTH_COMMITTEE_HEARING.confirmedBy}.
           </p>
           <ul className={`flat-list ${site.stack2}`}>
             <li>
-              <strong className="text-primary">When:</strong> Wednesday, July
-              15, 2026, 10:00&nbsp;a.m.
+              <strong className="text-primary">When:</strong>{' '}
+              {HEALTH_COMMITTEE_HEARING.dateTimeLabel}
             </li>
             <li>
-              <strong className="text-primary">Where:</strong> Council Chambers,
-              New York City Hall
+              <strong className="text-primary">Where:</strong>{' '}
+              {HEALTH_COMMITTEE_HEARING.location}
             </li>
             <li>
               <strong className="text-primary">Public testimony:</strong>{' '}
@@ -481,33 +516,24 @@ export default function FreeTheHorsesPage() {
             </li>
           </ul>
           <p>
-            Members of the public can{' '}
+            <strong className="text-primary">Registering to testify:</strong>{' '}
+            {HEALTH_COMMITTEE_HEARING.testifySelectHint}{' '}
             <a
               href={HEARING_TESTIFY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={site.inlineLink}
             >
-              register to testify
-            </a>{' '}
-            or submit written testimony at{' '}
-            <a
-              href={HEARING_TESTIFY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={site.inlineLink}
-            >
-              council.nyc.gov/testify
-            </a>{' '}
-            (accepted up to 72 hours after the hearing adjourns). You can also
-            email written testimony to{' '}
+              Register at council.nyc.gov/testify
+            </a>
+            . Written testimony is accepted at the same portal or by email to{' '}
             <a
               href={`mailto:${HEARING_TESTIMONY_EMAIL}`}
               className={site.inlineLink}
             >
               {HEARING_TESTIMONY_EMAIL}
-            </a>
-            . The hearing will be{' '}
+            </a>{' '}
+            (up to 72 hours after the hearing adjourns). The hearing will be{' '}
             <a
               href={HEARING_LIVESTREAM_URL}
               target="_blank"
@@ -668,9 +694,9 @@ export default function FreeTheHorsesPage() {
             </h3>
             <p className="text-sm text-secondary leading-relaxed">
               The Health Committee hearing on{' '}
-              <strong className="text-primary">Int 0943-2026</strong> is the
-              most important moment on the calendar. Register to speak in
-              person or on Zoom, submit written testimony, or watch the livestream.{' '}
+              <strong className="text-primary">Int 0943-2026</strong> (
+              {HEALTH_COMMITTEE_HEARING.dateLabel}) is the most important moment
+              on the calendar. {HEALTH_COMMITTEE_HEARING.testifySelectHint}{' '}
               <a href="#hearing" className={site.inlineLink}>
                 Full hearing details
               </a>
@@ -706,6 +732,9 @@ export default function FreeTheHorsesPage() {
               NYCLASS, Voters For Animal Rights, and other advocates run tools
               to urge your Council member and Speaker Menin&apos;s office to
               support Ryder&apos;s Law — especially before the hearing.
+              VFAR&apos;s form is third-party advocacy; it may reference a prior
+              Council speaker, but still helps route messages to elected
+              officials.
             </p>
             <div
               className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
@@ -738,22 +767,43 @@ export default function FreeTheHorsesPage() {
           </div>
 
           <div className="padding-top-lg border-top">
-            <h3 className="text-lg font-semibold margin-bottom-sm">
-              Join the World Horse Organization
-            </h3>
-            <p className="text-sm text-secondary leading-relaxed">
-              The WHO is more than this campaign or the horse racing game alone.
-              Join to become part of a community working to release horses from
-              ownership — supporting advocacy like Free the Horses and
-              participating in the digital sanctuary. In-game credit purchases
-              will fund real-world sanctuary placement; that store is not live
-              yet.
-            </p>
-            <div className="margin-top">
-              <Link href="/sign-in" className="btn btn-secondary-outline">
-                Join the WHO
-              </Link>
-            </div>
+            {isSignedIn ? (
+              <>
+                <h3 className="text-lg font-semibold margin-bottom-sm">
+                  Your WHO account
+                </h3>
+                <p className="text-sm text-secondary leading-relaxed">
+                  You&apos;re signed in. Campaign action above does not require
+                  an account — but your WHO membership includes the digital
+                  sanctuary when you want to participate there.
+                </p>
+                <div className="margin-top">
+                  <Link
+                    href="/horse-racing/stable"
+                    className="btn btn-secondary-outline"
+                  >
+                    Go to your stable
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <h3 className="text-lg font-semibold margin-bottom-sm">
+                  Join the World Horse Organization
+                </h3>
+                <p className="text-sm text-secondary leading-relaxed">
+                  Joining creates your WHO account and access to the digital
+                  sanctuary. You do not need an account for campaign action
+                  above. In-game credit purchases will fund real-world sanctuary
+                  placement; that store is not live yet.
+                </p>
+                <div className="margin-top">
+                  <Link href="/sign-in" className="btn btn-secondary-outline">
+                    Join the WHO
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
