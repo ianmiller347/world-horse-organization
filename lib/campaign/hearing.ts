@@ -1,20 +1,16 @@
-/** Health Committee hearing on winding down NYC horse-drawn cabs. Update after July 15, 2026. */
+/** Full Council vote on Romanch's Law (Int 0943-2026). Update after October 22, 2026. */
 
-export const HEALTH_COMMITTEE_HEARING = {
-  dateLabel: 'Wednesday, July 15, 2026',
-  timeLabel: '10:00 a.m.',
-  dateTimeLabel: 'Wednesday, July 15, 2026, 10:00 a.m.',
+export const COUNCIL_VOTE = {
+  dateLabel: 'Thursday, October 22, 2026',
   location: 'Council Chambers, New York City Hall',
-  committee: 'Health Committee',
-  chair: 'Council Member Lynn Schulman',
-  subject:
-    'legislation to begin winding down the horse-drawn cab industry in New York City',
-  /** Shown on council.nyc.gov/testify — users must pick this hearing from the list. */
-  testifySelectHint:
-    'On the registration form, select the July 15, 2026 Health Committee hearing on winding down horse-drawn cabs.',
-  confirmedBy: "Speaker Menin's office (July 2, 2026)",
+  cosponsors: 29,
+  councilSize: 51,
 } as const;
 
-export const HEARING_TESTIFY_URL = 'https://council.nyc.gov/testify/';
+export const COUNCIL_PRESS_URL =
+  'https://council.nyc.gov/press/2026/10/14/3297/';
+
+export const POLITICO_DEAL_URL =
+  'https://www.politico.com/news/2026/10/13/mamdani-menin-horse-drawn-carriages-nyc-01116617';
+
 export const HEARING_LIVESTREAM_URL = 'https://council.nyc.gov/livestream/';
-export const HEARING_TESTIMONY_EMAIL = 'testimony@council.nyc.gov';

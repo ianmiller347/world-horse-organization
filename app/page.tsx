@@ -90,9 +90,9 @@ export default async function Home() {
             >
               <h3 className="text-lg font-semibold">Free the Horses</h3>
               <p className="text-sm text-secondary leading-relaxed margin-top-sm">
-                End horse-drawn carriages in Central Park. Support Ryder&apos;s
-                Law and take action with advocates on the ground. Open to
-                everyone — no account required.
+                End horse-drawn carriages in Central Park. The Council votes
+                October 22 on Romanch&apos;s Law. Open to everyone — no account
+                required.
               </p>
               <span className={`${site.programCardCta} ${site.inlineLink}`}>
                 Read the campaign &rarr;
