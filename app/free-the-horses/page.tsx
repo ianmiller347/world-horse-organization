@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { auth } from '@/lib/auth/config';
 import {
-  HEALTH_COMMITTEE_HEARING,
+  COUNCIL_PRESS_URL,
+  COUNCIL_VOTE,
   HEARING_LIVESTREAM_URL,
-  HEARING_TESTIFY_URL,
-  HEARING_TESTIMONY_EMAIL,
+  POLITICO_DEAL_URL,
 } from '@/lib/campaign/hearing';
 import site from '../site.module.css';
 import styles from './free-the-horses.module.css';
@@ -13,7 +13,7 @@ import styles from './free-the-horses.module.css';
 export const metadata: Metadata = {
   title: 'Free the Horses — World Horse Organization',
   description:
-    "The WHO's campaign to end horse-drawn carriages in Central Park and transition to humane electric alternatives.",
+    "The WHO's campaign to end horse-drawn carriages in Central Park. The City Council votes October 22, 2026 on Romanch's Law.",
 };
 
 const LEGISLATION_URL =
@@ -26,12 +26,41 @@ const VFAR_ACTION_URL = 'https://vfar.org/horses/';
 const DENIZ_NECROPSY_URL =
   'https://www.cbsnews.com/newyork/news/carriage-horse-died-toxic-plant-central-park-necropsy/';
 
+const CNN_DEAL_URL = 'https://www.cnn.com/2026/10/13/us/nyc-horse-carriage-ban';
+
+const AMNY_DEAL_URL =
+  'https://www.amny.com/news/horse-carriage-industry-phase-out-mamdani-menin/';
+
 const REPORTING_LINKS: {
   date: string;
   label: string;
   href: string;
   source: string;
 }[] = [
+  {
+    date: 'Oct. 14, 2026',
+    label: "Full Council will vote October 22 on Romanch's Law",
+    href: COUNCIL_PRESS_URL,
+    source: 'New York City Council',
+  },
+  {
+    date: 'Oct. 13, 2026',
+    label: 'Mamdani and Menin strike a deal to end the carriage industry',
+    href: POLITICO_DEAL_URL,
+    source: 'Politico',
+  },
+  {
+    date: 'Oct. 13, 2026',
+    label: 'Council sets an October 22 vote after the mayor signs on',
+    href: AMNY_DEAL_URL,
+    source: 'amNewYork',
+  },
+  {
+    date: 'Oct. 13, 2026',
+    label: 'Mamdani and the Council reach a deal to end carriage rides',
+    href: CNN_DEAL_URL,
+    source: 'CNN',
+  },
   {
     date: 'June 18, 2026',
     label:
@@ -84,7 +113,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'These horses would be sent to slaughter without this industry.',
-    a: 'If the best defense is "we\'re better than a slaughterhouse," the bar is underground. Ryder\'s Law includes mandatory sanctuary retirement — no horse goes to auction. Multiple rescue organizations have pledged capacity, and the WHO is fundraising to cover placement costs.',
+    a: 'If the best defense is "we\'re better than a slaughterhouse," the bar is underground. Romanch\'s Law bars selling or transferring a carriage horse for slaughter or for another carriage business. Multiple rescue organizations have pledged capacity, and the WHO is fundraising to cover placement costs.',
   },
   {
     q: 'Horse carriages are a historic part of Central Park.',
@@ -92,7 +121,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'What about the 300+ jobs?',
-    a: "The drivers' union is right that these jobs matter — they're an important source of work for an overwhelmingly immigrant workforce. That's why the WHO supports transitioning those same drivers to electric carriages: same routes, same tips, same scenic experience, without a prey animal — or the person behind it — in harm's way. Funded training and vehicle subsidies so the switch costs workers nothing.",
+    a: "The drivers' union is right that these jobs matter — they're an important source of work for an overwhelmingly immigrant workforce. Romanch's Law requires the city to help those workers find other jobs. The WHO still wants those same drivers on electric carriages: same routes, same tips, same scenic experience, without a prey animal — or the person behind it — in harm's way. Funded training and vehicle subsidies so the switch costs workers nothing.",
   },
   {
     q: "Isn't this really a real estate land grab for the stable property?",
@@ -104,7 +133,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "Won't the horses just end up at another job somewhere else?",
-    a: "Ryder's Law includes provisions requiring horses be retired to sanctuaries, not resold for commercial work. The WHO will track and publicly report on every retired horse — where they are, how they're doing, with regular photo updates.",
+    a: "Romanch's Law bars resale into another carriage business or for slaughter. The WHO will track and publicly report on every horse we help place — where they are, how they're doing, with regular photo updates.",
   },
 ];
 
@@ -128,20 +157,12 @@ export default async function FreeTheHorsesPage() {
           its life. No worker loses their job.
         </p>
         <p className="margin-top-sm text-sm text-secondary">
-          Health Committee hearing{' '}
-          <Link href="#hearing" className={site.inlineLink}>
-            {HEALTH_COMMITTEE_HEARING.dateLabel}
-          </Link>
-          {' — '}
-          <a
-            href={HEARING_TESTIFY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={site.inlineLink}
-          >
-            register to testify
-          </a>
-          .
+          Mayor Mamdani and Speaker Menin have a deal to end the carriages.
+          The full Council votes{' '}
+          <Link href="#vote" className={site.inlineLink}>
+            {COUNCIL_VOTE.dateLabel}
+          </Link>{' '}
+          on Romanch&apos;s Law.
         </p>
       </section>
 
@@ -301,6 +322,12 @@ export default async function FreeTheHorsesPage() {
         >
           The Plan
         </h2>
+        <p className="text-secondary text-sm leading-relaxed margin-bottom-lg">
+          Romanch&apos;s Law phases the carriages out and requires the city to
+          help workers find other jobs. The WHO is still pushing two pieces
+          the bill does not require: sanctuary retirement for every horse, and
+          electric carriages so drivers can keep the park route.
+        </p>
 
         <div className={site.stack8}>
           <div>
@@ -437,7 +464,7 @@ export default async function FreeTheHorsesPage() {
           className={`text-secondary leading-relaxed text-sm ${site.stack4}`}
         >
           <p>
-            <strong className="text-primary">Ryder&apos;s Law</strong> (
+            <strong className="text-primary">Romanch&apos;s Law</strong> (
             <a
               href={LEGISLATION_URL}
               target="_blank"
@@ -446,114 +473,117 @@ export default async function FreeTheHorsesPage() {
             >
               Int 0943-2026
             </a>
-            ), reintroduced in June 2026, would wind down horse-drawn cabs:
-            no new licenses after May 31, 2028, full prohibition from June 1,
-            2028, humane retirement for carriage horses, and a workforce
-            development program for drivers. The Health Committee will hold a
-            public hearing on{' '}
-            <strong className="text-primary">
-              {HEALTH_COMMITTEE_HEARING.dateTimeLabel}
-            </strong>{' '}
-            at City Hall. A prior version was voted down in committee in
-            November 2025 (4&ndash;1, with 2 abstentions).
+            ) is the carriage phase-out bill, renamed after Romanch Mahajan
+            was killed in June. Council Member Christopher Marte introduced
+            it. {COUNCIL_VOTE.cosponsors} members are co-sponsors. It stops new
+            horse-drawn cab licenses after May 31, 2028 and prohibits
+            operations beginning June 1, 2028. Owners cannot sell or transfer
+            a carriage horse for slaughter or for another carriage business.
+            The city has to run a workforce program: job referrals, career
+            counseling, hiring events, tuition assistance, and help placing
+            horses humanely. A prior version, then called Ryder&apos;s Law,
+            was voted down in committee in November 2025 (4&ndash;1, with 2
+            abstentions).
           </p>
           <p>
-            NYCLASS has led advocacy for years; the Central Park Conservancy
-            broke neutrality in August 2025. After the May and June 2026
-            incidents, both renewed calls to pass the bill. Mayor Mamdani has
-            said it is time to end the carriage industry in city parks.{' '}
+            The Health Committee heard the bill on July 15, 2026 and laid it
+            over. On October 13,{' '}
             <a
-              href="https://www.nytimes.com/2025/08/12/nyregion/central-park-horse-carriages.html"
+              href={POLITICO_DEAL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={site.inlineLink}
             >
-              Times reporting on the Conservancy&apos;s call to ban carriages
+              Politico reported
+            </a>{' '}
+            that Mayor Zohran Mamdani, who had withheld support until the text
+            added stronger worker protections, agreed to back it. His office
+            said the administration had been working with the Council, union
+            partners, drivers, and advocates on a transition that ends the
+            carriages. Speaker Julie Menin scheduled a full Council vote for{' '}
+            <strong className="text-primary">{COUNCIL_VOTE.dateLabel}</strong>.{' '}
+            <a
+              href={COUNCIL_PRESS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              Her office confirmed the date the next morning
             </a>
-            .
+            . Reporting on the negotiated text says referrals include the MTA,
+            the Port Authority, sightseeing companies, and pedicab operators,
+            that owners must certify humane disposition by March 1, 2027, and
+            that the city must consider compensation for owners, with a plan
+            due by April 2027. The Transport Workers Union still opposes the
+            bill. President John Samuelsen said it does not guarantee economic
+            relief for drivers and owners.
           </p>
           <p>
-            The WHO amplifies this fight to our audience and is building
-            sanctuary placement and worker-transition funding &mdash; we defer
-            to NYCLASS for grassroots lobbying and official campaign tools.
+            The WHO supports the October 22 vote. NYCLASS remains the lead on
+            Council lobbying, and we send people to their tools. Sanctuary
+            placement and electric carriages are still our work on top of what
+            the bill requires.
           </p>
         </div>
       </section>
 
-      {/* July 15 hearing */}
+      {/* October 22 vote */}
       <section
-        id="hearing"
+        id="vote"
         className={`margin-bottom-xxl border bg-surface padding-xl ${site.programCardFeatured}`}
       >
         <h2
           className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}
         >
-          Public hearing — {HEALTH_COMMITTEE_HEARING.dateLabel}
+          Full Council vote — {COUNCIL_VOTE.dateLabel}
         </h2>
         <div className={`text-secondary leading-relaxed text-sm ${site.stack4}`}>
           <p>
-            Speaker Julie Menin&apos;s office has scheduled a{' '}
-            <strong className="text-primary">
-              {HEALTH_COMMITTEE_HEARING.committee} hearing
-            </strong>{' '}
-            on {HEALTH_COMMITTEE_HEARING.subject}.{' '}
-            {HEALTH_COMMITTEE_HEARING.chair} chairs the committee. Confirmed by{' '}
-            {HEALTH_COMMITTEE_HEARING.confirmedBy}.
+            Speaker Julie Menin is bringing Romanch&apos;s Law to the full
+            Council. {COUNCIL_VOTE.cosponsors} of {COUNCIL_VOTE.councilSize}{' '}
+            members are already co-sponsors, and the mayor is backing the
+            revised bill.
           </p>
           <ul className={`flat-list ${site.stack2}`}>
             <li>
               <strong className="text-primary">When:</strong>{' '}
-              {HEALTH_COMMITTEE_HEARING.dateTimeLabel}
+              {COUNCIL_VOTE.dateLabel}
             </li>
             <li>
               <strong className="text-primary">Where:</strong>{' '}
-              {HEALTH_COMMITTEE_HEARING.location}
+              {COUNCIL_VOTE.location}
             </li>
             <li>
-              <strong className="text-primary">Public testimony:</strong>{' '}
-              Begins after invited experts. Two minutes per person, in person or
-              via Zoom (web or phone).
+              <strong className="text-primary">Watch:</strong> The stated
+              meeting is{' '}
+              <a
+                href={HEARING_LIVESTREAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={site.inlineLink}
+              >
+                webcast live
+              </a>
+              . Select &ldquo;City Hall, Council Chambers.&rdquo;
             </li>
           </ul>
           <p>
-            <strong className="text-primary">Registering to testify:</strong>{' '}
-            {HEALTH_COMMITTEE_HEARING.testifySelectHint}{' '}
-            <a
-              href={HEARING_TESTIFY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={site.inlineLink}
-            >
-              Register at council.nyc.gov/testify
-            </a>
-            . Written testimony is accepted at the same portal or by email to{' '}
-            <a
-              href={`mailto:${HEARING_TESTIMONY_EMAIL}`}
-              className={site.inlineLink}
-            >
-              {HEARING_TESTIMONY_EMAIL}
-            </a>{' '}
-            (up to 72 hours after the hearing adjourns). The hearing will be{' '}
-            <a
-              href={HEARING_LIVESTREAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={site.inlineLink}
-            >
-              webcast live
-            </a>{' '}
-            — select &ldquo;City Hall, Council Chambers.&rdquo;
+            The useful thing before then is a message to your Council member.
+            NYCLASS and Voters For Animal Rights both route those notes.
+            Speaker Menin&apos;s office is also forming a working group with
+            the administration and labor to handle the phase-out if the bill
+            passes.
           </p>
           <div
             className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
           >
             <a
-              href={HEARING_TESTIFY_URL}
+              href={NYCLASS_ACTION_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Register to testify
+              Urge your Council member
             </a>
             <a
               href={HEARING_LIVESTREAM_URL}
@@ -562,6 +592,14 @@ export default async function FreeTheHorsesPage() {
               className="btn btn-secondary-outline"
             >
               Watch livestream
+            </a>
+            <a
+              href={COUNCIL_PRESS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary-outline"
+            >
+              Speaker&apos;s announcement
             </a>
           </div>
         </div>
@@ -690,51 +728,20 @@ export default async function FreeTheHorsesPage() {
         <div className={site.stack6}>
           <div>
             <h3 className="text-lg font-semibold margin-bottom-sm">
-              Testify at the July 15 hearing
+              Ask your Council member to vote yes
             </h3>
             <p className="text-sm text-secondary leading-relaxed">
-              The Health Committee hearing on{' '}
-              <strong className="text-primary">Int 0943-2026</strong> (
-              {HEALTH_COMMITTEE_HEARING.dateLabel}) is the most important moment
-              on the calendar. {HEALTH_COMMITTEE_HEARING.testifySelectHint}{' '}
-              <a href="#hearing" className={site.inlineLink}>
-                Full hearing details
+              The full Council votes{' '}
+              <strong className="text-primary">{COUNCIL_VOTE.dateLabel}</strong>{' '}
+              on <strong className="text-primary">Romanch&apos;s Law</strong> (
+              Int 0943-2026). NYCLASS and Voters For Animal Rights can route a
+              note to your member before then. VFAR&apos;s form is third-party
+              advocacy; it may reference a prior Council speaker, but still
+              helps reach elected officials.{' '}
+              <a href="#vote" className={site.inlineLink}>
+                Vote details
               </a>
               .
-            </p>
-            <div
-              className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
-            >
-              <a
-                href={HEARING_TESTIFY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                Register to testify
-              </a>
-              <a
-                href={HEARING_LIVESTREAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-secondary-outline"
-              >
-                Watch livestream
-              </a>
-            </div>
-          </div>
-
-          <div className="padding-top-lg border-top">
-            <h3 className="text-lg font-semibold margin-bottom-sm">
-              Contact your Council member
-            </h3>
-            <p className="text-sm text-secondary leading-relaxed">
-              NYCLASS, Voters For Animal Rights, and other advocates run tools
-              to urge your Council member and Speaker Menin&apos;s office to
-              support Ryder&apos;s Law — especially before the hearing.
-              VFAR&apos;s form is third-party advocacy; it may reference a prior
-              Council speaker, but still helps route messages to elected
-              officials.
             </p>
             <div
               className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
@@ -743,7 +750,7 @@ export default async function FreeTheHorsesPage() {
                 href={NYCLASS_ACTION_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-secondary-outline"
+                className="btn btn-primary"
               >
                 Take action with NYCLASS
               </a>

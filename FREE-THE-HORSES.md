@@ -50,12 +50,12 @@ These come from the Reddit thread, industry supporters, and TWU messaging. We ne
 | Opposition argument | Response |
 |---|---|
 | "The horses are well cared for — they get vet checks, mandatory rest, and 5 weeks of vacation." | Regulated cruelty is still cruelty. You can't regulate away the fundamental problem: a prey animal hauling weight through Midtown traffic. The "vacation" is a marketing term for mandatory downtime at upstate farms — often the same farms where horses are rotated in and out of service. |
-| "These horses would be slaughtered if not for this industry. Many are rescues from racing or Amish country." | If the industry's defense is "we're better than the slaughterhouse," the bar is underground. Ryder's Law includes provisions requiring horses be retired to sanctuaries, not auctioned. Multiple rescue organizations have pledged capacity. |
+| "These horses would be slaughtered if not for this industry. Many are rescues from racing or Amish country." | If the industry's defense is "we're better than the slaughterhouse," the bar is underground. Romanch's Law bars selling or transferring a carriage horse for slaughter or for another carriage business. Multiple rescue organizations have pledged capacity. |
 | "It's a living, breathing piece of NYC history. Olmsted designed the park for carriages." | Olmsted designed the park in 1858 when horses were the primary mode of transportation. He didn't design it for tourist concessions alongside 21st-century traffic. History evolves. |
 | "What about the 300 jobs?" | The plan explicitly includes job transition. Drivers would operate electric carriages — same routes, same tips, same tourist experience, without the animal. This is about upgrading the job, not eliminating it. |
 | "This is a land grab by real estate developers who want the stable property." | The WHO campaign is not affiliated with any real estate interest. We want the horses freed, not the stables sold. If stables can be repurposed as community space or electric carriage depots, even better. |
 | "The horses seem fine. They're calm and well-fed." | Learned helplessness looks like calm. These are herd animals denied everything natural to them — grazing, open movement, social bonding with other horses. "Not visibly suffering" is not the same as thriving. |
-| "What happens to the horses if they ban it?" | Sanctuary placement. Multiple organizations have committed. Ryder's Law includes mandatory retirement provisions. The WHO will fundraise specifically for this — see our plan below. |
+| "What happens to the horses if they ban it?" | Sanctuary placement. Multiple organizations have committed. Romanch's Law bars slaughter and resale into another carriage business; the WHO will fundraise for sanctuary placement on top of that — see our plan below. |
 | "The union (TWU) will fight it." | TWU Local 100 claims to represent the drivers, but the drivers are independent contractors with no collective bargaining agreement or union benefits. The union's real concern appears to be political leverage, not worker welfare. We should be allies to the workers by offering them a better job (electric carriages), not enemies. |
 
 ---
@@ -64,7 +64,7 @@ These come from the Reddit thread, industry supporters, and TWU messaging. We ne
 
 ### Immediate (if ban passes)
 
-1. **Mandatory sanctuary retirement.** No horse goes to auction. Ryder's Law already includes this provision — we support and help enforce it.
+1. **Mandatory sanctuary retirement.** No horse goes to auction. Romanch's Law bars slaughter and resale into another carriage business. Sanctuary placement beyond that ban is still the WHO's job — we support the law and help cover the gap.
 2. **WHO fundraising for placement costs.** Sanctuary intake isn't free. We raise funds to cover transport, intake fees, and the first year of care for every retired horse.
 3. **Partnership with established sanctuaries.** Work with organizations like Catskill Animal Sanctuary, Equine Advocates, and others with existing capacity and track records.
 4. **Tribute horses in the game.** Each real horse retired from Central Park service gets a named digital counterpart in the WHO — with unique stats and appearance based on the real horse. This keeps their story alive and gives donors something tangible to connect with.
@@ -98,19 +98,21 @@ This is critical. If we don't have a credible answer for the drivers, the campai
 
 ---
 
-## Legislative landscape (as of June 2026)
+## Legislative landscape (as of October 14, 2026)
 
-- **Ryder's Law (Int 0943-2026):** Reintroduced June 11, 2026 (Christopher Marte, 14 sponsors). Winds down horse-drawn cabs; operation prohibited from June 1, 2028; humane horse disposition; workforce development for drivers. [Legistar](https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=8067835&GUID=53C552B4-4BC2-41DA-A14A-560E74E7F3E1&Options=ID|Text|&Search=marte).
-- **July 15, 2026 hearing:** Health Committee (Chair Lynn Schulman), 10:00 a.m., Council Chambers at City Hall. Public testimony in person or via Zoom; register at [council.nyc.gov/testify](https://council.nyc.gov/testify/). Written testimony via same portal or testimony@council.nyc.gov (up to 72 hours after adjournment). Livestream: [council.nyc.gov/livestream](https://council.nyc.gov/livestream/) — select “City Hall, Council Chambers.” Confirmed by Speaker Menin’s office, July 2, 2026.
-- **Prior version (Intro 967):** Defeated in Health Committee November 2025 (4-1, 2 abstentions).
+- **Romanch's Law (Int 0943-2026):** Same introduction Christopher Marte brought back on June 11, 2026, renamed after Romanch Mahajan was killed. 29 co-sponsors. No new horse-drawn cab licenses after May 31, 2028; operations prohibited beginning June 1, 2028. Horses cannot be sold or transferred for slaughter or for another carriage business. The city must run a workforce program (referrals, career counseling, job fairs, tuition assistance, humane placement help). [Legistar](https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=8067835&GUID=53C552B4-4BC2-41DA-A14A-560E74E7F3E1&Options=ID|Text|&Search=marte). [Speaker announcement, Oct. 14](https://council.nyc.gov/press/2026/10/14/3297/).
+- **October 22, 2026 vote:** Full Council, Council Chambers at City Hall. Mayor Mamdani, who had withheld support until worker protections were strengthened, agreed to back the revised bill. First reported by [Politico, Oct. 13](https://www.politico.com/news/2026/10/13/mamdani-menin-horse-drawn-carriages-nyc-01116617). Reporting on the negotiated text adds MTA, Port Authority, sightseeing, and pedicab referrals; owner certification of humane disposition by March 1, 2027; a requirement that the city *consider* owner compensation; and a transition plan due by April 2027. Livestream: [council.nyc.gov/livestream](https://council.nyc.gov/livestream/) — select "City Hall, Council Chambers."
+- **July 15, 2026 hearing:** Health Committee (Chair Lynn Schulman) heard the bill and laid it over. That testimony window is closed.
+- **Prior version (Intro 967, then called Ryder's Law):** Defeated in Health Committee November 2025 (4-1, 2 abstentions).
+- **TWU:** Still opposed. International president John Samuelsen says the bill does not guarantee economic relief for drivers and owners.
 - **Key orgs:** NYCLASS (primary advocacy — [take action](https://nyclass.org/stophorseabuse/)), [Voters For Animal Rights](https://vfar.org/horses/) (urge your Council member), Central Park Conservancy, Animal Legal Defense Fund, PETA.
-- **Mayor Mamdani:** Has stated support for ending the carriage industry in city parks.
+- **WHO position:** Support the October 22 vote. Keep pushing sanctuary placement and electric carriages, which the bill does not require.
 
 ### What needs to happen
 
-1. Pass Int 0943-2026 through Health Committee and full Council.
-2. Turn out public support at the **July 15, 2026** Health Committee hearing — testify in person, via Zoom, or submit written testimony.
-3. Neutralize TWU opposition by publicly and credibly solving the worker transition.
+1. Pass Int 0943-2026 at the **October 22, 2026** full Council vote.
+2. Keep public pressure on members who have not signed on — NYCLASS and VFAR tools, before the vote.
+3. If it passes, watch the workforce plan (due April 2027) and push sanctuary placement and electric carriages into the phase-out.
 4. Fundraise to support sanctuary placement and electric carriage pilots.
 
 ---
@@ -151,3 +153,7 @@ This means every player who buys credits is directly funding horse rescue, wheth
 - New York Times, Central Park horse carriage collision, May 19, 2026
 - New York Times, Central Park Conservancy calls for end of horse-drawn carriages, Aug. 12, 2025
 - amNewYork / ABC7 / CBS New York, May 2026 overturn coverage
+- Politico, Mamdani and Menin strike a deal to ban the carriage industry, Oct. 13, 2026
+- New York City Council, Speaker Menin announces an October 22 vote on Romanch's Law, Oct. 14, 2026
+- CNN, Mamdani and the Council reach a deal to end carriage rides, Oct. 13, 2026
+- amNewYork, Council poised to approve the phase-out, Oct. 13, 2026
