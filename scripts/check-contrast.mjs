@@ -33,43 +33,80 @@ function contrastRatio(foreground, background) {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
-/** WHO theme tokens — keep in sync with app/globals.css [data-theme='who'] */
-const TOKENS = {
-  background: "#0a0a0a",
-  surface: "#141414",
-  body: "#ededed",
-  secondary: "#c8c8c8",
-  muted: "#a3a3a3",
-  placeholder: "#858585",
-  accentGreen: "#00f21d",
-  accentCyan: "#05a3f8",
-  textOnGreen: "#0a0a0a",
+/**
+ * WHO theme tokens — keep in sync with app/globals.css.
+ * Each light-dark(light, dark) value there splits into these two palettes.
+ */
+const THEMES = {
+  dark: {
+    background: "#0a0a0a",
+    surface: "#141414",
+    surfaceAlt: "#1a1a1a",
+    body: "#ededed",
+    secondary: "#c8c8c8",
+    muted: "#a3a3a3",
+    placeholder: "#858585",
+    buttonBg: "#00f21d",
+    buttonText: "#0a0a0a",
+    link: "#05a3f8",
+    green: "#00f21d",
+    yellow: "#faf412",
+    red: "#f23d1f",
+    orange: "#fb8a16",
+  },
+  light: {
+    background: "#fafafa",
+    surface: "#ffffff",
+    surfaceAlt: "#f4f4f5",
+    body: "#171717",
+    secondary: "#404040",
+    muted: "#595959",
+    placeholder: "#6b6b6b",
+    buttonBg: "#13792f",
+    buttonText: "#ffffff",
+    link: "#0369a1",
+    green: "#13792f",
+    yellow: "#8a5a00",
+    red: "#b91c1c",
+    orange: "#b0440a",
+  },
 };
 
-const PAIRS = [
-  { fg: TOKENS.body, bg: TOKENS.background, label: "body on background", min: AA_NORMAL },
-  { fg: TOKENS.secondary, bg: TOKENS.background, label: "secondary on background", min: AA_NORMAL },
-  { fg: TOKENS.muted, bg: TOKENS.background, label: "muted/tertiary on background", min: AA_NORMAL },
-  { fg: TOKENS.placeholder, bg: TOKENS.background, label: "placeholder on background", min: AA_NORMAL },
-  { fg: TOKENS.secondary, bg: TOKENS.surface, label: "secondary on surface", min: AA_NORMAL },
-  { fg: TOKENS.muted, bg: TOKENS.surface, label: "muted on surface", min: AA_NORMAL },
-  { fg: TOKENS.textOnGreen, bg: TOKENS.accentGreen, label: "primary button text", min: AA_NORMAL },
-  { fg: TOKENS.accentCyan, bg: TOKENS.background, label: "link on background", min: AA_NORMAL },
-  { fg: TOKENS.body, bg: TOKENS.surface, label: "body on surface", min: AA_NORMAL },
-];
+function pairsFor(t) {
+  return [
+    { fg: t.body, bg: t.background, label: "body on background", min: AA_NORMAL },
+    { fg: t.secondary, bg: t.background, label: "secondary on background", min: AA_NORMAL },
+    { fg: t.muted, bg: t.background, label: "muted/tertiary on background", min: AA_NORMAL },
+    { fg: t.placeholder, bg: t.background, label: "placeholder on background", min: AA_NORMAL },
+    { fg: t.body, bg: t.surface, label: "body on surface", min: AA_NORMAL },
+    { fg: t.secondary, bg: t.surface, label: "secondary on surface", min: AA_NORMAL },
+    { fg: t.muted, bg: t.surface, label: "muted on surface", min: AA_NORMAL },
+    { fg: t.muted, bg: t.surfaceAlt, label: "muted on surface-alt", min: AA_NORMAL },
+    { fg: t.buttonText, bg: t.buttonBg, label: "primary button text", min: AA_NORMAL },
+    { fg: t.link, bg: t.background, label: "link on background", min: AA_NORMAL },
+    { fg: t.link, bg: t.surface, label: "link on surface", min: AA_NORMAL },
+    { fg: t.green, bg: t.background, label: "color-green text", min: AA_NORMAL },
+    { fg: t.yellow, bg: t.background, label: "color-yellow text", min: AA_NORMAL },
+    { fg: t.red, bg: t.background, label: "color-red text", min: AA_NORMAL },
+    { fg: t.orange, bg: t.background, label: "color-orange text", min: AA_NORMAL },
+  ];
+}
 
 let failed = false;
 
-console.log("WHO contrast token check (WCAG 2.1 AA)\n");
+console.log("WHO contrast token check (WCAG 2.1 AA)");
 
-for (const { fg, bg, label, min } of PAIRS) {
-  const ratio = contrastRatio(fg, bg);
-  const pass = ratio >= min;
-  const status = pass ? "PASS" : "FAIL";
-  console.log(
-    `${status}  ${label}: ${ratio.toFixed(2)}:1 (need ${min}:1)  ${fg} on ${bg}`,
-  );
-  if (!pass) failed = true;
+for (const [name, tokens] of Object.entries(THEMES)) {
+  console.log(`\n${name} theme`);
+  for (const { fg, bg, label, min } of pairsFor(tokens)) {
+    const ratio = contrastRatio(fg, bg);
+    const pass = ratio >= min;
+    const status = pass ? "PASS" : "FAIL";
+    console.log(
+      `${status}  ${label}: ${ratio.toFixed(2)}:1 (need ${min}:1)  ${fg} on ${bg}`,
+    );
+    if (!pass) failed = true;
+  }
 }
 
 if (failed) {

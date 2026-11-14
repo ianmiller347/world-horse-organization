@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { UserMenu } from '@/components/auth/user-menu';
+import { ThemeToggle } from '@/components/layout/theme-toggle';
 import site from '@/app/site.module.css';
 
 type SiteNavProps = {
@@ -29,6 +30,7 @@ export function SiteNav({ isSignedIn }: SiteNavProps) {
       >
         Sanctuary
       </Link>
+      <ThemeToggle />
       <div className={site.navAuth}>
         {isSignedIn ? (
           <UserMenu compact />
