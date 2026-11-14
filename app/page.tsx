@@ -1,6 +1,7 @@
 import { auth } from '@/lib/auth/config';
 import Link from 'next/link';
 import Logo from '@/components/svg/Logo';
+import { NEWS_POSTS, formatNewsDate } from '@/lib/news';
 import site from './site.module.css';
 
 export default async function Home() {
@@ -132,6 +133,41 @@ export default async function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className={site.programSection} aria-labelledby="latest-news">
+        <h2
+          id="latest-news"
+          className={`text-sm mono uppercase text-tertiary ${site.sectionHeading}`}
+        >
+          Latest news
+        </h2>
+        <ul className={`flat-list margin-top ${site.stack3}`}>
+          {NEWS_POSTS.slice(0, 2).map((post) => (
+            <li key={post.slug}>
+              <time
+                dateTime={post.date}
+                className="text-sm mono text-tertiary"
+              >
+                {formatNewsDate(post.date)}
+              </time>
+              <p className="margin-top-xs">
+                <Link href={`/news/${post.slug}`} className={site.inlineLink}>
+                  {post.title}
+                </Link>
+              </p>
+            </li>
+          ))}
+        </ul>
+        <p className="text-sm margin-top">
+          <Link href="/news" className={site.inlineLink}>
+            All news &rarr;
+          </Link>{' '}
+          <span className="text-tertiary">&middot;</span>{' '}
+          <Link href="/about" className={site.inlineLink}>
+            About the WHO &rarr;
+          </Link>
+        </p>
       </section>
     </main>
   );

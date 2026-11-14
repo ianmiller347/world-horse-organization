@@ -12,17 +12,33 @@ type SiteNavProps = {
 
 export function SiteNav({ isSignedIn }: SiteNavProps) {
   const pathname = usePathname();
-  const isCampaign = pathname.startsWith('/free-the-horses');
+  const isCampaign =
+    pathname.startsWith('/campaigns') ||
+    pathname.startsWith('/free-the-horses');
+  const isNews = pathname.startsWith('/news');
+  const isAbout = pathname.startsWith('/about');
   const isGame =
     pathname.startsWith('/horse-racing') || pathname === '/sign-in';
 
   return (
     <nav className={site.nav} aria-label="Site">
       <Link
-        href="/free-the-horses"
+        href="/campaigns"
         className={isCampaign ? site.navLinkActive : site.navLink}
       >
         Campaigns
+      </Link>
+      <Link
+        href="/news"
+        className={`${isNews ? site.navLinkActive : site.navLink} ${site.hideOnMobile}`}
+      >
+        News
+      </Link>
+      <Link
+        href="/about"
+        className={`${isAbout ? site.navLinkActive : site.navLink} ${site.hideOnMobile}`}
+      >
+        About
       </Link>
       <Link
         href={isSignedIn ? '/horse-racing/stable' : '/sign-in'}

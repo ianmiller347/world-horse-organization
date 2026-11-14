@@ -273,6 +273,54 @@ a.programCard:hover {
   border-color: var(--ply-border-strong);
 }
 
+.newsCard {
+  color: inherit;
+  text-decoration: none;
+}
+
+.newsCard:hover {
+  border-color: var(--ply-border-strong);
+}
+
+.statusPill {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.0625rem 0.5rem;
+  border: 1px solid var(--ply-green-border);
+  border-radius: 999px;
+  color: var(--ply-green-1);
+  font-size: 0.6875rem;
+}
+
+.statusPillMuted {
+  border-color: var(--ply-border-strong);
+  color: var(--ply-color-muted);
+}
+
+.languageTable {
+  width: 100%;
+  max-width: 28rem;
+  border-collapse: collapse;
+}
+
+.languageTable th,
+.languageTable td {
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  text-align: left;
+  border-bottom: 1px solid var(--ply-border-color);
+}
+
+.languageTable th {
+  font-weight: 600;
+  color: var(--ply-color-muted);
+}
+
+@media (max-width: 639px) {
+  .hideOnMobile {
+    display: none;
+  }
+}
+
 .programCardFeatured {
   border-left: 3px solid var(--who-spectrum-green);
 }
