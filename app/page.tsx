@@ -33,8 +33,8 @@ export default async function Home() {
             </h2>
             <p className="text-sm text-secondary leading-relaxed margin-top-sm">
               Your account includes the digital sanctuary. Campaigns like Free
-              the Horses are open to everyone — no account required to read or
-              take action.
+              the Horses from Central Park are open to everyone — no account
+              required to read or take action.
             </p>
             <div
               className={`display-flex gap-sm margin-top ${site.flexWrap}`}
@@ -46,7 +46,7 @@ export default async function Home() {
                 href="/free-the-horses"
                 className="btn btn-secondary-outline"
               >
-                Free the Horses campaign
+                Free the Horses from Central Park
               </Link>
             </div>
           </>
@@ -58,8 +58,8 @@ export default async function Home() {
             <p className="text-sm text-secondary leading-relaxed margin-top-sm">
               Joining creates your WHO account and access to the digital
               sanctuary — rescue horses, enter races, and trade guardianship.
-              Campaigns and advocacy (like Free the Horses) are open to everyone
-              and do not require an account.
+              Campaigns and advocacy (like Free the Horses from Central Park)
+              are open to everyone and do not require an account.
             </p>
             <div className="margin-top">
               <Link href="/sign-in" className="btn btn-primary">
@@ -78,7 +78,7 @@ export default async function Home() {
           What we do
         </h2>
         <div className={`margin-top ${site.programGrid}`}>
-          <div>
+          <div className={site.programColumn}>
             <p
               className={`text-sm mono uppercase text-tertiary ${site.programCardLabel}`}
             >
@@ -88,7 +88,9 @@ export default async function Home() {
               href="/free-the-horses"
               className={`border bg-surface padding-lg ${site.programCard} ${site.programCardFeatured}`}
             >
-              <h3 className="text-lg font-semibold">Free the Horses</h3>
+              <h3 className="text-lg font-semibold">
+                Free the Horses from Central Park
+              </h3>
               <p className="text-sm text-secondary leading-relaxed margin-top-sm">
                 We won. The Council passed Romanch&apos;s Law and Mayor Mamdani
                 is signing it. Horse-drawn carriages leave Central Park by June
@@ -100,7 +102,7 @@ export default async function Home() {
             </Link>
           </div>
 
-          <div>
+          <div className={site.programColumn}>
             <p
               className={`text-sm mono uppercase text-tertiary ${site.programCardLabel}`}
             >
@@ -123,7 +125,7 @@ export default async function Home() {
                   </Link>
                 ) : (
                   <Link href="/sign-in" className={site.inlineLink}>
-                    Join the WHO &rarr;
+                    Join the WHO to play &rarr;
                   </Link>
                 )}
               </p>

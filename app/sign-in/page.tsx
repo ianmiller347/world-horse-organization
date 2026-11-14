@@ -30,10 +30,10 @@ export default async function SignInPage() {
       <p className="text-sm text-secondary margin-top leading-relaxed">
         Real-world campaigns like{' '}
         <Link href="/free-the-horses" className={site.inlineLink}>
-          Free the Horses
+          Free the Horses from Central Park
         </Link>{' '}
         are open to everyone. You do not need an account to read the campaign or
-        contact your Council member through advocate tools.
+        help retired carriage horses find sanctuary homes.
       </p>
       <p className="text-sm text-tertiary margin-top leading-relaxed">
         In-game credit purchases will fund real-world sanctuary placement for
