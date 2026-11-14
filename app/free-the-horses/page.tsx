@@ -12,7 +12,7 @@ import site from '../site.module.css';
 import styles from './free-the-horses.module.css';
 
 export const metadata: Metadata = {
-  title: 'Free the Horses — World Horse Organization',
+  title: 'Free the Horses from Central Park — World Horse Organization',
   description:
     "We won. The City Council passed Romanch's Law 40–7 and Mayor Mamdani is signing it. Horse-drawn carriages leave Central Park by June 1, 2028.",
 };
@@ -221,11 +221,13 @@ export default async function FreeTheHorsesPage() {
     <main className={site.contentWide}>
       {/* Hero */}
       <section className="margin-bottom-xxl">
-        <p className="text-sm mono uppercase text-tertiary">Campaigns</p>
+        <p className="text-sm mono uppercase text-tertiary">
+          Campaigns &middot; New York City
+        </p>
         <h1
           className={`text-4xl font-bold margin-top-sm ${site.heroHeading} ${site.heroHeadingLg}`}
         >
-          Free the Horses
+          Free the Horses from Central Park
         </h1>
         <p className="margin-top text-xl text-secondary leading-relaxed">
           The WHO&apos;s first real-world campaign: end horse-drawn carriages in

@@ -30,7 +30,7 @@ WHO is a web app for real-world horse advocacy and a digital sanctuary horse rac
 | 4 — Guardianship marketplace     | Done   |
 | 5 — Art & identity               | Next   |
 
-Also live: **Free the Horses** (`/free-the-horses`) — Central Park carriage advocacy campaign.
+Also live: **Free the Horses from Central Park** (`/free-the-horses`) — Central Park carriage advocacy campaign.
 
 ## Planning
 

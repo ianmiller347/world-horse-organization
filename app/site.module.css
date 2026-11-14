@@ -257,10 +257,15 @@
   }
 }
 
+.programColumn {
+  display: flex;
+  flex-direction: column;
+}
+
 .programCard {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
   transition: border-color 0.15s;
 }
 
@@ -345,6 +350,27 @@ a.programCard:hover {
 }
 
 @media (max-width: 639px) {
+  .headerInner {
+    gap: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .nav {
+    flex-wrap: nowrap;
+  }
+
+  .navLink,
+  .navLinkActive {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .navAuth {
+    margin-left: 0.25rem;
+    padding-left: 0.5rem;
+  }
+
   .brandNameFull {
     display: none;
   }

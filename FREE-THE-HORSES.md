@@ -1,4 +1,4 @@
-# Free the Horses — Campaign Plan
+# Free the Horses from Central Park — Campaign Plan
 
 The World Horse Organization's first real-world initiative: end horse-drawn carriages in New York City's Central Park and transition the industry to electric alternatives.
 
