@@ -233,8 +233,8 @@ export default async function FreeTheHorsesPage() {
           its life. No worker loses their job.
         </p>
         <p className="margin-top-sm text-sm text-secondary">
-          <strong className="text-primary">We won.</strong> The City Council
-          passed Romanch&apos;s Law {COUNCIL_VOTE.yes}&ndash;{COUNCIL_VOTE.no}{' '}
+          <strong className="text-primary">We won.</strong>{' '}
+          The City Council passed Romanch&apos;s Law {COUNCIL_VOTE.yes}&ndash;{COUNCIL_VOTE.no}{' '}
           on {COUNCIL_VOTE.dateLabel}, and Mayor Mamdani says he&apos;s signing
           it. The carriages leave Central Park by June 1, 2028.{' '}
           <Link href="#won" className={site.inlineLink}>

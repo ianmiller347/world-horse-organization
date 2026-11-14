@@ -79,6 +79,31 @@
   background: var(--ply-bg-surface);
 }
 
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  color: var(--ply-color-muted);
+  background: transparent;
+  border: 0;
+  border-radius: var(--ply-btn-border-radius);
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.themeToggle:hover {
+  color: var(--ply-color-body);
+  background: var(--ply-bg-surface);
+}
+
+.themeToggle:focus-visible {
+  outline: 2px solid var(--ply-color-focus);
+  outline-offset: 2px;
+}
+
 .navAuth {
   margin-left: 0.5rem;
   padding-left: 0.75rem;
