@@ -98,21 +98,35 @@ This is critical. If we don't have a credible answer for the drivers, the campai
 
 ---
 
-## Legislative landscape (as of October 14, 2026)
+## Legislative landscape (as of November 14, 2026)
 
-- **Romanch's Law (Int 0943-2026):** Same introduction Christopher Marte brought back on June 11, 2026, renamed after Romanch Mahajan was killed. 29 co-sponsors. No new horse-drawn cab licenses after May 31, 2028; operations prohibited beginning June 1, 2028. Horses cannot be sold or transferred for slaughter or for another carriage business. The city must run a workforce program (referrals, career counseling, job fairs, tuition assistance, humane placement help). [Legistar](https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=8067835&GUID=53C552B4-4BC2-41DA-A14A-560E74E7F3E1&Options=ID|Text|&Search=marte). [Speaker announcement, Oct. 14](https://council.nyc.gov/press/2026/10/14/3297/).
-- **October 22, 2026 vote:** Full Council, Council Chambers at City Hall. Mayor Mamdani, who had withheld support until worker protections were strengthened, agreed to back the revised bill. First reported by [Politico, Oct. 13](https://www.politico.com/news/2026/10/13/mamdani-menin-horse-drawn-carriages-nyc-01116617). Reporting on the negotiated text adds MTA, Port Authority, sightseeing, and pedicab referrals; owner certification of humane disposition by March 1, 2027; a requirement that the city *consider* owner compensation; and a transition plan due by April 2027. Livestream: [council.nyc.gov/livestream](https://council.nyc.gov/livestream/) — select "City Hall, Council Chambers."
-- **July 15, 2026 hearing:** Health Committee (Chair Lynn Schulman) heard the bill and laid it over. That testimony window is closed.
+**Campaign status: won.** The Council passed Romanch's Law 40–7 and the mayor has committed to signing it.
+
+- **Romanch's Law (Int 0943-A-2026):** Introduced by Christopher Marte, renamed after Romanch Mahajan was killed. 29 co-sponsors. No new horse-drawn cab licenses after May 31, 2028; operations prohibited beginning June 1, 2028. Horses cannot be sold or transferred for slaughter, for another carriage business, or for any inhumane purpose; owners may keep their horses. The city must run a workforce program (referrals, career counseling, hiring fairs, education options) and *consider* compensation for licenses, businesses, and equipment. [Legistar](https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=8067835&GUID=53C552B4-4BC2-41DA-A14A-560E74E7F3E1&Options=ID|Text|&Search=marte).
+- **October 22, 2026: passed, 40–7.** Veto-proof majority. Speaker Julie Menin is the first sitting Speaker to back a ban; the Council first introduced one in 2007. Menin is forming a working group with one representative each from her office, the administration, and labor. [Council press release](https://council.nyc.gov/press/2026/10/22/3306/).
+- **November 4, 2026: mayor commits to signing.** Mamdani visited the Hell's Kitchen stables on Nov. 3 and held a public hearing in the City Hall Blue Room on Nov. 4, where drivers asked for a veto. Afterward: "I will be signing [the bill]." He said drivers "should not be demonized" and promised "a fair and just and real transition." [NBC New York](https://www.nbcnewyork.com/news/local/mamdani-plan-horse-carriage-ban-transition/6567728/), [amNewYork](https://www.amny.com/news/horse-carriage-workers-mamdani-veto-industry-ban-bill/). No signing reported as of Nov. 14.
+- **October 13, 2026 deal:** Mamdani, who had withheld support until worker protections were strengthened, agreed to back the revised bill. [Politico](https://www.politico.com/news/2026/10/13/mamdani-menin-horse-drawn-carriages-nyc-01116617).
+- **July 15, 2026 hearing:** Health Committee (Chair Lynn Schulman) heard the bill.
 - **Prior version (Intro 967, then called Ryder's Law):** Defeated in Health Committee November 2025 (4-1, 2 abstentions).
-- **TWU:** Still opposed. International president John Samuelsen says the bill does not guarantee economic relief for drivers and owners.
-- **Key orgs:** NYCLASS (primary advocacy — [take action](https://nyclass.org/stophorseabuse/)), [Voters For Animal Rights](https://vfar.org/horses/) (urge your Council member), Central Park Conservancy, Animal Legal Defense Fund, PETA.
-- **WHO position:** Support the October 22 vote. Keep pushing sanctuary placement and electric carriages, which the bill does not require.
+- **TWU:** Still opposed. Sent a lawsuit-notice letter to Corporation Counsel Steve Banks on Oct. 21 and says it will file a federal suit and seek a restraining order once the mayor signs, arguing an uncompensated taking of medallions and businesses. The Law Department says it is "confident the legislation is grounded in the law." Union counts ~150 active drivers, 68 medallions, ~160 horses. [The Chief, Oct. 23](https://www.thechiefleader.com/stories/twu-wows-lawsuit-after-council-votes-to-ban-horse-carriages,57883).
+- **Key orgs:** NYCLASS ([site](https://nyclass.org/stophorseabuse/)), [Voters For Animal Rights](https://vfar.org/horses/), Central Park Conservancy, ASPCA, NYC Bar Association, Animal Legal Defense Fund, PETA.
+- **WHO position:** Celebrate the win. Keep pushing sanctuary placement and electric carriages, which the law does not require.
 
-### What needs to happen
+### Implementation timeline
 
-1. Pass Int 0943-2026 at the **October 22, 2026** full Council vote.
-2. Keep public pressure on members who have not signed on — NYCLASS and VFAR tools, before the vote.
-3. If it passes, watch the workforce plan (due April 2027) and push sanctuary placement and electric carriages into the phase-out.
+| Date | Milestone |
+|---|---|
+| Pending | Mayor signs; TWU expected to sue |
+| April 1, 2027 | Workforce transition plan due to the mayor and Council |
+| June 1, 2027 | Owners certify to DOHMH that no horse goes to slaughter, another carriage business, or inhumane use |
+| May 31, 2028 | Last day for horse-drawn cab licenses |
+| June 1, 2028 | Horse-drawn carriages prohibited |
+
+### What needs to happen now
+
+1. Watch the signing and the TWU lawsuit.
+2. Track the workforce plan (due April 1, 2027) and push for electric carriages and real compensation in it.
+3. Line up sanctuary capacity for ~160 horses ahead of the June 1, 2027 certification deadline.
 4. Fundraise to support sanctuary placement and electric carriage pilots.
 
 ---
@@ -130,7 +144,7 @@ This means every player who buys credits is directly funding horse rescue, wheth
 | Formal partnership with NYCLASS | Seeking | $0 |
 | Launch microtransaction credit store | Phase 8 | Dev time |
 | Publish revenue split and running mission fund total on site | Phase 8 | Dev time |
-| Create tribute horses for each retired Central Park horse | When/if ban passes | Dev time |
+| Create tribute horses for each retired Central Park horse | Ban passed — before June 2028 | Dev time |
 | Sponsor an electric carriage pilot or contribute to vehicle subsidy fund | When fundraising allows | TBD |
 | Add optional direct donation flow (separate from credit purchases) | TBD | Dev time |
 
@@ -157,3 +171,7 @@ This means every player who buys credits is directly funding horse rescue, wheth
 - New York City Council, Speaker Menin announces an October 22 vote on Romanch's Law, Oct. 14, 2026
 - CNN, Mamdani and the Council reach a deal to end carriage rides, Oct. 13, 2026
 - amNewYork, Council poised to approve the phase-out, Oct. 13, 2026
+- New York City Council, Council passes Romanch's Law, Oct. 22, 2026
+- The Chief, TWU vows lawsuit after Council votes to ban horse carriages, Oct. 23, 2026
+- NBC New York, Mamdani plans to sign NYC horse carriage ban, Nov. 4, 2026
+- amNewYork, Drivers ask Mamdani to veto; mayor says he's still signing it, Nov. 4, 2026

@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { auth } from '@/lib/auth/config';
 import {
+  COUNCIL_PASSAGE_URL,
   COUNCIL_PRESS_URL,
   COUNCIL_VOTE,
-  HEARING_LIVESTREAM_URL,
+  MAYOR_WILL_SIGN_URL,
   POLITICO_DEAL_URL,
 } from '@/lib/campaign/hearing';
 import site from '../site.module.css';
@@ -13,7 +14,7 @@ import styles from './free-the-horses.module.css';
 export const metadata: Metadata = {
   title: 'Free the Horses — World Horse Organization',
   description:
-    "The WHO's campaign to end horse-drawn carriages in Central Park. The City Council votes October 22, 2026 on Romanch's Law.",
+    "We won. The City Council passed Romanch's Law 40–7 and Mayor Mamdani is signing it. Horse-drawn carriages leave Central Park by June 1, 2028.",
 };
 
 const LEGISLATION_URL =
@@ -31,12 +32,87 @@ const CNN_DEAL_URL = 'https://www.cnn.com/2026/10/13/us/nyc-horse-carriage-ban';
 const AMNY_DEAL_URL =
   'https://www.amny.com/news/horse-carriage-industry-phase-out-mamdani-menin/';
 
+const AMNY_MAYOR_HEARING_URL =
+  'https://www.amny.com/news/horse-carriage-workers-mamdani-veto-industry-ban-bill/';
+
+const CHIEF_LAWSUIT_URL =
+  'https://www.thechiefleader.com/stories/twu-wows-lawsuit-after-council-votes-to-ban-horse-carriages,57883';
+
+const CATSKILL_SANCTUARY_URL = 'https://casanctuary.org/';
+
+const EQUINE_ADVOCATES_URL = 'https://www.equineadvocates.org/';
+
+const WHATS_NEXT: {
+  date: string;
+  label: string;
+  href: string;
+  source: string;
+}[] = [
+  {
+    date: 'Now',
+    label:
+      "Mayor Mamdani signs Romanch's Law. TWU Local 100 has said it will file a federal suit and ask for a restraining order once he does. The city's Law Department says it is ready to defend the law.",
+    href: CHIEF_LAWSUIT_URL,
+    source: 'The Chief',
+  },
+  {
+    date: 'April 1, 2027',
+    label:
+      "The city's workforce transition plan is due to the mayor and Council: job referrals, career counseling, hiring fairs, training, and a look at compensating drivers for their medallions and equipment.",
+    href: CHIEF_LAWSUIT_URL,
+    source: 'The Chief',
+  },
+  {
+    date: 'June 1, 2027',
+    label:
+      'Every carriage horse owner certifies to the Health Department that no horse will go to slaughter, another carriage business, or any inhumane purpose.',
+    href: COUNCIL_PASSAGE_URL,
+    source: 'NYC Council',
+  },
+  {
+    date: 'May 31, 2028',
+    label: 'Last day for horse-drawn cab licenses.',
+    href: LEGISLATION_URL,
+    source: 'Legistar',
+  },
+  {
+    date: 'June 1, 2028',
+    label: 'Horse-drawn carriages end in Central Park and across New York City.',
+    href: COUNCIL_PASSAGE_URL,
+    source: 'NYC Council',
+  },
+];
+
 const REPORTING_LINKS: {
   date: string;
   label: string;
   href: string;
   source: string;
 }[] = [
+  {
+    date: 'Nov. 4, 2026',
+    label: 'Mamdani says he will sign the carriage ban after hearing from drivers',
+    href: MAYOR_WILL_SIGN_URL,
+    source: 'NBC New York',
+  },
+  {
+    date: 'Nov. 4, 2026',
+    label: "Drivers ask the mayor to veto; he says he's still signing it",
+    href: AMNY_MAYOR_HEARING_URL,
+    source: 'amNewYork',
+  },
+  {
+    date: 'Oct. 23, 2026',
+    label: 'TWU plans a federal lawsuit after the Council vote',
+    href: CHIEF_LAWSUIT_URL,
+    source: 'The Chief',
+  },
+  {
+    date: 'Oct. 22, 2026',
+    label: "Council passes Romanch's Law to phase out horse-drawn carriages",
+    href: COUNCIL_PASSAGE_URL,
+    source: 'New York City Council',
+  },
   {
     date: 'Oct. 14, 2026',
     label: "Full Council will vote October 22 on Romanch's Law",
@@ -157,12 +233,14 @@ export default async function FreeTheHorsesPage() {
           its life. No worker loses their job.
         </p>
         <p className="margin-top-sm text-sm text-secondary">
-          Mayor Mamdani and Speaker Menin have a deal to end the carriages.
-          The full Council votes{' '}
-          <Link href="#vote" className={site.inlineLink}>
-            {COUNCIL_VOTE.dateLabel}
-          </Link>{' '}
-          on Romanch&apos;s Law.
+          <strong className="text-primary">We won.</strong> The City Council
+          passed Romanch&apos;s Law {COUNCIL_VOTE.yes}&ndash;{COUNCIL_VOTE.no}{' '}
+          on {COUNCIL_VOTE.dateLabel}, and Mayor Mamdani says he&apos;s signing
+          it. The carriages leave Central Park by June 1, 2028.{' '}
+          <Link href="#won" className={site.inlineLink}>
+            What happens next
+          </Link>
+          .
         </p>
       </section>
 
@@ -473,21 +551,22 @@ export default async function FreeTheHorsesPage() {
             >
               Int 0943-2026
             </a>
-            ) is the carriage phase-out bill, renamed after Romanch Mahajan
+            ) is the carriage phase-out law, named for Romanch Mahajan, who
             was killed in June. Council Member Christopher Marte introduced
-            it. {COUNCIL_VOTE.cosponsors} members are co-sponsors. It stops new
-            horse-drawn cab licenses after May 31, 2028 and prohibits
-            operations beginning June 1, 2028. Owners cannot sell or transfer
-            a carriage horse for slaughter or for another carriage business.
-            The city has to run a workforce program: job referrals, career
-            counseling, hiring events, tuition assistance, and help placing
-            horses humanely. A prior version, then called Ryder&apos;s Law,
-            was voted down in committee in November 2025 (4&ndash;1, with 2
-            abstentions).
+            it with {COUNCIL_VOTE.cosponsors} co-sponsors. It stops new
+            horse-drawn cab licenses after May 31, 2028 and ends operations
+            on June 1, 2028. Carriage horses cannot be sold or transferred
+            for slaughter, for another carriage business, or for any
+            inhumane purpose, and their current owners can keep them if they
+            choose. The city has to run a workforce program for drivers: job
+            referrals, career counseling, hiring fairs, and education
+            options. A prior version, then called Ryder&apos;s Law, was voted
+            down in committee in November 2025 (4&ndash;1, with 2
+            abstentions). Less than a year later, the full Council passed it.
           </p>
           <p>
-            The Health Committee heard the bill on July 15, 2026 and laid it
-            over. On October 13,{' '}
+            The Health Committee heard the bill on July 15, 2026. On October
+            13,{' '}
             <a
               href={POLITICO_DEAL_URL}
               target="_blank"
@@ -496,110 +575,136 @@ export default async function FreeTheHorsesPage() {
             >
               Politico reported
             </a>{' '}
-            that Mayor Zohran Mamdani, who had withheld support until the text
-            added stronger worker protections, agreed to back it. His office
-            said the administration had been working with the Council, union
-            partners, drivers, and advocates on a transition that ends the
-            carriages. Speaker Julie Menin scheduled a full Council vote for{' '}
-            <strong className="text-primary">{COUNCIL_VOTE.dateLabel}</strong>.{' '}
+            that Mayor Zohran Mamdani, who had held his support until the
+            text added stronger worker protections, agreed to back it.{' '}
             <a
               href={COUNCIL_PRESS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={site.inlineLink}
             >
-              Her office confirmed the date the next morning
+              Speaker Julie Menin scheduled the vote
             </a>
-            . Reporting on the negotiated text says referrals include the MTA,
-            the Port Authority, sightseeing companies, and pedicab operators,
-            that owners must certify humane disposition by March 1, 2027, and
-            that the city must consider compensation for owners, with a plan
-            due by April 2027. The Transport Workers Union still opposes the
-            bill. President John Samuelsen said it does not guarantee economic
-            relief for drivers and owners.
+            , and on {COUNCIL_VOTE.dateLabel}{' '}
+            <a
+              href={COUNCIL_PASSAGE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              the Council passed it {COUNCIL_VOTE.yes}&ndash;{COUNCIL_VOTE.no}
+            </a>
+            . That is a veto-proof majority. Menin is the first sitting Council
+            Speaker to support a carriage ban; the Council first introduced
+            one in 2007.
           </p>
           <p>
-            The WHO supports the October 22 vote. NYCLASS remains the lead on
-            Council lobbying, and we send people to their tools. Sanctuary
-            placement and electric carriages are still our work on top of what
-            the bill requires.
+            On November 4, Mamdani held a public hearing on the bill in City
+            Hall&apos;s Blue Room.{' '}
+            <a
+              href={AMNY_MAYOR_HEARING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              Drivers asked him to veto it
+            </a>
+            . Afterward he
+            told reporters,{' '}
+            <a
+              href={MAYOR_WILL_SIGN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              &ldquo;I will be signing [the bill]&rdquo;
+            </a>
+            . He also said the drivers &ldquo;should not be demonized,&rdquo;
+            that many are still in debt from their medallions, and that the
+            city is committed to &ldquo;a fair and just and real
+            transition&rdquo; for them. We agree with him on all of it.
+          </p>
+          <p>
+            The Transport Workers Union still opposes the law. It has said it
+            will file a federal suit and seek a restraining order once the
+            mayor signs, arguing the city is taking medallions and businesses
+            without guaranteed compensation. The city&apos;s Law Department
+            says it is{' '}
+            <a
+              href={CHIEF_LAWSUIT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              confident the law will hold
+            </a>
+            .
           </p>
         </div>
       </section>
 
-      {/* October 22 vote */}
+      {/* We won */}
       <section
-        id="vote"
+        id="won"
         className={`margin-bottom-xxl border bg-surface padding-xl ${site.programCardFeatured}`}
       >
         <h2
           className={`text-sm mono uppercase text-tertiary margin-bottom ${site.sectionHeading}`}
         >
-          Full Council vote — {COUNCIL_VOTE.dateLabel}
+          We won — here&apos;s what happens next
         </h2>
         <div className={`text-secondary leading-relaxed text-sm ${site.stack4}`}>
           <p>
-            Speaker Julie Menin is bringing Romanch&apos;s Law to the full
-            Council. {COUNCIL_VOTE.cosponsors} of {COUNCIL_VOTE.councilSize}{' '}
-            members are already co-sponsors, and the mayor is backing the
-            revised bill.
+            After nearly two decades of hearings, failed deals, and too many
+            horses lost, New York is ending horse-drawn carriages. Thank you to
+            Romanch&apos;s family, Council Member Marte, Speaker Menin, Mayor
+            Mamdani, NYCLASS, Voters For Animal Rights, the Central Park
+            Conservancy, and every New Yorker who sent a note to their Council
+            member. The win belongs to all of you.
           </p>
           <ul className={`flat-list ${site.stack2}`}>
-            <li>
-              <strong className="text-primary">When:</strong>{' '}
-              {COUNCIL_VOTE.dateLabel}
-            </li>
-            <li>
-              <strong className="text-primary">Where:</strong>{' '}
-              {COUNCIL_VOTE.location}
-            </li>
-            <li>
-              <strong className="text-primary">Watch:</strong> The stated
-              meeting is{' '}
-              <a
-                href={HEARING_LIVESTREAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={site.inlineLink}
-              >
-                webcast live
-              </a>
-              . Select &ldquo;City Hall, Council Chambers.&rdquo;
-            </li>
+            {WHATS_NEXT.map((item) => (
+              <li key={item.date} className="display-flex gap-sm">
+                <strong className={`text-primary ${site.noShrink}`}>
+                  {item.date}
+                </strong>
+                <span>
+                  {item.label}{' '}
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={site.inlineLink}
+                  >
+                    ({item.source})
+                  </a>
+                </span>
+              </li>
+            ))}
           </ul>
           <p>
-            The useful thing before then is a message to your Council member.
-            NYCLASS and Voters For Animal Rights both route those notes.
-            Speaker Menin&apos;s office is also forming a working group with
-            the administration and labor to handle the phase-out if the bill
-            passes.
+            The law sets the floor. The WHO is building on top of it: a
+            sanctuary home for every retired horse, and electric carriages so
+            the drivers who want to keep the park route can.
           </p>
           <div
             className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
           >
             <a
-              href={NYCLASS_ACTION_URL}
+              href={COUNCIL_PASSAGE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Urge your Council member
+              Read the Council announcement
             </a>
             <a
-              href={HEARING_LIVESTREAM_URL}
+              href={MAYOR_WILL_SIGN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary-outline"
             >
-              Watch livestream
-            </a>
-            <a
-              href={COUNCIL_PRESS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary-outline"
-            >
-              Speaker&apos;s announcement
+              Mayor&apos;s statement
             </a>
           </div>
         </div>
@@ -728,18 +833,26 @@ export default async function FreeTheHorsesPage() {
         <div className={site.stack6}>
           <div>
             <h3 className="text-lg font-semibold margin-bottom-sm">
-              Ask your Council member to vote yes
+              Help the horses land somewhere good
             </h3>
             <p className="text-sm text-secondary leading-relaxed">
-              The full Council votes{' '}
-              <strong className="text-primary">{COUNCIL_VOTE.dateLabel}</strong>{' '}
-              on <strong className="text-primary">Romanch&apos;s Law</strong> (
-              Int 0943-2026). NYCLASS and Voters For Animal Rights can route a
-              note to your member before then. VFAR&apos;s form is third-party
-              advocacy; it may reference a prior Council speaker, but still
-              helps reach elected officials.{' '}
-              <a href="#vote" className={site.inlineLink}>
-                Vote details
+              Roughly 160 horses work the carriage trade today, by the{' '}
+              <a
+                href={CHIEF_LAWSUIT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={site.inlineLink}
+              >
+                union&apos;s count
+              </a>
+              . Romanch&apos;s
+              Law keeps them out of slaughter and out of other carriage
+              businesses. A real retirement still takes sanctuary space,
+              transport, and care. You can support established sanctuaries
+              now, and follow NYCLASS and Voters For Animal Rights as the city
+              writes the transition plan.{' '}
+              <a href="#won" className={site.inlineLink}>
+                Timeline
               </a>
               .
             </p>
@@ -747,12 +860,28 @@ export default async function FreeTheHorsesPage() {
               className={`display-flex gap-sm margin-top ${styles.takeActionButtons}`}
             >
               <a
-                href={NYCLASS_ACTION_URL}
+                href={CATSKILL_SANCTUARY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
-                Take action with NYCLASS
+                Catskill Animal Sanctuary
+              </a>
+              <a
+                href={EQUINE_ADVOCATES_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary-outline"
+              >
+                Equine Advocates
+              </a>
+              <a
+                href={NYCLASS_ACTION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary-outline"
+              >
+                Stay involved with NYCLASS
               </a>
               <a
                 href={VFAR_ACTION_URL}
@@ -760,7 +889,7 @@ export default async function FreeTheHorsesPage() {
                 rel="noopener noreferrer"
                 className="btn btn-secondary-outline"
               >
-                Urge your Council member (VFAR)
+                Voters For Animal Rights
               </a>
               <a
                 href={LEGISLATION_URL}
@@ -768,7 +897,7 @@ export default async function FreeTheHorsesPage() {
                 rel="noopener noreferrer"
                 className="btn btn-secondary-outline"
               >
-                Read the bill (Legistar)
+                Read the law (Legistar)
               </a>
             </div>
           </div>

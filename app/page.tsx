@@ -90,9 +90,9 @@ export default async function Home() {
             >
               <h3 className="text-lg font-semibold">Free the Horses</h3>
               <p className="text-sm text-secondary leading-relaxed margin-top-sm">
-                End horse-drawn carriages in Central Park. The Council votes
-                October 22 on Romanch&apos;s Law. Open to everyone — no account
-                required.
+                We won. The Council passed Romanch&apos;s Law and Mayor Mamdani
+                is signing it. Horse-drawn carriages leave Central Park by June
+                1, 2028. See what happens next.
               </p>
               <span className={`${site.programCardCta} ${site.inlineLink}`}>
                 Read the campaign &rarr;
