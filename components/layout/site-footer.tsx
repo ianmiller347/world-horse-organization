@@ -19,8 +19,17 @@ export async function SiteFooter() {
             <Link href="/" className={site.footerLink}>
               Home
             </Link>
-            <Link href="/free-the-horses" className={site.footerLink}>
-              Free the Horses from Central Park
+            <Link href="/about" className={site.footerLink}>
+              About
+            </Link>
+            <Link href="/campaigns" className={site.footerLink}>
+              Campaigns
+            </Link>
+            <Link href="/news" className={site.footerLink}>
+              News
+            </Link>
+            <Link href="/get-involved" className={site.footerLink}>
+              Get involved
             </Link>
             <Link href={sanctuaryHref} className={site.footerLink}>
               Digital sanctuary

@@ -10,6 +10,11 @@
   "urls": [
     "http://127.0.0.1:3000/",
     "http://127.0.0.1:3000/free-the-horses",
+    "http://127.0.0.1:3000/about",
+    "http://127.0.0.1:3000/campaigns",
+    "http://127.0.0.1:3000/news",
+    "http://127.0.0.1:3000/news/council-passes-romanchs-law",
+    "http://127.0.0.1:3000/get-involved",
     "http://127.0.0.1:3000/sign-in"
   ]
 }
