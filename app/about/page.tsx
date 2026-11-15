@@ -14,6 +14,21 @@ const WHW_REHOMING_URL =
 const WHW_SAFETY_NET_URL =
   'https://www.worldhorsewelfare.org/blog/i-would-recommend-rehoming-any-horse-or-pony-from-world-horse-welfare';
 
+const WILD_HORSE_ACT_URL = 'https://www.law.cornell.edu/uscode/text/16/1331';
+
+const HORSE_LAWS_URL = 'https://www.animallaw.info/article/overview-horse-laws';
+
+const WHY_SOURCES: { href: string; text: string }[] = [
+  {
+    href: WILD_HORSE_ACT_URL,
+    text: 'Wild Free-Roaming Horses and Burros Act of 1971, 16 U.S.C. § 1331 (Cornell Legal Information Institute)',
+  },
+  {
+    href: HORSE_LAWS_URL,
+    text: 'Craig M. Smith, “Overview of Horse Laws,” Michigan State University College of Law, 2009 (Animal Legal & Historical Center)',
+  },
+];
+
 const LANGUAGE: { instead: string; say: string }[] = [
   { instead: 'Owner', say: 'Guardian' },
   { instead: 'Buy a horse', say: 'Assume guardianship' },
@@ -36,6 +51,82 @@ export default function AboutPage() {
           in the world gets released from ownership into the freedom of the
           WHO.
         </p>
+      </section>
+
+      <section className="margin-bottom-xxl">
+        <h2
+          className={`text-sm mono uppercase text-tertiary margin-bottom-lg ${site.sectionHeading}`}
+        >
+          Why the WHO exists
+        </h2>
+        <div className={`text-secondary leading-relaxed ${site.stack4}`}>
+          <p>
+            In 1971, Congress passed the{' '}
+            <a
+              href={WILD_HORSE_ACT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              Wild Free-Roaming Horses and Burros Act
+            </a>{' '}
+            to protect the wild horses and burros of the West, whose numbers
+            had fallen from millions to around 17,000. The law opens with this:
+          </p>
+          <blockquote className={`text-lg text-primary ${site.pullQuote}`}>
+            <p>
+              &ldquo;Congress finds and declares that wild free-roaming horses
+              and burros are living symbols of the historic and pioneer spirit
+              of the West; that they contribute to the diversity of life forms
+              within the Nation and enrich the lives of the American
+              people.&rdquo;
+            </p>
+          </blockquote>
+          <p>
+            As Craig M. Smith puts it in his{' '}
+            <a
+              href={HORSE_LAWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={site.inlineLink}
+            >
+              overview of American horse law
+            </a>
+            , &ldquo;Horses in America are inextricably woven into our national
+            narrative, recognized even by Congress as symbols of the
+            &lsquo;pioneer spirit.&rsquo;&rdquo; The same animal can be
+            livestock on one farm, a companion to a family down the road, and a
+            federally protected wild animal on public land.
+          </p>
+          <p>
+            That&apos;s the gap the WHO exists to close. If the horse is our
+            symbol of freedom, it shouldn&apos;t spend its working life pulling
+            carriages through Midtown traffic, or get sold off when it slows
+            down. We want every horse to have the freedom Congress saw in the
+            wild ones, with a guardian looking out for it.
+          </p>
+          <p className="text-sm">
+            Smith&apos;s paper is well worth reading in full. It walks through
+            horse slaughter bans, cruelty laws, and the Wild Horses Act.
+          </p>
+        </div>
+        <ul
+          className={`text-sm text-secondary leading-relaxed flat-list margin-top-lg ${site.stack2}`}
+        >
+          {WHY_SOURCES.map((source) => (
+            <li key={source.href}>
+              <span className="text-tertiary">Source: </span>
+              <a
+                href={source.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={site.inlineLink}
+              >
+                {source.text}
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="margin-bottom-xxl">

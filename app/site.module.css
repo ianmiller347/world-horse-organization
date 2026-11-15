@@ -315,6 +315,12 @@ a.programCard:hover {
   color: var(--ply-color-muted);
 }
 
+.pullQuote {
+  margin: 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid var(--who-spectrum-orange);
+}
+
 @media (max-width: 639px) {
   .hideOnMobile {
     display: none;
